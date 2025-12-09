@@ -53,14 +53,14 @@ body{
   box-shadow:
     inset 0 1px 0 #ffffff,
     0 1px 2px rgba(0,0,0,0.12);
-  display:none; /* ← OCULTA */
+  display:none;
   justify-content:center;
   align-items:center;
   cursor:pointer;
 }
 
 .menu-open .home-btn{
-  display:flex; /* ← APARECE SOLO CUANDO SE ABRE EL MENÚ */
+  display:flex;
 }
 
 /* DERECHA */
@@ -126,10 +126,13 @@ body{
 .menu-item:hover{background:#f2f2f2;}
 
 .submenu{
-  display:none;
+  max-height:0;
+  overflow:hidden;
+  display:flex;
   flex-direction:column;
   background:#fafafa;
   border-left:3px solid #d0d0d0;
+  transition:max-height .25s ease;
 }
 .submenu-item{
   padding:12px 30px;
@@ -204,7 +207,6 @@ select{
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
-    <!-- CASA OCULTA HASTA QUE ABRAS MENÚ -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h6v-6h6v6h6V10z"/>
@@ -214,7 +216,6 @@ select{
 
   <div class="topbar-actions">
 
-    <!-- Usuario -->
     <button class="top-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
@@ -222,7 +223,6 @@ select{
       <span class="user-arrow">▾</span>
     </button>
 
-    <!-- Mail -->
     <button class="top-btn mail-box">
       <svg viewBox="0 0 24 24">
         <path d="M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8z"/>
@@ -230,7 +230,6 @@ select{
       <span class="mail-count">0</span>
     </button>
 
-    <!-- Menú -->
     <button class="top-btn menu-btn" id="menuBtn">
       <svg viewBox="0 0 24 24">
         <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
@@ -266,9 +265,7 @@ select{
     Certificaciones <span class="submenu-arrow">▾</span>
   </div>
   <div id="subCertificados" class="submenu">
-    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">
-      Solicitud de Certificados
-    </div>
+    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">Solicitud de Certificados</div>
     <div class="submenu-item">Consulta / Anulación</div>
   </div>
 
@@ -355,13 +352,17 @@ const body = document.body;
 
 document.getElementById("menuBtn").onclick = ()=>{
   menu.classList.toggle("open");
-  body.classList.toggle("menu-open"); // ← MUESTRA LA CASA
+  body.classList.toggle("menu-open");
 };
 
-// submenús
+// submenús con animación
 function toggleSubmenu(id){
-  const s=document.getElementById(id);
-  s.style.display = s.style.display==="flex" ? "none" : "flex";
+  const s = document.getElementById(id);
+  if(s.style.maxHeight && s.style.maxHeight !== "0px"){
+    s.style.maxHeight = "0px";
+  }else{
+    s.style.maxHeight = s.scrollHeight + "px";
+  }
 }
 </script>
 
