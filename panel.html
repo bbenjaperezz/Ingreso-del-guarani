@@ -9,91 +9,105 @@
         margin: 0;
         font-family: Arial, sans-serif;
         background: #e5e5e5;
+        color: #444;
     }
 
-    /* BARRA SUPERIOR EXACTA */
+    /* BARRA SUPERIOR */
     .topbar {
         width: 100%;
         background: #ffffff;
-        height: 60px;
+        height: 55px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding-right: 20px;
-        border-bottom: 1px solid #ccc;
+        padding-right: 15px;
+        border-bottom: 1px solid #cfcfcf;
     }
 
     .topbar button {
-        background: #f7f7f7;
-        border: 1px solid #c8c8c8;
-        padding: 7px 12px;
-        margin-left: 8px;
+        background: #f2f2f2;
+        border: 1px solid #c7c7c7;
+        padding: 6px 10px;
+        margin-left: 7px;
         border-radius: 4px;
         cursor: pointer;
+        font-size: 14px;
     }
 
     .icon {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         vertical-align: middle;
     }
 
-    /* CONTENIDO CENTRAL */
+    /* CONTENEDOR */
     .container {
         width: 92%;
-        max-width: 700px;
-        margin: 20px auto;
+        max-width: 750px;
+        margin: 18px auto;
     }
 
+    /* TITULO */
     h2 {
-        color: #0071bb;
-        margin-top: 10px;
-        font-size: 26px;
+        color: #006bb3;
+        font-size: 24px;
+        margin-bottom: 15px;
         font-weight: normal;
     }
 
+    /* TARJETA */
     .card {
-        background: white;
-        border: 1px solid #dcdcdc;
-        padding: 15px;
+        background: #ffffff;
+        border: 1px solid #d0d0d0;
+        padding: 18px;
         border-radius: 4px;
-        margin-top: 20px;
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    /* SUBTÍTULOS */
+    .title {
+        font-weight: bold;
+        color: #666;
+        margin-top: 12px;
+        margin-bottom: 6px;
         font-size: 15px;
     }
 
-    .title {
+    /* ROJO MAIL */
+    .red {
+        color: #d10000;
         font-weight: bold;
-        margin-bottom: 8px;
-        color: #777;
+        margin-bottom: 10px;
+        font-size: 14px;
     }
 
+    /* SELECT */
     select {
         width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin: 10px 0;
-    }
-
-    .red {
-        color: #d50000;
-        font-weight: bold;
-        margin-bottom: 8px;
+        padding: 6px;
+        border: 1px solid #bfbfbf;
+        border-radius: 3px;
+        font-size: 14px;
+        color: #444;
+        background: #fff;
     }
 
     ul {
-        padding-left: 18px;
+        padding-left: 20px;
+        margin-top: 5px;
     }
 
     ul li {
-        margin-bottom: 4px;
+        margin-bottom: 5px;
     }
+
 </style>
 </head>
 
 <body>
 
-<!-- BARRA SUPERIOR EXACTA A SIU -->
+<!-- BARRA SUPERIOR -->
 <div class="topbar">
 
     <!-- PERSONITA -->
@@ -104,7 +118,7 @@
         </svg>" />
     </button>
 
-    <!-- CORREO CON 0 -->
+    <!-- CORREO -->
     <button>
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
@@ -113,7 +127,7 @@
         0
     </button>
 
-    <!-- TRES RAYITAS -->
+    <!-- TRES RAYAS -->
     <button>
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
@@ -122,12 +136,13 @@
     </button>
 </div>
 
-<!-- CONTENIDO CENTRAL IGUAL AL DE TU CAPTURA -->
+<!-- CONTENIDO SIU -->
 <div class="container">
 
     <h2>Bienvenido</h2>
 
     <div class="card">
+
         <div class="title">Calendario Académico</div>
         <div class="red">Actualizá tu MAIL</div>
 
@@ -136,7 +151,8 @@
             <option>2025 - Segundo Cuatr.</option>
         </select>
 
-        <p><b>Inicio Clases:</b> 18/08/2025<br>
+        <p>
+           <b>Inicio Clases:</b> 18/08/2025<br>
            <b>Fin Clases:</b> 05/12/2025<br>
            <b>Inicio Inscripciones:</b> 04/08/2025<br>
            <b>Fin Inscripciones:</b> 06/09/2025<br>
@@ -156,8 +172,11 @@
             <option>Turno 2025-12</option>
         </select>
 
-        <p><b>Inicio:</b> 01/12/2025<br>
-           <b>Fin:</b> 30/12/2025</p>
+        <p>
+            <b>Inicio:</b> 01/12/2025<br>
+            <b>Fin:</b> 30/12/2025
+        </p>
+
     </div>
 
 </div>
