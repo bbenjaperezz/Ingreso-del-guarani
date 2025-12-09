@@ -41,14 +41,14 @@ body{
   opacity:.95;
 }
 
-/* CASA CELESTE (como el original) */
+/* CASA — ESTILO A  (gris exacto) */
 .home-btn{
   width:36px;
   height:36px;
-  background:#e2f2ff;      /* celeste claro */
-  border:1px solid #9ec9e8; /* borde celeste */
+  background:#f3f3f3;          /* gris clarito original */
+  border:1px solid #bfbfbf;     /* borde gris original */
   border-radius:6px;
-  display:none;
+  display:none;                 /* escondida al inicio */
   justify-content:center;
   align-items:center;
   cursor:pointer;
@@ -57,10 +57,10 @@ body{
 .home-btn svg{
   width:20px;
   height:20px;
-  fill:#3c8ccf;            /* celeste más fuerte */
+  fill:#6a6a6a;                /* gris del icono original */
 }
 
-/* aparece solo con menú */
+/* cuando el menú abre, aparece la casa */
 .menu-open .home-btn{
   display:flex;
 }
@@ -77,7 +77,7 @@ body{
 .top-btn{
   width:52px;
   height:36px;
-  background:linear-gradient(#fefefe,#e6e6e6);
+  background:linear-gradient(#fefefe, #e6e6e6);
   border:1px solid #bfc3c7;
   border-radius:6px;
   box-shadow:
@@ -112,7 +112,7 @@ body{
 ============================================ */
 .menu{
   width:100%;
-  background:#EFEFEF;
+  background:#EFEFEF;    /* gris original */
   border-bottom:1px solid #d0d0d0;
   display:flex;
   flex-direction:column;
@@ -231,6 +231,7 @@ select{
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
+    <!-- CASA OCULTA HASTA QUE SE ABRE EL MENÚ -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h6v-6h6v6h6V10z"/>
@@ -263,9 +264,10 @@ select{
   </div>
 </div>
 
-<!-- MENÚ DESPLEGABLE -->
+<!-- MENÚ DESPLEGABLE (Cerrado al inicio) -->
 <nav id="menu" class="menu">
 
+  <!-- ORDEN CORRECTO -->
   <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
     Cursadas <span class="submenu-arrow">▾</span>
   </div>
@@ -320,4 +322,28 @@ select{
       <div class="exam-msg">
         No tenés inscripciones a exámenes vigentes.
       </div>
-    </div
+    </div>
+  </div>
+</main>
+
+<script>
+const menu = document.getElementById("menu");
+const body  = document.body;
+
+document.getElementById("menuBtn").onclick = ()=>{
+  menu.classList.toggle("open");
+  body.classList.toggle("menu-open");
+};
+
+function toggleSubmenu(id){
+  const box = document.getElementById(id);
+  if(box.style.maxHeight && box.style.maxHeight !== "0px"){
+    box.style.maxHeight = "0px";
+  }else{
+    box.style.maxHeight = box.scrollHeight + "px";
+  }
+}
+</script>
+
+</body>
+</html>
