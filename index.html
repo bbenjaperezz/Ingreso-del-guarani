@@ -11,8 +11,10 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #eef0f2;  /* fondo real del SIU */
+    background: #eef0f2;
     color: #444;
+    transform: scale(0.92);
+    transform-origin: top center; /* zoom EXACTO como la original */
 }
 
 /* TOPBAR */
@@ -23,20 +25,74 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #d9d9d9;
+    position: relative;
 }
 
+/* LOGO */
 .logo-uns {
     height: 40px;
-    opacity: 0.85; /* igual al original */
+    opacity: 0.85;
 }
 
-/* ICONO MENU */
+/* ICONO MENU IDENTICO AL REAL */
 .menu-icon {
-    font-size: 26px;
-    padding: 6px 10px;
-    border-radius: 6px;
+    width: 46px;
+    height: 36px;
+    border-radius: 10px;
     border: 1px solid #d3d3d3;
-    background: #f9f9f9;
+    background: linear-gradient(#fdfdfd, #f1f1f1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.menu-icon div {
+    width: 24px;
+    height: 2.6px;
+    background: #b9b9b9;
+    margin: 3.5px 0;
+    border-radius: 3px;
+}
+
+/* PANEL DESLIZANTE - EXACTO AL SIU */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100%;
+    background: white;
+    box-shadow: -3px 0 12px rgba(0,0,0,0.25);
+    transition: 0.3s ease;
+    padding-top: 70px;
+    z-index: 9999;
+}
+
+.side-panel.open {
+    right: 0;
+}
+
+.side-panel ul {
+    list-style: none;
+    width: 100%;
+}
+
+.side-panel ul li {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.side-panel ul li a {
+    display: block;
+    padding: 16px;
+    font-size: 18px;
+    color: #444;
+    text-decoration: none;
+}
+
+.side-panel ul li a:hover {
+    background: #f5f5f5;
 }
 
 /* CAJA LOGIN */
@@ -54,7 +110,7 @@ body {
 .login-title {
     font-size: 32px;
     font-weight: bold;
-    color: #8a8a8a; /* EXACTO al original */
+    color: #8a8a8a;
     margin-bottom: 22px;
 }
 
@@ -71,17 +127,11 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     height: 46px;
-    border: 1px solid #b5b7ba; /* borde igual al real */
+    border: 1px solid #b5b7ba;
     border-radius: 6px;
     padding: 8px 10px;
     font-size: 16px;
     margin-bottom: 14px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #0d8ec1;
-    box-shadow: 0 0 4px rgba(0,147,203,0.35);
 }
 
 /* BOTON INGRESAR */
@@ -100,15 +150,15 @@ input:focus {
     line-height: 46px;
 }
 
-/* LINK OLVIDASTE - COLOR EXACTO */
+/* LINK OLVIDASTE */
 .forgot {
     display: block;
     margin-top: 14px;
-    color: #7db8d6;  
+    color: #7db8d6;
     font-size: 17px;
 }
 
-/* TITULO SECCIÓN DE ABAJO */
+/* TITULO ABAJO */
 .section-title {
     margin-top: 32px;
     font-size: 34px;
@@ -116,19 +166,18 @@ input:focus {
     color: #8a8a8a;
 }
 
-/* TEXTO PRINCIPAL */
+/* TEXTO */
 .text-block {
     padding: 0 20px 50px 20px;
     font-size: 17px;
 }
 
 .text-block b {
-    color: #3d3d3d; /* MÁS OSCURO, IGUAL AL ORIGINAL */
+    color: #3d3d3d;
 }
 
-/* LINK FINAL */
 .final-link {
-    color: #79b5d4; 
+    color: #79b5d4;
     font-size: 20px;
     font-weight: bold;
 }
@@ -137,10 +186,28 @@ input:focus {
 
 <body>
 
+<!-- PANEL DESLIZANTE -->
+<div class="side-panel" id="panel">
+    <ul>
+        <li><a href="#">Materias</a></li>
+        <li><a href="#">Notas</a></li>
+        <li><a href="#">Mensajes</a></li>
+        <li><a href="#">Email</a></li>
+        <li><a href="#">Certificados</a></li>
+        <li><a href="index.html">Cerrar sesión</a></li>
+    </ul>
+</div>
+
 <!-- BARRA SUPERIOR -->
 <div class="topbar">
     <img src="logo-uns.png" class="logo-uns">
-    <div class="menu-icon">&#9776;</div>
+
+    <!-- icono real con líneas -->
+    <div class="menu-icon" onclick="togglePanel()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
 
 <!-- LOGIN -->
@@ -158,7 +225,7 @@ input:focus {
     <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
-<!-- CONTENIDO -->
+<!-- CONTENIDO INFERIOR -->
 <div class="text-block">
     <div class="section-title">SIU Guaraní</div>
 
@@ -186,6 +253,10 @@ input:focus {
 </div>
 
 <script>
+function togglePanel() {
+    document.getElementById("panel").classList.toggle("open");
+}
+
 function login() {
     let u = document.getElementById("user").value;
     let p = document.getElementById("pass").value;
