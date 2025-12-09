@@ -41,13 +41,13 @@ body{
 .home-btn{
   width:36px;
   height:36px;
-  background:transparent;
-  border:none;
+  background:#fff;
+  border:1px solid #c4d4e0;
+  border-radius:6px;
   display:none;
   justify-content:center;
   align-items:center;
   cursor:pointer;
-  margin-top:4px;
 }
 
 .home-btn svg{
@@ -161,14 +161,14 @@ body{
 
 .card{
   background:#fff;
-  border:1px solid #d0d0d0;
+  border:1px solid #aab7c4;  /* borde gris igual al SIU */
   padding:18px;
   border-radius:4px;
 }
 
 .header-box{
   background:#eef6fb;
-  border:1px solid #dbe8ef;
+  border:1px solid #d0dce4;
   padding:10px 12px;
   border-radius:4px;
   margin-bottom:15px;
@@ -193,6 +193,20 @@ select{
   border:1px solid #d0d0d0;
   border-radius:4px;
   background:white;
+}
+
+.exam-block{
+  background:#eef6fb;
+  border:1px solid #d0dce4;
+  padding:10px 12px;
+  border-radius:4px;
+  margin-top:10px;
+  color:#000;
+}
+
+.exam-title{
+  font-weight:bold;
+  margin-bottom:8px;
 }
 
 .exam-msg{
@@ -237,7 +251,7 @@ select{
   </div>
 </div>
 
-<!-- MENÚ DESPLEGABLE COMPLETO -->
+<!-- MENÚ DESPLEGABLE -->
 <nav id="menu" class="menu">
 
   <div class="menu-item" onclick="toggleSubmenu('m1')">Cursadas <span class="submenu-arrow">▾</span></div>
@@ -303,6 +317,7 @@ select{
 
       <div class="red">Actualizá tu MAIL</div>
 
+      <!-- CURSADAS -->
       <div class="title">Cursadas</div>
       <select><option>2025 - Segundo Cuatr.</option></select>
 
@@ -313,6 +328,7 @@ select{
         <b>Correlativas:</b> hasta 19/09<br>
       </p>
 
+      <!-- INSCRIPCIONES -->
       <div class="title">Inscripciones</div>
       <ul>
         <li>101 - Matemáticas</li>
@@ -325,11 +341,17 @@ select{
         <li>108 - Gestión de Proyectos</li>
       </ul>
 
+      <!-- EXÁMENES EXACTO AL ORIGINAL -->
       <div class="title">Exámenes</div>
       <select><option>Turno 2025-12</option></select>
 
+      <div class="exam-block">
+        <div><b>Inicio:</b> 01/12/2025</div>
+        <div><b>Fin:</b> 30/12/2025</div>
+      </div>
+
       <div class="exam-msg">
-        No tenés inscripciones a exámenes vigentes.
+        No tenés inscripciones a exámenes vigentes para el turno seleccionado.
       </div>
 
     </div>
