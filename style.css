@@ -23,8 +23,8 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
   image-rendering: crisp-edges;
 }
 
-.logo-text{font-weight:34;color:#0d5d85;font-size:18px}
-.logo-small{font-weight:34;font-size:12px;margin-left:8px;color:#567}
+.logo-text{font-weight:700;color:#0d5d85;font-size:18px}
+.logo-small{font-weight:400;font-size:12px;margin-left:8px;color:#567}
 
 /* nav */
 .main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center;}
