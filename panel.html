@@ -41,24 +41,25 @@
         vertical-align: middle;
     }
 
-    /* MENU LATERAL */
+    /* MENU LATERAL (AHORA GRANDE, MITAD DE PANTALLA) */
     .menu {
-        position: absolute;
+        position: fixed;
         top: 55px;
-        right: 0;
-        width: 230px;
+        left: 0;
+        width: 50%;
+        max-width: 270px;
+        height: calc(100% - 55px);
         background: #ffffff;
-        border-left: 1px solid #cfcfcf;
-        border-bottom: 1px solid #cfcfcf;
+        border-right: 1px solid #cfcfcf;
         display: none;
         flex-direction: column;
-        padding: 10px 0;
-        z-index: 20;
+        padding-top: 10px;
+        z-index: 50;
     }
 
     .menu-item {
-        padding: 12px 18px;
-        font-size: 16px;
+        padding: 14px 18px;
+        font-size: 17px;
         color: #444;
         border-bottom: 1px solid #e5e5e5;
         cursor: pointer;
@@ -73,7 +74,6 @@
 
     .submenu-arrow {
         font-size: 14px;
-        margin-left: 10px;
     }
 
     /* CONTENEDOR */
@@ -165,27 +165,26 @@
         0
     </button>
 
-    <!-- TRES RAYAS -->
     <button id="menuBtn">
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
         <path d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/>
         </svg>" />
     </button>
+</div>
 
-    <!-- MENU DESPLEGABLE -->
-    <div class="menu" id="menu">
-        <div class="menu-item">Cursadas <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Exámenes <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Ingreso <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Matrícula <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Certificaciones <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Consultas <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Servicios <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Encuestas <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Egresados <span class="submenu-arrow">▾</span></div>
-        <div class="menu-item">Moodle <span class="submenu-arrow">▾</span></div>
-    </div>
+<!-- MENU LATERAL -->
+<div class="menu" id="menu">
+    <div class="menu-item">Cursadas <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Exámenes <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Ingreso <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Matrícula <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Certificaciones <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Consultas <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Servicios <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Encuestas <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Egresados <span class="submenu-arrow">▾</span></div>
+    <div class="menu-item">Moodle <span class="submenu-arrow">▾</span></div>
 </div>
 
 <!-- CONTENIDO -->
@@ -204,11 +203,11 @@
         </select>
 
         <p>
-           <b>Inicio Clases:</b> 18/08/2025<br>
-           <b>Fin Clases:</b> 05/12/2025<br>
-           <b>Inicio Inscripciones:</b> 04/08/2025<br>
-           <b>Fin Inscripciones:</b> 06/09/2025<br>
-           <b>Correlativas hasta:</b> 19/09/2025
+            <b>Inicio Clases:</b> 18/08/2025<br>
+            <b>Fin Clases:</b> 05/12/2025<br>
+            <b>Inicio Inscripciones:</b> 04/08/2025<br>
+            <b>Fin Inscripciones:</b> 06/09/2025<br>
+            <b>Correlativas hasta:</b> 19/09/2025
         </p>
 
         <div class="title">Inscripciones</div>
