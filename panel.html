@@ -12,23 +12,44 @@
         color: #333;
     }
 
-    /* BARRA SUPERIOR */
+    /* BARRA SUPERIOR REAL */
     .topbar {
         width: 100%;
         background: #ffffff;
-        height: 60px;
+        height: 62px;
         display: flex;
-        justify-content: flex-end;
         align-items: center;
-        padding-right: 18px;
+        padding: 0 18px;
         border-bottom: 1px solid #cfcfcf;
+        box-sizing: border-box;
+    }
+
+    .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex: 1;
+    }
+
+    .topbar img.logo-uns {
+        height: 44px;
+    }
+
+    .home-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .topbar button {
         background: #f2f2f2;
         border: 1px solid #c7c7c7;
         padding: 7px 11px;
-        margin-left: 8px;
         border-radius: 4px;
         cursor: pointer;
         font-size: 15px;
@@ -72,7 +93,7 @@
         color: #006bb3;
         font-size: 34px;
         margin-bottom: 18px;
-        font-weight: 700; /* más ancho */
+        font-weight: 700;
         letter-spacing: 0.5px;
     }
 
@@ -108,7 +129,6 @@
         font-size: 16px;
     }
 
-    /* TITULOS INTERNOS */
     .title {
         font-weight: bold;
         color: #555;
@@ -161,28 +181,52 @@
 
 <body>
 
-<!-- BARRA SUPERIOR -->
+<!-- BARRA SUPERIOR REAL -->
 <div class="topbar">
-    <button>
-        <img class="icon" src="data:image/svg+xml;utf8,
-        <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
-        <path d='M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z'/>
-        </svg>" />
-    </button>
 
-    <button>
-        <img class="icon" src="data:image/svg+xml;utf8,
-        <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
-        <path d='M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8l-10 7z'/>
-        </svg>" /> 0
-    </button>
+    <div class="topbar-left">
 
-    <button id="menuBtn">
-        <img class="icon" src="data:image/svg+xml;utf8,
-        <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
-        <path d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/>
-        </svg>" />
-    </button>
+        <!-- ICONO CASITA REAL -->
+        <img class="home-icon" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' fill='%230073c9' viewBox='0 0 24 24'>
+        <path d='M12 3 2 12h3v8h6v-6h2v6h6v-8h3z'/>
+        </svg>"/>
+
+        <!-- LOGO UNS REAL -->
+        <img class="logo-uns" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'>
+        <text x='120' y='110' font-size='90' fill='%23306db3' font-family='serif'>UNS</text>
+        <text x='120' y='150' font-size='40' fill='%23999999' font-family='serif'>UNIVERSIDAD NACIONAL DEL SUR</text>
+        <path fill='%23306db3' d='M80 30c-25 40-25 100 0 140 40-30 40-110 0-140z' stroke='%23ccc' stroke-width='6'/>
+        </svg>"/>
+    </div>
+
+    <!-- BOTONES DERECHA -->
+    <div class="topbar-right">
+
+        <button>
+            <img class="icon" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
+            <path d='M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z'/>
+            </svg>' />
+        </button>
+
+        <button>
+            <img class="icon" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
+            <path d='M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8l-10 7z'/>
+            </svg>' /> 0
+        </button>
+
+        <button id="menuBtn">
+            <img class="icon" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
+            <path d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/>
+            </svg>' />
+        </button>
+
+    </div>
+
 </div>
 
 <!-- MENU -->
@@ -211,7 +255,6 @@
             <div class="red">Actualizá tu MAIL</div>
         </div>
 
-        <!-- CURSADAS -->
         <div class="title">Cursadas</div>
         <select><option>2025 - Segundo Cuatr.</option></select>
 
@@ -223,7 +266,6 @@
             <b>Correlativas hasta:</b> 19/09/2025
         </p>
 
-        <!-- EXÁMENES -->
         <div class="title">Exámenes</div>
         <select><option>Turno 2025-12</option></select>
 
@@ -232,7 +274,6 @@
             <b>Fin:</b> 30/12/2025
         </p>
 
-        <!-- INSCRIPCIONES -->
         <div class="title">Inscripciones</div>
 
         <div class="exam-msg">
