@@ -6,17 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* --- Reset y básicos --- */
+/* --- Reset --- */
 * { box-sizing: border-box; }
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     color: #333;
 }
 
-/* --- Barra superior con logo y menú --- */
+/* --- Barra superior --- */
 .topbar {
     background: #ffffff;
     padding: 10px 14px;
@@ -28,44 +28,42 @@ body {
     justify-content: space-between;
 }
 
-.logo-uns.png { 
-    height: 34px;     /* Tamaño igual al SIU real */
-}
-.menu-icon { 
-    font-size: 26px; 
-    cursor: pointer; 
-    padding: 6px 8px; 
-    color: #444; 
+.logo-uns {
+    height: 34px;
 }
 
-/* --- Caja del login --- */
+.menu-icon {
+    font-size: 26px;
+    cursor: pointer;
+    padding: 6px 8px;
+    color: #444;
+}
+
+/* --- Caja de Login --- */
 .login-box {
-    width: 34%;              /* ANCHO CORRECTO */
-    max-width: 34px;        
+    width: 90%;
+    max-width: 420px;
     background: #ffffff;
-    padding: 22px 20px;
+    padding: 24px 22px;
     border-radius: 8px;
-    margin: 22px 0 0 12px;  
+    margin: 30px auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Título */
 .login-title {
     font-size: 22px;
     text-align: left;
     color: #666;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     font-weight: 600;
 }
 
-/* Labels */
 label {
     display: block;
     font-size: 14px;
     margin-bottom: 4px;
 }
 
-/* Inputs */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -83,11 +81,10 @@ input:focus {
     box-shadow: 0 0 4px rgba(35,137,221,0.20);
 }
 
-/* Botón */
 .btn-ingresar {
     width: 100%;
     height: 42px;
-    margin-top: 10px;
+    margin-top: 14px;
     background: linear-gradient(#19aee7, #0d90bd);
     border-radius: 8px;
     border: none;
@@ -97,19 +94,18 @@ input:focus {
     cursor: pointer;
 }
 
-/* Link */
 .forgot {
     display: block;
-    margin-top: 10px;
+    margin-top: 14px;
     text-align: center;
     color: #0b94c6;
     font-size: 14px;
 }
 
-/* Títulos inferiores */
+/* --- Texto inferior --- */
 .section-title {
     font-size: 24px;
-    margin-top: 18px;
+    margin-top: 20px;
     font-weight: bold;
     color: #555;
     padding-left: 12px;
@@ -133,7 +129,7 @@ input:focus {
     <div class="menu-icon">&#9776;</div>
 </div>
 
-<!-- Caja login -->
+<!-- Login -->
 <div class="login-box">
     <div class="login-title">Ingresá tus datos</div>
 
@@ -148,7 +144,6 @@ input:focus {
     <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
-<!-- Texto abajo -->
 <div class="section-title">SIU Guaraní</div>
 
 <div class="text-block">
