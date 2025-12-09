@@ -2,76 +2,56 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>SIU Guaraní</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIU Guaraní - Ingreso</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Barra superior estilo SIU -->
-    <header class="top-bar">
-        <img src="logo.png" alt="Logo" class="logo"> 
-        <button class="menu-btn">☰</button>
-    </header>
+    <div class="header">
+        <img src="https://g3w.uns.edu.ar/Guarani3w/img/logo_uns.png" class="logo">
+    </div>
 
-    <main class="container">
+    <div class="container">
 
-        <h2 class="form-title">Ingresá tus datos</h2>
+        <h1>Ingresá tus datos</h1>
 
-        <form onsubmit="return login()">
+        <label>Usuario</label>
+        <input type="text" placeholder="">
 
-            <label>Usuario</label>
-            <input type="text" id="usuario" autocomplete="off">
+        <label>Contraseña</label>
+        <input type="password" placeholder="">
 
-            <label>Contraseña</label>
-            <input type="password" id="password">
+        <button class="btn">Ingresar</button>
 
-            <button type="submit" class="btn-ingresar">Ingresar</button>
+        <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 
-            <p class="forgot">
-                <a href="#">¿Olvidaste tu usuario o contraseña?</a>
-            </p>
-        </form>
+        <h2>SIU Guaraní</h2>
 
-        <section class="info">
+        <p>Con este sistema podés entre otras opciones:</p>
 
-            <h3>SIU Guaraní</h3>
-            <p>Con este sistema podés entre otras opciones:</p>
+        <b>Si sos alumno:</b>
+        <ul>
+            <li>Inscribirte a cursados y exámenes.</li>
+            <li>Consultar el plan de estudios de tu carrera y tu historia académica.</li>
+            <li>Solicitar certificaciones.</li>
+        </ul>
 
-            <b>Si sos alumno:</b>
-            <ul>
-                <li>Inscribirte a cursados y exámenes.</li>
-                <li>Consultar el plan de estudios y tu historia académica.</li>
-                <li>Solicitar certificaciones.</li>
-            </ul>
+        <b>Si sos docente:</b>
+        <ul>
+            <li>Consultar tus comisiones y mesas de examen y los alumnos inscriptos.</li>
+            <li>Cargar e imprimir tus Actas Cursado y Promoción y Examen.</li>
+            <li>Obtener listados en formato pdf y xls.</li>
+        </ul>
 
-            <b>Si sos docente:</b>
-            <ul>
-                <li>Consultar tus comisiones y mesas de examen.</li>
-                <li>Cargar e imprimir tus Actas Cursado y Promoción.</li>
-                <li>Obtener listados en formato PDF y XLS.</li>
-            </ul>
+        <p><b>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</b></p>
 
-            <p>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</p>
-        </section>
+        <p class="recorda">
+            <b>Recordá:</b> Tus trámites terminan cuando cerrás tu sesión.<br>
+            Para esto, usá la opción "Cerrar Sesión" de tu Menú de Sesión en la parte superior derecha de la página.
+        </p>
 
-    </main>
-
-    <script>
-        function login() {
-
-            const user = document.getElementById("usuario").value;
-            const pass = document.getElementById("password").value;
-
-            if (user === "bbenjaperezz" && pass === "162023") {
-                window.location.href = "menu.html";
-                return false;
-            }
-
-            alert("Usuario o contraseña incorrectos");
-            return false;
-        }
-    </script>
+    </div>
 
 </body>
 </html>
