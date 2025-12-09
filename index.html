@@ -11,138 +11,140 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    background: #eef0f2;  /* fondo real del SIU */
     color: #444;
 }
 
-/* HEADER SUPERIOR */
+/* TOPBAR */
 .topbar {
     background: #ffffff;
     padding: 14px 18px;
-    border-bottom: 1px solid #dcdcdc;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #d9d9d9;
 }
 
 .logo-uns {
-    height: 48px;
-    opacity: 0.9;
+    height: 40px;
+    opacity: 0.85; /* igual al original */
 }
 
-/* Ícono de menú */
+/* ICONO MENU */
 .menu-icon {
-    font-size: 28px;
-    padding: 8px 12px;
-    border: 1px solid #dcdcdc;
-    border-radius: 8px;
-    color: #666;
+    font-size: 26px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #d3d3d3;
+    background: #f9f9f9;
 }
 
-/* CONTENEDOR LOGIN */
+/* CAJA LOGIN */
 .login-box {
     width: 94%;
-    margin: 15px auto 0;
-    background: white;
-    padding: 25px 20px;
+    max-width: 500px;
+    margin: 26px auto;
+    background: #ffffff;
     border-radius: 14px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    padding: 28px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
 }
 
-/* Título principal */
+/* TITULO */
 .login-title {
-    font-size: 30px;
-    font-weight: bold;
-    color: #777;
-    margin-bottom: 20px;
-}
-
-/* Labels */
-label {
-    font-size: 15px;
-    margin-bottom: 5px;
-    display: block;
-}
-
-/* Inputs */
-input {
-    width: 100%;
-    height: 43px;
-    padding: 8px 12px;
-    font-size: 15px;
-    border-radius: 6px;
-    border: 1px solid #c5c5c5;
-    margin-bottom: 12px;
-}
-
-/* Botón */
-.btn-ingresar {
-    background: linear-gradient(#4cb1df, #2a8fbc);
-    border: none;
-    color: white;
-    height: 42px;
-    width: 110px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* Link (¿Olvidaste tu usuario?) */
-.forgot {
-    color: #46a9d8;
-    font-size: 15px;
-    display: block;
-    margin-top: 12px;
-}
-
-/* SECCIONES DE ABAJO */
-.section {
-    padding: 25px 20px;
-}
-
-.section h2 {
     font-size: 32px;
     font-weight: bold;
-    color: #777;
-    margin-bottom: 15px;
+    color: #8a8a8a; /* EXACTO al original */
+    margin-bottom: 22px;
 }
 
-.section p, .section li {
-    font-size: 17px;
-    line-height: 1.4;
-}
-
-.section strong {
-    font-size: 18px;
-}
-
-.section ul {
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-}
-
-/* Link azul final */
-.biglink {
-    color: #1da1d8;
-    font-size: 18px;
-    margin-top: 20px;
+/* LABEL */
+label {
+    font-size: 15px;
+    color: #6d6d6d;
+    margin-bottom: 4px;
     display: block;
+}
+
+/* INPUTS */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #b5b7ba; /* borde igual al real */
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0d8ec1;
+    box-shadow: 0 0 4px rgba(0,147,203,0.35);
+}
+
+/* BOTON INGRESAR */
+.btn-ingresar {
+    width: 140px;
+    height: 46px;
+    background: linear-gradient(#5fb4d1, #3b89a7);
+    border: 1px solid #2f6b85;
+    border-radius: 6px;
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    line-height: 46px;
+}
+
+/* LINK OLVIDASTE - COLOR EXACTO */
+.forgot {
+    display: block;
+    margin-top: 14px;
+    color: #7db8d6;  
+    font-size: 17px;
+}
+
+/* TITULO SECCIÓN DE ABAJO */
+.section-title {
+    margin-top: 32px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #8a8a8a;
+}
+
+/* TEXTO PRINCIPAL */
+.text-block {
+    padding: 0 20px 50px 20px;
+    font-size: 17px;
+}
+
+.text-block b {
+    color: #3d3d3d; /* MÁS OSCURO, IGUAL AL ORIGINAL */
+}
+
+/* LINK FINAL */
+.final-link {
+    color: #79b5d4; 
+    font-size: 20px;
+    font-weight: bold;
 }
 </style>
 </head>
+
 <body>
 
 <!-- BARRA SUPERIOR -->
 <div class="topbar">
-    <img src="logo-uns.png" class="logo-uns" alt="UNS">
+    <img src="logo-uns.png" class="logo-uns">
     <div class="menu-icon">&#9776;</div>
 </div>
 
 <!-- LOGIN -->
 <div class="login-box">
-
     <div class="login-title">Ingresá tus datos</div>
 
     <label>Usuario</label>
@@ -151,40 +153,36 @@ input {
     <label>Contraseña</label>
     <input type="password" id="pass">
 
-    <button class="btn-ingresar" onclick="login()">Ingresar</button>
+    <div class="btn-ingresar" onclick="login()">Ingresar</div>
 
-    <a href="#" class="forgot">¿Olvidaste tu usuario o contraseña?</a>
+    <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
-<!-- SECCIÓN INFERIOR -->
-<div class="section">
-
-    <h2>SIU Guaraní</h2>
+<!-- CONTENIDO -->
+<div class="text-block">
+    <div class="section-title">SIU Guaraní</div>
 
     <p>Con este sistema podés entre otras opciones:</p>
 
-    <strong>Si sos alumno:</strong>
+    <p><b>Si sos alumno:</b></p>
     <ul>
         <li>Inscribirte a cursados y exámenes.</li>
         <li>Consultar el plan de estudios de tu carrera y tu historia académica.</li>
         <li>Solicitar certificaciones.</li>
     </ul>
 
-    <strong>Si sos docente:</strong>
+    <p><b>Si sos docente:</b></p>
     <ul>
         <li>Consultar tus comisiones y mesas de examen y los alumnos inscriptos.</li>
         <li>Cargar e imprimir tus Actas Cursado y Promoción y Examen.</li>
         <li>Obtener listados en formato pdf y xls.</li>
     </ul>
 
-    <p><strong>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</strong></p>
+    <p><b>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</b></p>
 
-    <p>
-        <strong>Recordá:</strong> Tus trámites terminan cuando cerrás tu sesión. Para esto, usá la opción "Cerrar Sesión" de tu Menú de
-        Sesión en la parte superior derecha de la página.
-    </p>
+    <p><b>Recordá:</b> Tus trámites terminan cuando cerrás tu sesión. Para esto, usá la opción "Cerrar Sesión" de tu Menú de Sesión en la parte superior derecha de la página.</p>
 
-    <a href="#" class="biglink">Instructivo de Acceso a Guaraní3w</a>
+    <a class="final-link" href="#">Instructivo de Acceso a Guaraní3w</a>
 </div>
 
 <script>
