@@ -14,70 +14,69 @@ body{
   color:#222;
 }
 
-/* ============================================
-   TOPBAR
-============================================ */
+/* ============================================================
+   TOPBAR — AHORA IDÉNTICO A LA FOTO
+============================================================ */
 .topbar{
   width:100%;
   background:#ffffff;
   border-bottom:1px solid #d7d7d7;
   display:flex;
   justify-content:space-between;
-  padding:10px 12px 6px 12px;
-  align-items:flex-start;
+  align-items:center;          /* ALINEADO PERFECTO */
+  padding:8px 14px 6px 14px;
 }
 
-/* IZQUIERDA */
+/* izquierda */
 .topbar-left{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  align-items:flex-start;
+  margin-top:4px;              /* IGUAL FOTO */
 }
 
 .logo-img{
-  width:42px;
-  height:42px;
+  width:56px;
+  height:auto;
   object-fit:contain;
-  opacity:.95;
+  margin-bottom:4px;
 }
 
-/* ============= CASA — OCULTA INICIO, APARECE MENÚ ================= */
+/* casa oculta hasta abrir menu */
 .home-btn{
-  width:36px;
-  height:36px;
+  width:40px;
+  height:40px;
   background:transparent;
   border:none;
-  display:none;             /* OCULTA AL INICIAR */
+  display:none;
   justify-content:center;
   align-items:center;
   cursor:pointer;
-  margin-top:4px;
 }
 
 .home-btn svg{
-  width:28px;
-  height:28px;
-  fill:#1e90ff;            /* CELESTE IGUAL FOTO */
+  width:32px;
+  height:32px;
+  fill:#1e90ff;
 }
 
-/* Mostrar casa SOLO cuando el menú está abierto */
 .menu-open .home-btn{
   display:flex;
 }
 
-/* ============================================
-   BOTONES DERECHA
-============================================ */
+/* ============================================================
+   BOTONES DERECHA — AHORA IGUAL FOTO
+============================================================ */
 .topbar-actions{
   display:flex;
-  gap:8px;
-  margin-top:2px;
+  align-items:center;
+  gap:10px;
 }
 
 .top-btn{
-  width:52px;
+  width:50px;
   height:36px;
-  background:linear-gradient(#fefefe, #e6e6e6);
+  background:linear-gradient(#ffffff,#e4e4e4);
   border:1px solid #bfc3c7;
   border-radius:6px;
   box-shadow:
@@ -87,27 +86,27 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  cursor:pointer;
   position:relative;
+  cursor:pointer;
 }
 
 .top-btn svg{
-  width:18px;
-  height:18px;
-  fill:#444;
+  width:20px;
+  height:20px;
+  fill:#333;
 }
 
 .mail-count{
   position:absolute;
   bottom:2px;
-  right:4px;
-  font-size:11px;
-  color:#222;
+  right:5px;
+  font-size:12px;
+  color:#000;
 }
 
-/* ============================================
+/* ============================================================
    MENÚ DESPLEGABLE
-============================================ */
+============================================================ */
 .menu{
   width:100%;
   background:#EFEFEF;
@@ -115,28 +114,22 @@ body{
   display:flex;
   flex-direction:column;
   padding-top:10px;
-
   max-height:0;
   overflow:hidden;
   transition:max-height .3s ease;
 }
 
 .menu.open{
-  max-height:900px;
+  max-height:800px;
 }
 
 .menu-item{
   padding:14px 18px;
   font-size:17px;
-  color:#444;
   border-bottom:1px solid #d9d9d9;
   cursor:pointer;
   display:flex;
   align-items:center;
-}
-
-.menu-item:hover{
-  background:#e7e7e7;
 }
 
 .submenu{
@@ -156,19 +149,9 @@ body{
   cursor:pointer;
 }
 
-.submenu-item:hover{
-  background:#eaeaea;
-}
-
-.submenu-arrow{
-  margin-left:auto;
-  font-size:15px;
-  opacity:.8;
-}
-
-/* ============================================
+/* ============================================================
    CONTENIDO
-============================================ */
+============================================================ */
 .container{
   width:92%;
   max-width:750px;
@@ -217,7 +200,6 @@ select{
   color:#0b6fb8;
   margin-top:6px;
 }
-
 </style>
 </head>
 
@@ -229,7 +211,7 @@ select{
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
-    <!-- CASA (OCULTA HASTA ABRIR MENÚ) -->
+    <!-- Casa oculta -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h18V10z"/>
@@ -238,12 +220,10 @@ select{
   </div>
 
   <div class="topbar-actions">
-
     <button class="top-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
       </svg>
-      <span class="user-arrow">▾</span>
     </button>
 
     <button class="top-btn mail-box">
@@ -258,11 +238,11 @@ select{
         <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
       </svg>
     </button>
-
   </div>
+
 </div>
 
-<!-- MENÚ DESPLEGABLE -->
+<!-- MENÚ -->
 <nav id="menu" class="menu">
 
   <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
