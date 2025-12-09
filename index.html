@@ -28,21 +28,30 @@ body {
     justify-content: space-between;
 }
 
-.logo-uns.png { height: 34px; }
-.menu-icon { font-size: 26px; cursor: pointer; padding: 6px 8px; color: #444; }
+.logo-uns {
+    height: 34px;
+    width: auto;
+    display: block;
+}
+
+.menu-icon {
+    font-size: 26px;
+    cursor: pointer;
+    padding: 6px 8px;
+    color: #444;
+}
 
 /* --- Caja del login más chica y pegada a la izquierda --- */
 .login-box {
-    width: 78%;                /* MÁS ANGOSTA como en tu captura */
-    max-width: 340px;          /* Ajuste perfecto */
+    width: 78%;
+    max-width: 340px;
     background: #ffffff;
     padding: 22px 20px;
     border-radius: 8px;
-    margin: 22px 0 0 12px;     /* PEGADO A LA IZQUIERDA */
+    margin: 22px 0 0 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Título pequeño como en SIU */
 .login-title {
     font-size: 22px;
     text-align: left;
@@ -51,18 +60,16 @@ body {
     font-weight: 600;
 }
 
-/* Labels */
 label {
     display: block;
     font-size: 14px;
     margin-bottom: 4px;
 }
 
-/* Inputs MÁS CHICOS y al costado */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    height: 38px;              /* MÁS BAJITOS */
+    height: 38px;
     padding: 8px 10px;
     font-size: 14px;
     border: 1px solid #cfcfcf;
@@ -76,7 +83,6 @@ input:focus {
     box-shadow: 0 0 4px rgba(35,137,221,0.20);
 }
 
-/* Botón estilo SIU más finito */
 .btn-ingresar {
     width: 100%;
     height: 42px;
@@ -94,7 +100,6 @@ input:focus {
     background: linear-gradient(#17a0d0, #0b82a8);
 }
 
-/* Link */
 .forgot {
     display: block;
     margin-top: 10px;
@@ -103,7 +108,6 @@ input:focus {
     font-size: 14px;
 }
 
-/* Sección inferior */
 .section-title {
     font-size: 24px;
     margin-top: 18px;
@@ -126,12 +130,11 @@ input:focus {
 <div class="topbar">
     <div style="display:flex; align-items:center; gap: 12px;">
         <img src="logo-uns.png" class="logo-uns" alt="UNS">
-        
     </div>
     <div class="menu-icon">&#9776;</div>
 </div>
 
-<!-- Caja login más chica y pegada al lado -->
+<!-- Caja login -->
 <div class="login-box">
     <div class="login-title">Ingresá tus datos</div>
 
@@ -146,7 +149,6 @@ input:focus {
     <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
-<!-- Texto abajo -->
 <div class="section-title">SIU Guaraní</div>
 
 <div class="text-block">
