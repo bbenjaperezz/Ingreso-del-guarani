@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historia Académica</title>
+<link rel="stylesheet" href="style.css">
+<style>
 
+/* Caja principal */
+.container {
+    width: 92%;
+    margin: auto;
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Títulos */
+h2 {
+    color: #0077b6;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Subtítulos */
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Checkbox */
+.filters label {
+    display: block;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Años */
+.year-box {
+    background: #c7e8ff;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+/* Materias */
+.subject {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 5px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+}
+
+.status {
+    padding: 5px 12px;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.aprobada { background: #2ecc71; }      /* VERDE */
+.en-curso { background: #3498db; }      /* AZUL */
+.desaprobada { background: #e74c3c; }  /* ROJO */
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Marca la información que deseas ver:</h2>
+
+    <!-- FILTROS -->
+    <div class="filters">
+        <div class="section-title">Cursadas</div>
+        <label><input type="checkbox" checked> Promocionada</label>
+        <label><input type="checkbox" checked> Aprobada</label>
+        <label><input type="checkbox" checked> Desaprobada</label>
+        <label><input type="checkbox" checked> Ausente</label>
+        <label><input type="checkbox" checked> En curso</label>
+
+        <div class="section-title">Exámenes</div>
+        <label><input type="checkbox" checked> Aprobado</label>
+        <label><input type="checkbox" checked> Desaprobado</label>
+
+        <div class="section-title">Equivalencias</div>
+        <label><input type="checkbox" checked> Aprobada</label>
+        <label><input type="checkbox" checked> Reprobada</label>
+    </div>
+
+    <br>
+
+    <!-- HISTORIA ACADÉMICA -->
+    <h2>Historia académica</h2>
+    <p><strong>Plan del Alumno:</strong> 2006 &nbsp;&nbsp; <strong>Estado:</strong> Alumno Regular</p>
+
+    <!-- FILTROS DE AÑO Y MATERIA -->
+    <label>Año</label>
+    <select>
+        <option>2024</option>
+        <option>2025</option>
+    </select>
+
+    <label>Materia</label>
+    <select>
+        <option>Todas las materias</option>
+    </select>
+
+    <!-- AÑO 2024 -->
+    <div class="year-box">2024</div>
+
+    <div class="subject">
+        <span>Matemática I (Cálculo diferencial)</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Matemática II (Cálculo integral)</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Álgebra Lineal</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Ecuaciones Diferenciales</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Probabilidad y Estadística</span>
+        <span class="status aprobada">Aprobado</span>
+    </div>
+
+    <div class="subject">
+        <span>Física I</span>
+        <span class="status aprobada">Aprobado</span>
+    </div>
+
+    <div class="subject">
+        <span>Química General</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Informática / Computación</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Geometría Descriptiva</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Dibujo Técnico</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <!-- AÑO 2025 -->
+    <div class="year-box">2025</div>
+
+    <div class="subject">
+        <span>Física II</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Topografía</span>
+        <span class="status en-curso">En curso</span>
+    </div>
+
+    <div class="subject">
+        <span>Materiales de Construcción</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Mecánica (Resistencia / Estática)</span>
+        <span class="status en-curso">En curso</span>
+    </div>
+
+    <div class="subject">
+        <span>Mecánica de Fluidos / Hidráulica</span>
+        <span class="status desaprobada">Desaprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Resistencia de Materiales (Estructuras I)</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Geotecnia (Mecánica de Suelos)</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Vías de Comunicación (Transportes)</span>
+        <span class="status en-curso">En curso</span>
+    </div>
+
+    <div class="subject">
+        <span>Construcción</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+    <div class="subject">
+        <span>Topografía y Saneamiento Ambiental</span>
+        <span class="status aprobada">Aprobada</span>
+    </div>
+
+</div>
+
+</body>
+</html>
