@@ -2,28 +2,76 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Académico</title>
+    <title>SIU Guaraní</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="login-container">
-        <h2>Sistema Académico</h2>
+    <!-- Barra superior estilo SIU -->
+    <header class="top-bar">
+        <img src="logo.png" alt="Logo" class="logo"> 
+        <button class="menu-btn">☰</button>
+    </header>
 
-        <form id="loginForm">
-            <label for="user">Usuario</label>
-            <input type="text" id="user" required>
+    <main class="container">
 
-            <label for="pass">Contraseña</label>
-            <input type="password" id="pass" required>
+        <h2 class="form-title">Ingresá tus datos</h2>
 
-            <button type="submit">Ingresar</button>
+        <form onsubmit="return login()">
+
+            <label>Usuario</label>
+            <input type="text" id="usuario" autocomplete="off">
+
+            <label>Contraseña</label>
+            <input type="password" id="password">
+
+            <button type="submit" class="btn-ingresar">Ingresar</button>
+
+            <p class="forgot">
+                <a href="#">¿Olvidaste tu usuario o contraseña?</a>
+            </p>
         </form>
 
-        <p id="message"></p>
-    </div>
+        <section class="info">
 
-    <script src="script.js"></script>
+            <h3>SIU Guaraní</h3>
+            <p>Con este sistema podés entre otras opciones:</p>
+
+            <b>Si sos alumno:</b>
+            <ul>
+                <li>Inscribirte a cursados y exámenes.</li>
+                <li>Consultar el plan de estudios y tu historia académica.</li>
+                <li>Solicitar certificaciones.</li>
+            </ul>
+
+            <b>Si sos docente:</b>
+            <ul>
+                <li>Consultar tus comisiones y mesas de examen.</li>
+                <li>Cargar e imprimir tus Actas Cursado y Promoción.</li>
+                <li>Obtener listados en formato PDF y XLS.</li>
+            </ul>
+
+            <p>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</p>
+        </section>
+
+    </main>
+
+    <script>
+        function login() {
+
+            const user = document.getElementById("usuario").value;
+            const pass = document.getElementById("password").value;
+
+            if (user === "bbenjaperezz" && pass === "162023") {
+                window.location.href = "menu.html";
+                return false;
+            }
+
+            alert("Usuario o contraseña incorrectos");
+            return false;
+        }
+    </script>
+
 </body>
 </html>
