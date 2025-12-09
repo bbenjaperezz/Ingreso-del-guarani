@@ -24,7 +24,7 @@
     background:var(--bg);
   }
 
-  /* Top bar */
+  /* TOP BAR */
   .topbar{
     height:62px;
     background:#fff;
@@ -39,91 +39,56 @@
     z-index:1000;
   }
 
-  /* Left header area */
-  .topbar-left{
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-
-  /* Home icon */
+  /* HOME */
   .home-btn{
-    background:none;
     border:none;
+    background:none;
     padding:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
   }
-  .home-btn svg{
-    width:24px;
-    height:24px;
-    fill:#0073c9;
-  }
+  .home-btn svg{ width:24px; height:24px; fill:#0073c9; }
 
-  /* UNS Logo */
-  .logo-uns{
-    display:inline-flex;
-    align-items:center;
-    height:44px;
-  }
+  /* UNS logo */
   .logo-uns svg{
-    height:44px;
+    height:46px;
   }
 
-  /* Right header icons */
-  .topbar-right{
-    display:flex;
-    align-items:center;
-    gap:10px;
+  /* Real Guaraní ICON BUTTONS */
+  .icon-square{
+    width:42px;height:32px;
+    border:1px solid #b8b8b8;
+    border-radius:4px;
+    background:linear-gradient(#ffffff,#e8e8e8);
+    box-shadow:0 1px 2px rgba(0,0,0,0.2);
+    display:flex;align-items:center;justify-content:center;
+    margin-left:6px;
   }
 
-  .icon-btn{
-    background:none !important;
-    border:none !important;
-    padding:0 !important;
-    width:32px;
-    height:32px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-  }
-  .icon-btn svg{
-    width:24px !important;
-    height:24px !important;
+  .icon-square svg{
+    width:20px;height:20px;
     fill:#000;
   }
-  .notif{
+
+  .notif-small{
+    margin-left:4px;
     font-size:14px;
-    margin-left:2px;
-    color:#000;
   }
 
-  /* Page layout */
-  .page{
-    padding-top:78px;
-  }
-  .container{
-    max-width:900px;
-    margin:0 auto;
-    padding:0 14px;
-  }
+  /* PAGE */
+  .page{ padding-top:72px; }
+  .container{ max-width:900px; margin:0 auto; padding:0 14px; }
 
-  h2{
-    font-size:32px;
-    color:var(--title-blue);
-    margin-bottom:14px;
-  }
+  h2{ font-size:28px;color:var(--title-blue); margin-bottom:14px; }
 
-  /* Card */
+  /* Card inferior */
   .card{
     background:var(--card);
     border:1px solid var(--card-border);
     padding:22px;
     border-radius:4px;
     font-size:16px;
+    margin-bottom:40px;
   }
 
   .header-box{
@@ -140,18 +105,33 @@
     font-size:18px;
   }
 
-  .red{
-    color:var(--danger);
-    font-weight:700;
-    margin-top:4px;
+  .red{ color:var(--danger); font-weight:700; }
+
+  /* DESPLEGABLES */
+  .section{
+    margin-top:16px;
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid #cfd7df;
   }
 
-  .title{
-    margin-top:14px;
-    margin-bottom:8px;
+  .section-title{
+    background:#f4f6f8;
+    padding:12px 14px;
     font-weight:700;
     font-size:18px;
-    color:#555;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .section-content{
+    display:none;
+    background:#fff;
+    padding:14px;
+    font-size:16px;
+    border-top:1px solid #cfd7df;
   }
 
   select{
@@ -160,109 +140,80 @@
     border-radius:4px;
     border:1px solid #b9bfc7;
     font-size:16px;
+    margin-bottom:10px;
   }
 
-  .exam-msg{
-    background:#dfe9f2;
-    border:1px solid #c3d3e2;
-    padding:12px;
-    border-radius:4px;
-    margin-top:10px;
-    color:#0b6fb8;
-  }
-
-  /* Side menu */
+  /* SIDE MENU */
   .side-menu{
     position:fixed;
-    top:62px;
-    left:0;
+    top:62px;left:0;bottom:0;
     width:var(--menu-width);
-    bottom:0;
     background:#fff;
-    border-right:1px solid #e0e0e0;
+    border-right:1px solid #ccc;
     display:none;
-    z-index:900;
+    z-index:999;
   }
 
-  .side-menu ul{
-    list-style:none;
-    margin:0;
-    padding:0;
-  }
-
+  .side-menu ul{ list-style:none;margin:0;padding:0; }
   .side-menu li{
     padding:14px 16px;
-    border-bottom:1px solid #f0f0f0;
+    border-bottom:1px solid #eee;
     font-size:17px;
   }
 
-  .side-menu .arrow{
-    float:right;
-    color:#999;
-  }
-
-  .with-menu{
-    margin-left:var(--menu-width);
-  }
-
+  .with-menu{ margin-left:var(--menu-width); }
 </style>
 </head>
-
 <body>
 
 <!-- TOP BAR -->
 <div class="topbar">
 
-  <div class="topbar-left">
-    <!-- HOME -->
+  <div style="display:flex; align-items:center; gap:10px;">
     <button class="home-btn">
       <svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
     </button>
 
-    <!-- LOGO UNS -->
     <span class="logo-uns">
       <svg viewBox="0 0 600 120">
         <path d="M52 12c-16 26-16 66 0 92 22-16 22-60 0-92z" fill="#306db3" stroke="#cfcfcf" stroke-width="4"/>
         <text x="120" y="64" font-family="Times New Roman" font-size="62" fill="#306db3">UNS</text>
-        <text x="120" y="96" font-family="Times New Roman" font-size="18" fill="#999">UNIVERSIDAD NACIONAL DEL SUR</text>
       </svg>
     </span>
   </div>
 
-  <div class="topbar-right">
-
-    <!-- Perfil -->
-    <button class="icon-btn">
+  <div style="display:flex;align-items:center;">
+    <!-- PERFIL -->
+    <div class="icon-square">
       <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
-    </button>
+    </div>
 
-    <!-- Mensajes -->
-    <button class="icon-btn">
+    <!-- MENSAJES -->
+    <div class="icon-square" style="display:flex;">
       <svg viewBox="0 0 24 24"><path d="M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8l-10 7z"/></svg>
-      <span class="notif">0</span>
-    </button>
+      <span class="notif-small">0</span>
+    </div>
 
-    <!-- Menú hamburguesa -->
-    <button id="menuBtn" class="icon-btn">
+    <!-- MENÚ -->
+    <div id="menuBtn" class="icon-square">
       <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </button>
-
+    </div>
   </div>
 </div>
 
 <!-- SIDE MENU -->
 <nav class="side-menu" id="sideMenu">
   <ul>
-    <li>Cursadas <span class="arrow">▾</span></li>
-    <li>Exámenes <span class="arrow">▾</span></li>
-    <li>Ingreso <span class="arrow">▾</span></li>
-    <li>Matrícula <span class="arrow">▾</span></li>
-    <li>Certificaciones <span class="arrow">▾</span></li>
-    <li>Consultas <span class="arrow">▾</span></li>
-    <li>Servicios <span class="arrow">▾</span></li>
-    <li>Encuestas <span class="arrow">▾</span></li>
-    <li>Egresados <span class="arrow">▾</span></li>
-    <li>Moodle <span class="arrow">▾</span></li>
+    <li>Cursadas ▾</li>
+    <li>Exámenes ▾</li>
+    <li>Ingreso ▾</li>
+    <li>Matrícula ▾</li>
+    <li>Certificaciones ▾</li>
+    <li>Consultas ▾</li>
+    <li>Servicios ▾</li>
+    <li>Encuestas ▾</li>
+    <li>Egresados ▾</li>
+    <li>Moodle ▾</li>
   </ul>
 </nav>
 
@@ -273,34 +224,50 @@
     <h2>Bienvenido</h2>
 
     <div class="card">
-
       <div class="header-box">
         <div class="header-box-title">Calendario Académico</div>
         <div class="red">Actualizá tu MAIL</div>
       </div>
 
-      <div class="title">Cursadas</div>
-      <select><option>2025 - Segundo Cuatr.</option></select>
+      <!-- CURSADAS DESPLEGABLE -->
+      <div class="section">
+        <div class="section-title">Cursadas <span>▾</span></div>
+        <div class="section-content">
+          <select><option>2025 - Segundo Cuatr.</option></select>
 
-      <p>
-        <b>Inicio Clases:</b> 18/08/2025<br>
-        <b>Fin Clases:</b> 05/12/2025<br>
-        <b>Inicio Inscripciones:</b> 04/08/2025<br>
-        <b>Fin Inscripciones:</b> 06/09/2025<br>
-        <b>Correlativas hasta:</b> 19/09/2025
-      </p>
+          <p><b>Inicio Clases:</b> 18/08/2025<br>
+          <b>Fin Clases:</b> 05/12/2025<br>
+          <b>Inicio Inscripciones:</b> 04/08/2025<br>
+          <b>Fin Inscripciones:</b> 06/09/2025<br>
+          <b>Correlativas hasta:</b> 19/09/2025</p>
+        </div>
+      </div>
 
-      <div class="title">Exámenes</div>
-      <select><option>Turno 2025-12</option></select>
+      <!-- EXÁMENES DESPLEGABLE -->
+      <div class="section">
+        <div class="section-title">Exámenes <span>▾</span></div>
+        <div class="section-content">
+          <select><option>Turno 2025-12</option></select>
+          <p><b>Inicio:</b> 01/12/2025<br>
+          <b>Fin:</b> 30/12/2025</p>
 
-      <p>
-        <b>Inicio:</b> 01/12/2025<br>
-        <b>Fin:</b> 30/12/2025
-      </p>
+          <div class="exam-msg">
+            No tenés inscripciones a exámenes vigentes para el turno seleccionado.
+          </div>
+        </div>
+      </div>
 
-      <div class="title">Inscripciones</div>
-      <div class="exam-msg">
-        No tenés inscripciones a exámenes vigentes para el turno de examen seleccionado.
+      <!-- CERTIFICACIONES DESPLEGABLE -->
+      <div class="section">
+        <div class="section-title">Certificaciones <span>▾</span></div>
+        <div class="section-content">
+          <p>
+            • Certificado Alumno Regular<br>
+            • Certificado de Exámenes Rendidos<br>
+            • Certificado de Libre Deuda<br>
+            • Constancias para becas<br>
+          </p>
+        </div>
       </div>
 
     </div>
@@ -308,23 +275,32 @@
 </main>
 
 <script>
+/* MENU LATERAL */
 const menuBtn = document.getElementById("menuBtn");
 const sideMenu = document.getElementById("sideMenu");
 const mainContainer = document.getElementById("mainContainer");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.onclick = () => {
   const open = sideMenu.style.display === "block";
   sideMenu.style.display = open ? "none" : "block";
   mainContainer.classList.toggle("with-menu", !open);
-});
+};
 
-document.addEventListener("click", e => {
-  if(sideMenu.style.display === "block" &&
+document.addEventListener("click", e =>{
+  if(sideMenu.style.display==="block" &&
      !sideMenu.contains(e.target) &&
      !menuBtn.contains(e.target)){
-       sideMenu.style.display = "none";
+       sideMenu.style.display="none";
        mainContainer.classList.remove("with-menu");
   }
+});
+
+/* DESPLEGABLES */
+document.querySelectorAll(".section-title").forEach(t=>{
+  t.addEventListener("click", ()=>{
+    const content = t.nextElementSibling;
+    content.style.display = content.style.display==="block" ? "none" : "block";
+  });
 });
 </script>
 
