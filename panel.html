@@ -98,26 +98,29 @@ body{
   color:#222;
 }
 
-/* MENU */
+/* ⭐⭐ MENÚ NUEVO QUE SE VE COMO EL ORIGINAL ⭐⭐ */
 .menu{
   width:100%;
   background:#EFEFEF;
   border-bottom:1px solid #d0d0d0;
   display:flex;
   flex-direction:column;
-  padding-top:10px;
+
+  /* MÁS ESPACIO ARRIBA COMO EL ORIGINAL */
+  padding-top:30px;
+
   max-height:0;
   overflow:hidden;
-  transition:max-height .3s ease;
+  transition:max-height .35s ease;
 }
 
 .menu.open{
-  max-height:900px;
+  max-height:1000px;
 }
 
 .menu-item{
-  padding:14px 18px;
-  font-size:17px;
+  padding:20px 22px; /* más espacio para que no se vea apretado */
+  font-size:18px;    /* un toque más grande como el SIU real */
   color:#444;
   border-bottom:1px solid #d9d9d9;
   cursor:pointer;
@@ -125,7 +128,7 @@ body{
   align-items:center;
 }
 
-.menu-item:hover{ background:#e7e7e7; }
+.menu-item:hover{ background:#e2e2e2; }
 
 .submenu{
   max-height:0;
@@ -138,8 +141,8 @@ body{
 }
 
 .submenu-item{
-  padding:12px 34px;
-  font-size:15px;
+  padding:15px 40px; /* más separación para que respire */
+  font-size:16px;
   border-bottom:1px solid #e2e2e2;
   cursor:pointer;
 }
@@ -204,11 +207,6 @@ select{
   color:#000;
 }
 
-.exam-title{
-  font-weight:bold;
-  margin-bottom:8px;
-}
-
 .exam-msg{
   background:#eef5fb;
   border-top:1px solid #c9dae7;
@@ -267,12 +265,9 @@ select{
 
   <div class="menu-item" onclick="toggleSubmenu('m3')">Certificaciones <span class="submenu-arrow">▾</span></div>
   <div id="m3" class="submenu">
-
-    <!-- ⭐⭐⭐ CORRECCIÓN: AHORA TU PDF SE ABRE PERFECTO ⭐⭐⭐ -->
     <div class="submenu-item" onclick="window.open('certificado_perez.pdf', '_blank')">
       Certificado Alumno Regular
     </div>
-
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('m4')">Ingreso <span class="submenu-arrow">▾</span></div>
@@ -287,12 +282,9 @@ select{
 
   <div class="menu-item" onclick="toggleSubmenu('m6')">Consultas <span class="submenu-arrow">▾</span></div>
   <div id="m6" class="submenu">
-
-    <!-- SI QUERÉS ACÁ TE AGREGO NOTAS TAMBIÉN -->
     <div class="submenu-item" onclick="location.href='notas.html'">
       Historia Académica
     </div>
-
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('m7')">Servicios <span class="submenu-arrow">▾</span></div>
@@ -327,7 +319,6 @@ select{
 
       <div class="red">Actualizá tu MAIL</div>
 
-      <!-- CURSADAS -->
       <div class="title">Cursadas</div>
       <select><option>2025 - Segundo Cuatr.</option></select>
 
@@ -338,7 +329,6 @@ select{
         <b>Correlativas:</b> hasta 19/09<br>
       </p>
 
-      <!-- INSCRIPCIONES -->
       <div class="title">Inscripciones</div>
       <ul>
         <li>101 - Matemáticas</li>
@@ -351,7 +341,6 @@ select{
         <li>108 - Gestión de Proyectos</li>
       </ul>
 
-      <!-- EXÁMENES EXACTO AL ORIGINAL -->
       <div class="title">Exámenes</div>
       <select><option>Turno 2025-12</option></select>
 
