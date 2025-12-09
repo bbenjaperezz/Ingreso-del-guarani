@@ -11,10 +11,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #eef0f2;
+    background: #eef0f2;  /* fondo real del SIU */
     color: #444;
-    transform: scale(0.92);
-    transform-origin: top center; /* zoom EXACTO como la original */
 }
 
 /* TOPBAR */
@@ -25,74 +23,36 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #d9d9d9;
-    position: relative;
 }
 
 /* LOGO */
 .logo-uns {
     height: 40px;
-    opacity: 0.85;
-}
-
-/* ICONO MENU IDENTICO AL REAL */
-.menu-icon {
-    width: 46px;
-    height: 36px;
-    border-radius: 10px;
-    border: 1px solid #d3d3d3;
-    background: linear-gradient(#fdfdfd, #f1f1f1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.12);
-}
-
-.menu-icon div {
-    width: 24px;
-    height: 2.6px;
-    background: #b9b9b9;
-    margin: 3.5px 0;
-    border-radius: 3px;
-}
-
-/* PANEL DESLIZANTE - EXACTO AL SIU */
-.side-panel {
-    position: fixed;
-    top: 0;
-    right: -280px;
-    width: 280px;
-    height: 100%;
-    background: white;
-    box-shadow: -3px 0 12px rgba(0,0,0,0.25);
-    transition: 0.3s ease;
-    padding-top: 70px;
-    z-index: 9999;
-}
-
-.side-panel.open {
-    right: 0;
-}
-
-.side-panel ul {
-    list-style: none;
-    width: 100%;
-}
-
-.side-panel ul li {
-    border-bottom: 1px solid #e6e6e6;
-}
-
-.side-panel ul li a {
+    opacity: 0.95;
     display: block;
-    padding: 16px;
-    font-size: 18px;
-    color: #444;
-    text-decoration: none;
 }
 
-.side-panel ul li a:hover {
-    background: #f5f5f5;
+/* BOTON HAMBURGUESA: caja + svg de 3 líneas */
+.hamburger-btn{
+    width:38px;
+    height:30px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:6px;
+    border:1px solid #d3d3d3;
+    background:#ffffff;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    cursor:pointer;
+    padding:0;
+}
+
+/* svg líneas estilo original */
+.hamburger-btn svg { display:block; }
+.hamburger-lines {
+    stroke: #666666;       /* color de las rayitas */
+    stroke-width: 2.6;
+    stroke-linecap: round; /* puntas redondeadas */
 }
 
 /* CAJA LOGIN */
@@ -103,129 +63,170 @@ body {
     background: #ffffff;
     border-radius: 14px;
     padding: 28px 24px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
 }
 
-/* TITULO */
+/* TITULO LOGIN */
 .login-title {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
-    color: #8a8a8a;
-    margin-bottom: 22px;
+    color: #6f6f6f;
+    margin-bottom: 18px;
 }
 
-/* LABEL */
+/* LABELS */
 label {
     font-size: 15px;
     color: #6d6d6d;
-    margin-bottom: 4px;
-    display: block;
+    margin-bottom: 6px;
+    display:block;
 }
 
 /* INPUTS */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    height: 46px;
+    height: 44px;
     border: 1px solid #b5b7ba;
     border-radius: 6px;
     padding: 8px 10px;
-    font-size: 16px;
-    margin-bottom: 14px;
+    font-size: 15px;
+    margin-bottom: 12px;
 }
 
-/* BOTON INGRESAR */
+input:focus {
+    outline: none;
+    border-color: #0d8ec1;
+    box-shadow: 0 0 4px rgba(0,147,203,0.25);
+}
+
+/* BOTON INGRESAR (estilo similar al original) */
 .btn-ingresar {
-    width: 140px;
+    width: 140px;           /* igual que original: botón pequeño a la izquierda */
     height: 46px;
     background: linear-gradient(#5fb4d1, #3b89a7);
     border: 1px solid #2f6b85;
     border-radius: 6px;
-    font-size: 19px;
+    font-size: 17px;
     font-weight: bold;
     color: white;
     cursor: pointer;
-    display: block;
-    text-align: center;
-    line-height: 46px;
+    display: inline-block;
+    text-align:center;
+    line-height:46px;
 }
 
-/* LINK OLVIDASTE */
+/* Colocar el botón y link en la misma línea */
+.actions-row { display:flex; align-items:center; gap:16px; margin-top:6px; }
+
+/* LINK OLVIDASTE - color y tamaño igual al original */
 .forgot {
-    display: block;
-    margin-top: 14px;
-    color: #7db8d6;
-    font-size: 17px;
+    color: #7db8d6;  
+    font-size: 15px;
+    text-decoration:none;
 }
 
-/* TITULO ABAJO */
+/* TITULO SECCIÓN DE ABAJO */
 .section-title {
     margin-top: 32px;
-    font-size: 34px;
+    font-size: 32px;
     font-weight: bold;
     color: #8a8a8a;
 }
 
-/* TEXTO */
+/* TEXTO PRINCIPAL */
 .text-block {
     padding: 0 20px 50px 20px;
-    font-size: 17px;
+    font-size: 16px;
+    color: #333;
 }
 
 .text-block b {
-    color: #3d3d3d;
+    color: #2f2f2f;
 }
 
+/* Enlaces finales estilo original */
 .final-link {
-    color: #79b5d4;
-    font-size: 20px;
-    font-weight: bold;
+    color: #79b5d4; 
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* MENU (oculto por defecto, se abre con JS) */
+.menu {
+  display: none;
+  position: fixed;
+  top: 62px;
+  left: 8px;
+  width: 260px;
+  background:#fff;
+  border:1px solid #ddd;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border-radius:6px;
+  padding:8px 0;
+  z-index: 2000;
+}
+.menu .item{
+  padding:12px 16px;
+  font-size:15px;
+  color:#333;
+  border-bottom:1px solid #f0f0f0;
+}
+.menu .item:last-child{ border-bottom: none; }
+
+/* responsive */
+@media (max-width:480px){
+  .login-box{ padding:20px; border-radius:10px;}
+  .btn-ingresar{ width:120px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- PANEL DESLIZANTE -->
-<div class="side-panel" id="panel">
-    <ul>
-        <li><a href="#">Materias</a></li>
-        <li><a href="#">Notas</a></li>
-        <li><a href="#">Mensajes</a></li>
-        <li><a href="#">Email</a></li>
-        <li><a href="#">Certificados</a></li>
-        <li><a href="index.html">Cerrar sesión</a></li>
-    </ul>
-</div>
-
-<!-- BARRA SUPERIOR -->
+<!-- TOPBAR -->
 <div class="topbar">
-    <img src="logo-uns.png" class="logo-uns">
+    <img src="logo-uns.png" class="logo-uns" alt="UNS">
 
-    <!-- icono real con líneas -->
-    <div class="menu-icon" onclick="togglePanel()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    <!-- botón hamburguesa nuevo -->
+    <button class="hamburger-btn" id="menuBtn" aria-label="Abrir menú">
+      <!-- SVG: tres líneas centradas con espacio igual -->
+      <svg width="22" height="16" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line class="hamburger-lines" x1="2" y1="2" x2="20" y2="2" />
+        <line class="hamburger-lines" x1="2" y1="8" x2="20" y2="8" />
+        <line class="hamburger-lines" x1="2" y1="14" x2="20" y2="14" />
+      </svg>
+    </button>
 </div>
+
+<!-- MENU (se abrirá al click) -->
+<nav id="menu" class="menu" aria-hidden="true">
+  <div class="item">Materias</div>
+  <div class="item">Notas</div>
+  <div class="item">Mensajes</div>
+  <div class="item">Email</div>
+  <div class="item">Certificados</div>
+  <div class="item"><a href="index.html" style="color:inherit;text-decoration:none">Cerrar sesión</a></div>
+</nav>
 
 <!-- LOGIN -->
 <div class="login-box">
     <div class="login-title">Ingresá tus datos</div>
 
-    <label>Usuario</label>
+    <label for="user">Usuario</label>
     <input type="text" id="user">
 
-    <label>Contraseña</label>
+    <label for="pass">Contraseña</label>
     <input type="password" id="pass">
 
-    <div class="btn-ingresar" onclick="login()">Ingresar</div>
-
-    <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
+    <div class="actions-row">
+      <div class="btn-ingresar" onclick="login()">Ingresar</div>
+      <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
+    </div>
 </div>
 
-<!-- CONTENIDO INFERIOR -->
+<!-- CONTENIDO -->
 <div class="text-block">
     <div class="section-title">SIU Guaraní</div>
 
@@ -249,23 +250,37 @@ input[type="password"] {
 
     <p><b>Recordá:</b> Tus trámites terminan cuando cerrás tu sesión. Para esto, usá la opción "Cerrar Sesión" de tu Menú de Sesión en la parte superior derecha de la página.</p>
 
-    <a class="final-link" href="#">Instructivo de Acceso a Guaraní3w</a>
+    <p style="margin-top:12px">
+      <a class="final-link" href="#">Instructivo de Acceso a Guaraní3w</a>
+    </p>
 </div>
 
 <script>
-function togglePanel() {
-    document.getElementById("panel").classList.toggle("open");
-}
+// toggle menu
+const menuBtn = document.getElementById('menuBtn');
+const menuEl = document.getElementById('menu');
+menuBtn.addEventListener('click', (e)=>{
+  const open = menuEl.style.display === 'block';
+  menuEl.style.display = open ? 'none' : 'block';
+  menuEl.setAttribute('aria-hidden', open ? 'true' : 'false');
+});
 
-function login() {
-    let u = document.getElementById("user").value;
-    let p = document.getElementById("pass").value;
+// cerrar menú si clickeás afuera
+document.addEventListener('click', (e)=>{
+  if (!menuEl.contains(e.target) && !menuBtn.contains(e.target)){
+    menuEl.style.display = 'none';
+    menuEl.setAttribute('aria-hidden','true');
+  }
+});
 
-    if (u === "bbenjaperezz" && p === "162023") {
-        window.location.href = "panel.html";
-    } else {
-        alert("Usuario o contraseña incorrectos");
-    }
+function login(){
+  const u = document.getElementById('user').value;
+  const p = document.getElementById('pass').value;
+  if(u==='bbenjaperezz' && p==='162023'){
+    window.location.href='panel.html';
+  } else {
+    alert('Usuario o contraseña incorrectos');
+  }
 }
 </script>
 
