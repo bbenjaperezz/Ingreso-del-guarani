@@ -6,130 +6,137 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* --- Reset --- */
-* { box-sizing: border-box; }
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    color: #333;
+    background: #f2f4f6; /* COLOR EXACTO DEL ORIGINAL */
+    color: #444;
 }
 
-/* --- Barra superior --- */
+/* BARRA SUPERIOR */
 .topbar {
     background: #ffffff;
-    padding: 10px 14px;
-    font-size: 20px;
-    color: #555;
-    border-bottom: 1px solid #dcdcdc;
+    padding: 12px 16px;
+    border-bottom: 1px solid #d5d5d5;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo-uns {
     height: 34px;
+    opacity: 0.88; /* EL ORIGINAL TIENE UN LOGO MUY SUAVE */
 }
 
 .menu-icon {
     font-size: 26px;
-    cursor: pointer;
-    padding: 6px 8px;
-    color: #444;
-}
-
-/* --- Caja de Login --- */
-.login-box {
-    width: 90%;
-    max-width: 420px;
-    background: #ffffff;
-    padding: 24px 22px;
-    border-radius: 8px;
-    margin: 30px auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.login-title {
-    font-size: 22px;
-    text-align: left;
+    padding: 6px 10px;
     color: #666;
-    margin-bottom: 16px;
-    font-weight: 600;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
 }
 
+/* CAJA LOGIN */
+.login-box {
+    width: 94%;
+    max-width: 500px;
+    margin: 22px auto;
+    background: #ffffff;
+    border-radius: 12px; /* REDONDEO EXACTO */
+    padding: 26px 22px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10); /* SOMBRA IGUAL A LA ORIGINAL */
+}
+
+/* TITULO */
+.login-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #6a6a6a;
+    margin-bottom: 18px;
+}
+
+/* LABELS */
 label {
+    font-size: 15px;
     display: block;
-    font-size: 14px;
     margin-bottom: 4px;
 }
 
+/* INPUTS */
 input[type="text"],
 input[type="password"] {
     width: 100%;
-    height: 38px;
-    padding: 8px 10px;
-    font-size: 14px;
-    border: 1px solid #cfcfcf;
+    height: 44px;
+    padding: 8px 12px;
+    font-size: 15px;
+    border: 1px solid #c7c9cc;
     border-radius: 6px;
-    transition: 0.15s;
+    margin-bottom: 12px;
 }
 
 input:focus {
     outline: none;
-    border-color: #7fc0ee;
-    box-shadow: 0 0 4px rgba(35,137,221,0.20);
+    border-color: #1aa0dc;
+    box-shadow: 0 0 4px rgba(26,160,220,0.25);
 }
 
+/* BOTÓN */
 .btn-ingresar {
     width: 100%;
-    height: 42px;
-    margin-top: 14px;
-    background: linear-gradient(#19aee7, #0d90bd);
-    border-radius: 8px;
+    height: 46px;
+    background: linear-gradient(#24b6eb, #0d8ec1); /* GRADIENTE EXACTO */
     border: none;
-    color: white;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 17px;
     font-weight: bold;
+    color: white;
+    margin-top: 12px;
     cursor: pointer;
 }
 
+/* LINK */
 .forgot {
     display: block;
-    margin-top: 14px;
     text-align: center;
-    color: #0b94c6;
-    font-size: 14px;
+    margin-top: 12px;
+    color: #0a8fc0;
+    font-size: 15px;
 }
 
-/* --- Texto inferior --- */
+/* TITULO ABAJO */
 .section-title {
-    font-size: 24px;
-    margin-top: 20px;
+    font-size: 28px;
     font-weight: bold;
-    color: #555;
-    padding-left: 12px;
+    margin-top: 30px;
+    color: #787878;
+    padding-left: 16px;
 }
 
 .text-block {
-    padding: 0 14px 30px 14px;
-    color: #333;
-    font-size: 15px;
+    padding: 0 20px 40px 20px;
+    font-size: 16px;
+    color: #444;
+}
+
+.text-block ul {
+    margin-left: 18px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Barra superior -->
+<!-- BARRA SUPERIOR -->
 <div class="topbar">
-    <div style="display:flex; align-items:center; gap: 12px;">
-        <img src="logo-uns.png" class="logo-uns" alt="UNS">
-    </div>
+    <img src="logo-uns.png" class="logo-uns" alt="UNS">
     <div class="menu-icon">&#9776;</div>
 </div>
 
-<!-- Login -->
+<!-- LOGIN -->
 <div class="login-box">
     <div class="login-title">Ingresá tus datos</div>
 
@@ -144,6 +151,7 @@ input:focus {
     <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
+<!-- TEXTO INFERIOR -->
 <div class="section-title">SIU Guaraní</div>
 
 <div class="text-block">
@@ -158,7 +166,7 @@ input:focus {
 
     <strong>Si sos docente:</strong>
     <ul>
-        <li>Consultar tus comisiones y mesas de examen y alumnos inscriptos.</li>
+        <li>Consultar tus comisiones y mesas de examen y los alumnos inscriptos.</li>
         <li>Cargar Actas Cursado y Examen.</li>
         <li>Obtener listados en pdf y xls.</li>
     </ul>
