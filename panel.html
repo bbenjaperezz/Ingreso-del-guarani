@@ -6,18 +6,16 @@
 <title>SIU Guaraní — Panel Académico</title>
 
 <style>
-/* ============================================
-   RESET
-============================================ */
-*{box-sizing:border-box;margin:0;padding:0;}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background:#f2f4f6;
   color:#222;
 }
 
 /* ============================================
-   TOPBAR SIU — 100% ORIGINAL
+   TOPBAR EXACTA
 ============================================ */
 .topbar{
   width:100%;
@@ -29,48 +27,53 @@ body{
   align-items:flex-start;
 }
 
-/* IZQUIERDA */
+/* IZQUIERDA: LOGO + CASA */
 .topbar-left{
   display:flex;
   flex-direction:column;
-  gap:4px;
+  gap:6px;
 }
 
 .logo-img{
   width:42px;
   height:42px;
   object-fit:contain;
-  opacity:.92;
+  opacity:.95;
 }
 
-/* CASA — OCULTA AL INICIO */
+/* CASA — ESTILO A  (gris exacto) */
 .home-btn{
   width:36px;
   height:36px;
-  background:#e8f3ff;
-  border:1px solid #c7d7e8;
-  border-radius:5px;
-  box-shadow:
-    inset 0 1px 0 #ffffff,
-    0 1px 2px rgba(0,0,0,0.12);
-  display:none;
+  background:#f3f3f3;          /* gris clarito original */
+  border:1px solid #bfbfbf;     /* borde gris original */
+  border-radius:6px;
+  display:none;                 /* escondida al inicio */
   justify-content:center;
   align-items:center;
   cursor:pointer;
 }
 
+.home-btn svg{
+  width:20px;
+  height:20px;
+  fill:#6a6a6a;                /* gris del icono original */
+}
+
+/* cuando el menú abre, aparece la casa */
 .menu-open .home-btn{
   display:flex;
 }
 
-/* DERECHA */
+/* ============================================
+   BOTONES DERECHA
+============================================ */
 .topbar-actions{
   display:flex;
   gap:8px;
   margin-top:2px;
 }
 
-/* Botones con 3D original */
 .top-btn{
   width:52px;
   height:36px;
@@ -84,63 +87,80 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  position:relative;
   cursor:pointer;
 }
+
 .top-btn svg{
   width:18px;
   height:18px;
   fill:#444;
 }
-.user-arrow{font-size:12px;margin-left:4px;color:#444;}
-.mail-box{display:flex;align-items:center;gap:4px;}
+
+.user-arrow{margin-left:4px;font-size:12px;color:#444;}
+.mail-box{display:flex;gap:4px;align-items:center;}
 .mail-count{font-size:14px;font-weight:bold;color:#444;}
-.menu-btn svg{width:22px !important;height:22px !important;opacity:.95;}
+
+.menu-btn svg{
+  width:22px !important;
+  height:22px !important;
+  fill:#444;
+  opacity:.9;
+}
 
 /* ============================================
-   MENÚ DESPLEGABLE ORIGINAL
+   MENÚ DESPLEGABLE — IGUAL AL ORIGINAL
 ============================================ */
 .menu{
   width:100%;
-  background:#ffffff;
+  background:#EFEFEF;    /* gris original */
   border-bottom:1px solid #d0d0d0;
   display:flex;
   flex-direction:column;
-  padding:10px 0;
+  padding-top:10px;
 
   max-height:0;
   overflow:hidden;
-  transition:max-height .28s ease;
+  transition:max-height .3s ease;
 }
-.menu.open{max-height:900px;}
+
+.menu.open{
+  max-height:900px;
+}
 
 .menu-item{
   padding:14px 18px;
   font-size:17px;
   color:#444;
-  border-bottom:1px solid #e5e5e5;
+  border-bottom:1px solid #d9d9d9;
   cursor:pointer;
   display:flex;
   align-items:center;
 }
-.menu-item:hover{background:#f2f2f2;}
+
+.menu-item:hover{
+  background:#e7e7e7;
+}
 
 .submenu{
   max-height:0;
   overflow:hidden;
+  background:#f6f6f6;
+  border-left:3px solid #bbbbbb;
+  transition:max-height .25s ease;
   display:flex;
   flex-direction:column;
-  background:#fafafa;
-  border-left:3px solid #d0d0d0;
-  transition:max-height .25s ease;
 }
+
 .submenu-item{
-  padding:12px 30px;
+  padding:12px 34px;
   font-size:15px;
-  border-bottom:1px solid #e5e5e5;
+  border-bottom:1px solid #e2e2e2;
   cursor:pointer;
 }
-.submenu-item:hover{background:#efefef;}
+
+.submenu-item:hover{
+  background:#eaeaea;
+}
 
 .submenu-arrow{
   margin-left:auto;
@@ -156,37 +176,42 @@ body{
   max-width:750px;
   margin:18px auto;
 }
+
 .card{
   background:#fff;
   border:1px solid #d0d0d0;
   padding:18px;
   border-radius:4px;
 }
+
 .header-box{
   background:#eef6fb;
   border:1px solid #dbe8ef;
   padding:10px 12px;
   border-radius:4px;
   margin-bottom:15px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
 }
+
 .header-box-title{
   color:#1686b6;
   font-size:14px;
   font-weight:bold;
   margin-bottom:6px;
 }
-.red{color:#cc0000;font-weight:bold;margin-bottom:10px;}
-.title{font-weight:bold;color:#666;margin-top:12px;margin-bottom:6px;}
-ul{padding-left:20px;color:#222;}
+
+.red{color:#cc0000;margin-bottom:10px;font-weight:bold;}
+.title{margin-top:12px;margin-bottom:6px;font-weight:bold;color:#666;}
+ul{padding-left:22px;}
 ul li{margin-bottom:6px;}
+
 select{
   width:100%;
   padding:8px;
+  border:1px solid #d0d0d0;
   border-radius:4px;
-  border:1px solid #d6dae0;
-  background:#fff;
+  background:white;
 }
+
 .exam-msg{
   background:#eef5fb;
   border-top:1px solid #c9dae7;
@@ -194,19 +219,19 @@ select{
   color:#0b6fb8;
   margin-top:6px;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- ============================================
-     TOPBAR COMPLETO
-============================================ -->
+<!-- TOPBAR -->
 <div class="topbar">
 
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
+    <!-- CASA OCULTA HASTA QUE SE ABRE EL MENÚ -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h6v-6h6v6h6V10z"/>
@@ -239,17 +264,22 @@ select{
   </div>
 </div>
 
-<!-- ============================================
-     MENÚ DESPLEGABLE
-============================================ -->
+<!-- MENÚ DESPLEGABLE (Cerrado al inicio) -->
 <nav id="menu" class="menu">
 
+  <!-- ORDEN CORRECTO -->
   <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
     Cursadas <span class="submenu-arrow">▾</span>
   </div>
   <div id="subCursadas" class="submenu">
-    <div class="submenu-item">Inscripción</div>
-    <div class="submenu-item" onclick="location.href='cursadas.html'">Seguimiento</div>
+    <div class="submenu-item">Seguimiento</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subInscripciones')">
+    Inscripciones <span class="submenu-arrow">▾</span>
+  </div>
+  <div id="subInscripciones" class="submenu">
+    <div class="submenu-item">Inscripción a Materias</div>
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('subExamenes')">
@@ -258,110 +288,59 @@ select{
   <div id="subExamenes" class="submenu">
     <div class="submenu-item">Inscripción a Exámenes</div>
     <div class="submenu-item">Mis Mesas</div>
-    <div class="submenu-item">Historial</div>
   </div>
-
-  <div class="menu-item" onclick="toggleSubmenu('subCertificados')">
-    Certificaciones <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subCertificados" class="submenu">
-    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">Solicitud de Certificados</div>
-    <div class="submenu-item">Consulta / Anulación</div>
-  </div>
-
-  <div class="menu-item" onclick="toggleSubmenu('subIngreso')">
-    Ingreso <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subIngreso" class="submenu">
-    <div class="submenu-item">Requisitos</div>
-    <div class="submenu-item">Documentación</div>
-  </div>
-
-  <div class="menu-item" onclick="toggleSubmenu('subMatricula')">
-    Matrícula <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subMatricula" class="submenu">
-    <div class="submenu-item">Generar Matrícula</div>
-    <div class="submenu-item">Pagos / Aranceles</div>
-  </div>
-
-  <div class="menu-item" onclick="toggleSubmenu('subConsultas')">
-    Consultas <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subConsultas" class="submenu">
-    <div class="submenu-item">Consultar Alumno</div>
-    <div class="submenu-item">Estado Académico</div>
-  </div>
-
-  <div class="menu-item">Servicios</div>
-  <div class="menu-item">Encuestas</div>
-  <div class="menu-item">Egresados</div>
-  <div class="menu-item">Moodle</div>
 
 </nav>
 
-<!-- ============================================
-     CONTENIDO
-============================================ -->
+<!-- CONTENIDO -->
 <main class="container">
   <h2 style="color:#1686b6;">Bienvenido</h2>
 
   <div class="card">
     <div class="header-box">
       <div class="header-box-title">Calendario Académico</div>
+
       <div class="red">Actualizá tu MAIL</div>
 
       <div class="title">Inscripciones</div>
       <ul>
         <li>101 - Matemáticas</li>
         <li>102 - Física</li>
-        <li>103 - Construcción</li>
-        <li>104 - Estructuras</li>
-        <li>105 - Geotecnia</li>
-        <li>106 - Hidráulica</li>
-        <li>107 - Transporte</li>
-        <li>108 - Gestión de Proyectos</li>
       </ul>
 
       <div class="title">Cursadas</div>
       <select><option>2025 - Segundo Cuatr.</option></select>
 
-      <p><b>Inicio:</b> 18/08/2025<br>
-      <b>Fin:</b> 05/12/2025<br>
-      <b>Inscripciones:</b> 04/08 - 06/09<br>
-      <b>Correlativas:</b> hasta 19/09</p>
+      <p>
+        <b>Inicio:</b> 18/08/2025<br>
+        <b>Fin:</b> 05/12/2025<br>
+      </p>
 
       <div class="title">Exámenes</div>
       <select><option>Turno 2025-12</option></select>
 
-      <p><b>Inicio:</b> 01/12/2025<br>
-      <b>Fin:</b> 30/12/2025</p>
-
-      <div class="title">Inscripciones</div>
       <div class="exam-msg">
-        No tenés inscripciones a exámenes vigentes para el turno seleccionado.
+        No tenés inscripciones a exámenes vigentes.
       </div>
     </div>
   </div>
 </main>
 
 <script>
-// abrir/cerrar menú
 const menu = document.getElementById("menu");
-const body = document.body;
+const body  = document.body;
 
 document.getElementById("menuBtn").onclick = ()=>{
   menu.classList.toggle("open");
   body.classList.toggle("menu-open");
 };
 
-// submenús con animación
 function toggleSubmenu(id){
-  const s = document.getElementById(id);
-  if(s.style.maxHeight && s.style.maxHeight !== "0px"){
-    s.style.maxHeight = "0px";
+  const box = document.getElementById(id);
+  if(box.style.maxHeight && box.style.maxHeight !== "0px"){
+    box.style.maxHeight = "0px";
   }else{
-    s.style.maxHeight = s.scrollHeight + "px";
+    box.style.maxHeight = box.scrollHeight + "px";
   }
 }
 </script>
