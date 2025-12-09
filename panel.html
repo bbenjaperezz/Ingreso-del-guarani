@@ -2,155 +2,165 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>SIU Guaraní – Panel</title>
+<title>Guaraní - Panel</title>
 
 <style>
-
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #f2f2f2;
+        background: #e5e5e5;
     }
 
-    /* -------------------- TOPBAR -------------------- */
+    /* BARRA SUPERIOR EXACTA */
     .topbar {
         width: 100%;
-        height: 60px;
         background: #ffffff;
+        height: 60px;
         display: flex;
+        justify-content: flex-end;
         align-items: center;
-        justify-content: space-between;
-        padding: 0 15px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.12);
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10;
+        padding-right: 20px;
+        border-bottom: 1px solid #ccc;
     }
 
-    .topbar img.logo {
-        height: 42px;
-    }
-
-    .top-icons img {
-        height: 35px;
-        margin-left: 15px;
+    .topbar button {
+        background: #f7f7f7;
+        border: 1px solid #c8c8c8;
+        padding: 7px 12px;
+        margin-left: 8px;
+        border-radius: 4px;
         cursor: pointer;
     }
 
-    /* -------------------- SIDEBAR -------------------- */
-    .sidebar {
-        width: 220px;
-        background: #fafafa;
-        position: fixed;
-        top: 60px;
-        bottom: 0;
-        left: 0;
-        padding-top: 15px;
-        box-shadow: 2px 0 4px rgba(0,0,0,0.07);
+    .icon {
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
     }
 
-    .sidebar img.home {
-        height: 25px;
-        margin-left: 20px;
-        margin-bottom: 18px;
+    /* CONTENIDO CENTRAL */
+    .container {
+        width: 92%;
+        max-width: 700px;
+        margin: 20px auto;
     }
 
-    .sidebar ul {
-        list-style: none;
-        padding-left: 20px;
-        margin: 0;
-    }
-
-    .sidebar ul li {
-        padding: 10px 0;
-        font-size: 16px;
-        color: #444;
-        cursor: pointer;
-    }
-
-    .sidebar ul li:hover {
-        color: #007bff;
-    }
-
-    /* -------------------- CONTENIDO -------------------- */
-    .content {
-        margin-left: 240px;
-        padding: 90px 30px;
-    }
-
-    h1 {
+    h2 {
+        color: #0071bb;
+        margin-top: 10px;
         font-size: 26px;
-        color: #333;
-        margin-bottom: 25px;
+        font-weight: normal;
     }
 
-    /* -------------------- TARJETA -------------------- */
     .card {
-        background: #e8f0fa;
-        padding: 20px;
-        border-radius: 6px;
-        width: 450px;
-        border-left: 5px solid #007bff;
+        background: white;
+        border: 1px solid #dcdcdc;
+        padding: 15px;
+        border-radius: 4px;
+        margin-top: 20px;
+        font-size: 15px;
     }
 
-    .card strong {
-        font-size: 17px;
-    }
-
-    .card .alerta {
-        margin-top: 5px;
-        color: #e60000;
+    .title {
         font-weight: bold;
+        margin-bottom: 8px;
+        color: #777;
     }
 
-</style>
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
 
+    .red {
+        color: #d50000;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    ul {
+        padding-left: 18px;
+    }
+
+    ul li {
+        margin-bottom: 4px;
+    }
+</style>
 </head>
+
 <body>
 
-    <!-- ▬▬▬▬▬▬▬▬▬ TOPBAR ▬▬▬▬▬▬▬▬▬ -->
-    <div class="topbar">
-        <img src="uns.png" class="logo">
+<!-- BARRA SUPERIOR EXACTA A SIU -->
+<div class="topbar">
 
-        <div class="top-icons">
-            <img src="user.png">
-            <img src="mail.png">
-            <img src="menu.png">
-        </div>
-    </div>
+    <!-- PERSONITA -->
+    <button>
+        <img class="icon" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
+        <path d='M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z'/>
+        </svg>" />
+    </button>
 
+    <!-- CORREO CON 0 -->
+    <button>
+        <img class="icon" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
+        <path d='M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8l-10 7z'/>
+        </svg>" />
+        0
+    </button>
 
-    <!-- ▬▬▬▬▬▬▬▬▬ SIDEBAR ▬▬▬▬▬▬▬▬▬ -->
-    <div class="sidebar">
-        <img src="home.png" class="home">
+    <!-- TRES RAYITAS -->
+    <button>
+        <img class="icon" src="data:image/svg+xml;utf8,
+        <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
+        <path d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/>
+        </svg>" />
+    </button>
+</div>
 
+<!-- CONTENIDO CENTRAL IGUAL AL DE TU CAPTURA -->
+<div class="container">
+
+    <h2>Bienvenido</h2>
+
+    <div class="card">
+        <div class="title">Calendario Académico</div>
+        <div class="red">Actualizá tu MAIL</div>
+
+        <div class="title">Cursadas</div>
+        <select>
+            <option>2025 - Segundo Cuatr.</option>
+        </select>
+
+        <p><b>Inicio Clases:</b> 18/08/2025<br>
+           <b>Fin Clases:</b> 05/12/2025<br>
+           <b>Inicio Inscripciones:</b> 04/08/2025<br>
+           <b>Fin Inscripciones:</b> 06/09/2025<br>
+           <b>Correlativas hasta:</b> 19/09/2025
+        </p>
+
+        <div class="title">Inscripciones</div>
         <ul>
-            <li>Cursadas ▾</li>
-            <li>Exámenes ▾</li>
-            <li>Ingreso ▾</li>
-            <li>Matrícula ▾</li>
-            <li>Certificaciones ▾</li>
-            <li>Consultas ▾</li>
-            <li>Servicios ▾</li>
-            <li>Encuestas ▾</li>
-            <li>Egresados ▾</li>
-            <li>Moodle ▾</li>
+            <li>103 - DIDACTICA</li>
+            <li>111 - EDUCACIÓN FÍSICA</li>
+            <li>102 - PROBLEMAS DE LA FILOSOFIA</li>
+            <li>110 - TALLER DE EXP.MUS.I</li>
         </ul>
+
+        <div class="title" style="margin-top:20px;">Exámenes</div>
+        <select>
+            <option>Turno 2025-12</option>
+        </select>
+
+        <p><b>Inicio:</b> 01/12/2025<br>
+           <b>Fin:</b> 30/12/2025</p>
     </div>
 
-
-    <!-- ▬▬▬▬▬▬▬▬▬ CONTENIDO ▬▬▬▬▬▬▬▬▬ -->
-    <div class="content">
-
-        <h1>Bienvenido</h1>
-
-        <div class="card">
-            <strong>Calendario Académico</strong>
-            <p class="alerta">⚠ Actualizá tu MAIL</p>
-        </div>
-
-    </div>
+</div>
 
 </body>
 </html>
