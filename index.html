@@ -11,136 +11,127 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #eef0f1; 
+    background: #f5f5f5;
     color: #444;
 }
 
-/* BARRA SUPERIOR */
+/* HEADER SUPERIOR */
 .topbar {
     background: #ffffff;
-    padding: 10px 14px;
-    border-bottom: 1px solid #dadada;
+    padding: 14px 18px;
+    border-bottom: 1px solid #dcdcdc;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo-uns {
-    height: 32px;
+    height: 48px;
     opacity: 0.9;
 }
 
-/* MENÚ (IDÉNTICO AL ORIGINAL) */
+/* Ícono de menú */
 .menu-icon {
-    font-size: 22px;
-    padding: 7px 10px;
-    border: 1px solid #d7d7d7;
-    border-radius: 6px;
-    color: #777;
-    background: #fafafa;
-}
-
-/* CAJA LOGIN */
-.login-box {
-    width: 90%;
-    max-width: 450px;
-    margin: 25px auto;
-    background: #ffffff;
-    border-radius: 14px;
-    padding: 24px 20px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-}
-
-/* TÍTULO */
-.login-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #6e6e6e;
-    margin-bottom: 18px;
-}
-
-/* LABELS */
-label {
-    font-size: 14px;
-    display: block;
-    margin-bottom: 4px;
-}
-
-/* INPUTS */
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    height: 40px;
+    font-size: 28px;
     padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid #c8cbcf;
-    border-radius: 6px;
-    margin-bottom: 14px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #1ca0db;
-    box-shadow: 0 0 4px rgba(26,160,220,0.30);
-}
-
-/* BOTÓN (TAMAÑO Y POSICIÓN EXACTA) */
-.btn-ingresar {
-    width: 92%;
-    margin-left: 4%;
-    height: 44px;
-    background: linear-gradient(#1eb4ea, #0d8fc2);
-    border: none;
+    border: 1px solid #dcdcdc;
     border-radius: 8px;
+    color: #666;
+}
+
+/* CONTENEDOR LOGIN */
+.login-box {
+    width: 94%;
+    margin: 15px auto 0;
+    background: white;
+    padding: 25px 20px;
+    border-radius: 14px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Título principal */
+.login-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    font-size: 15px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    height: 43px;
+    padding: 8px 12px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #c5c5c5;
+    margin-bottom: 12px;
+}
+
+/* Botón */
+.btn-ingresar {
+    background: linear-gradient(#4cb1df, #2a8fbc);
+    border: none;
+    color: white;
+    height: 42px;
+    width: 110px;
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-/* LINK OLVIDASTE */
+/* Link (¿Olvidaste tu usuario?) */
 .forgot {
+    color: #46a9d8;
+    font-size: 15px;
     display: block;
-    margin-top: 14px;
-    text-align: left; /* EN EL ORIGINAL NO ESTÁ CENTRADO */
-    margin-left: 4%;
-    font-size: 14px;
-    color: #0a8fc0;
+    margin-top: 12px;
 }
 
-/* TÍTULO ABAJO */
-.section-title {
-    font-size: 26px;
+/* SECCIONES DE ABAJO */
+.section {
+    padding: 25px 20px;
+}
+
+.section h2 {
+    font-size: 32px;
     font-weight: bold;
-    margin-top: 28px;
-    color: #6e6e6e;
-    padding-left: 18px;
+    color: #777;
+    margin-bottom: 15px;
 }
 
-/* CONTENIDO */
-.text-block {
-    padding: 0 20px 40px 20px;
-    font-size: 15px;
-    color: #444;
-    line-height: 1.45;
+.section p, .section li {
+    font-size: 17px;
+    line-height: 1.4;
 }
 
-.text-block ul {
+.section strong {
+    font-size: 18px;
+}
+
+.section ul {
     margin-left: 20px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
-/* LINK AZUL FINAL */
-.extra-link {
-    padding-left: 20px;
-    font-size: 15px;
-    color: #1185c9;
-    text-decoration: underline;
+/* Link azul final */
+.biglink {
+    color: #1da1d8;
+    font-size: 18px;
+    margin-top: 20px;
+    display: block;
 }
 </style>
 </head>
-
 <body>
 
 <!-- BARRA SUPERIOR -->
@@ -151,23 +142,25 @@ input:focus {
 
 <!-- LOGIN -->
 <div class="login-box">
+
     <div class="login-title">Ingresá tus datos</div>
 
-    <label for="user">Usuario</label>
+    <label>Usuario</label>
     <input type="text" id="user">
 
-    <label for="pass">Contraseña</label>
+    <label>Contraseña</label>
     <input type="password" id="pass">
 
     <button class="btn-ingresar" onclick="login()">Ingresar</button>
 
-    <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
+    <a href="#" class="forgot">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
-<!-- TEXTO INFERIOR -->
-<div class="section-title">SIU Guaraní</div>
+<!-- SECCIÓN INFERIOR -->
+<div class="section">
 
-<div class="text-block">
+    <h2>SIU Guaraní</h2>
+
     <p>Con este sistema podés entre otras opciones:</p>
 
     <strong>Si sos alumno:</strong>
@@ -180,16 +173,19 @@ input:focus {
     <strong>Si sos docente:</strong>
     <ul>
         <li>Consultar tus comisiones y mesas de examen y los alumnos inscriptos.</li>
-        <li>Cargar Actas Cursado y Examen.</li>
-        <li>Obtener listados en pdf y xls.</li>
+        <li>Cargar e imprimir tus Actas Cursado y Promoción y Examen.</li>
+        <li>Obtener listados en formato pdf y xls.</li>
     </ul>
 
     <p><strong>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</strong></p>
 
-    <p>Recordá: Tus trámites terminan cuando cerrás tu sesión. Para esto, usá la opción "Cerrar Sesión" de tu Menú de Sesión en la parte superior derecha de la página.</p>
-</div>
+    <p>
+        <strong>Recordá:</strong> Tus trámites terminan cuando cerrás tu sesión. Para esto, usá la opción "Cerrar Sesión" de tu Menú de
+        Sesión en la parte superior derecha de la página.
+    </p>
 
-<a class="extra-link" href="#">Instructivo de Acceso a Guaraní3w</a>
+    <a href="#" class="biglink">Instructivo de Acceso a Guaraní3w</a>
+</div>
 
 <script>
 function login() {
