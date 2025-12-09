@@ -1,135 +1,218 @@
-/* --- Reset y básicos --- */
-* { box-sizing: border-box; }
+/* ----- reset & base ----- */
+*{box-sizing:border-box}
+body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color:#222;}
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    color: #333;
+/* ----- header ----- */
+.header{
+  background:#ffffff;
+  border-bottom:1px solid #e1e4e8;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+}
+.header-inner{
+  max-width:1150px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:10px 16px;
+}
+.logo{display:flex;align-items:center;gap:10px}
+
+/* 🔵 LOGO UNS CORREGIDO */
+.logo-img{
+  height:40px;
+  width:40px;
+  object-fit:contain;
+  border-radius:4px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-/* --- Barra superior con logo y menú --- */
-.topbar {
-    background: #ffffff;
-    padding: 10px 14px;
-    font-size: 20px;
-    color: #555;
-    border-bottom: 1px solid #dcdcdc;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.logo-text{font-weight:700;color:#0d5d85;font-size:18px}
+.logo-small{font-weight:400;font-size:12px;margin-left:8px;color:#567}
+
+/* nav */
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center;}
+.main-nav .nav-item{position:relative}
+.main-nav a, .main-nav .sub-btn{
+  display:inline-block;padding:8px 12px;border:1px solid #e6e9ec;background:#fafafa;border-radius:3px;color:#333;text-decoration:none;font-size:14px;cursor:pointer;
+}
+.main-nav .active .sub-btn, .main-nav .active a{background:#1690c7;color:#fff;border-color:#1690c7}
+.main-nav .sub{
+  display:none;position:absolute;top:40px;left:0;background:#fff;border:1px solid #dfe7ea;
+  min-width:220px;box-shadow:0 8px 18px rgba(0,0,0,0.08);z-index:9999;
+  padding:6px 0;border-radius:4px
+}
+.main-nav .sub li a{display:block;padding:8px 12px;border-bottom:1px solid #f2f6f7;color:#333}
+.main-nav .sub li a:hover{background:#f7fbff;color:#003e63}
+.main-nav .has-sub.open .sub{display:block}
+
+/* user info */
+.user-info{margin-left:auto;color:#0b4c66;font-weight:700}
+
+/* ----- page grid ----- */
+.page{
+  max-width:1150px;margin:18px auto;
+  display:grid;grid-template-columns:260px 1fr 300px;
+  gap:18px;padding:0 12px;
+  position: relative;
+  z-index: 1;
 }
 
-..logo-uns {
-    height: 34px;
-} {
-    height: 34px;
-    width: auto;
-    display: block;
+/* boxes */
+.box{background:#fff;border-radius:6px;padding:14px;box-shadow:0 4px 12px rgba(0,0,0,0.03)}
+.box h3{margin:0 0 10px 0;color:#0b5d7a}
+
+/* sidebar left */
+.sidebar-left .filter-block label{display:block;margin:8px 0;color:#333;font-size:14px}
+.sidebar-left hr{border:none;border-top:1px solid #eef3f5;margin:12px 0}
+
+/* main panel */
+.panel{
+  position: relative;
+  z-index: 1;
 }
 
-.menu-icon {
-    font-size: 26px;
-    cursor: pointer;
-    padding: 6px 8px;
-    color: #444;
+.panel h1{color:#1686b6;margin:0 0 8px 0}
+.meta{display:flex;justify-content:space-between;color:#6d7276;margin-bottom:14px}
+.controls{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+.control-group label{display:block;color:#556; font-size:13px;margin-bottom:6px}
+.control-group select{padding:8px;border-radius:6px;border:1px solid #d6dae0;background:#fbfdff}
+.btn-blue{background:#1690c7;color:#fff;border:none;padding:9px 12px;border-radius:6px;cursor:pointer}
+
+/* year block */
+.year-block{background:#ffffff;border-radius:6px;padding:14px;margin-bottom:18px}
+.year-bar{background:#bfe1f3;color:#0b5d7a;padding:10px;border-radius:4px;font-weight:700;margin-bottom:12px}
+
+/* subject rows */
+.subject{
+  background:#f6f7f8;border-radius:6px;padding:12px;margin-bottom:10px;
+  display:flex;justify-content:space-between;align-items:center;
+  border:1px solid #e9ecef;
+}
+.subject-title{font-weight:700;color:#333;max-width:72%}
+.subject-meta{color:#4e5a60;font-size:14px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+
+/* tags */
+.tag{padding:6px 10px;border-radius:6px;color:#fff;font-weight:700;font-size:13px;min-width:72px;text-align:center}
+.tag.green{background:#00a651}
+.tag.red{background:#e74c3c}
+.tag.blue{background:#00a0d6}
+.tag.orange{background:#ff9f1a}
+
+/* classes for filtering states */
+.promocionada .tag{background:#1fae4f}
+.aprobada .tag{background:#00a651}
+.desaprobada .tag{background:#e74c3c}
+.ausente .tag{background:#a0a0a0}
+.en-curso .tag{background:#00a0d6}
+
+/* right sidebar */
+.sidebar-right .box{margin-bottom:14px}
+.sidebar-right h4{margin:0 0 8px 0;color:#0b5d7a}
+
+/* responsive */
+@media (max-width: 980px){
+  .page{grid-template-columns:1fr;padding:0 12px}
+  .user-info{display:none}
+  .main-nav ul{overflow:auto}
+  .logo{font-size:16px}
 }
 
-/* --- Caja del login más chica y pegada a la izquierda --- */
-.login-box {
-    width: 78%;
-    max-width: 340px;
-    background: #ffffff;
-    padding: 22px 20px;
-    border-radius: 8px;
-    margin: 22px 0 0 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+/* === 🔥 FIX DEFINITIVO PARA QUE LOS SUBMENÚS NO SE TAPEN 🔥 === */
+.header {
+  overflow: visible !important;
 }
 
-.login-title {
-    font-size: 22px;
-    text-align: left;
-    color: #666;
-    margin-bottom: 14px;
-    font-weight: 600;
+.header-inner {
+  overflow: visible !important;
+  position: relative;
+  z-index: 999999 !important;
 }
 
-/* Labels */
-label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 4px;
+.main-nav {
+  position: relative;
+  z-index: 999999 !important;
 }
 
-/* Inputs */
-input[type="text"],
-input[type="password"] {
-    width: 100%;
-    height: 38px;
-    padding: 8px 10px;
-    font-size: 14px;
-    border: 1px solid #cfcfcf;
-    border-radius: 6px;
-    transition: 0.15s;
+.main-nav .sub {
+  position: absolute !important;
+  z-index: 999999 !important;
 }
 
-input:focus {
-    outline: none;
-    border-color: #7fc0ee;
-    box-shadow: 0 0 4px rgba(35,137,221,0.20);
+/* ========================================================= */
+/* === 🔵 ESTILOS AGREGADOS PARA LOS SUBMENÚS DEL PANEL === */
+/* ========================================================= */
+
+.menu {
+  background:#fff;
+  border-bottom:1px solid #cfcfcf;
 }
 
-/* Botón estilo SIU */
-.btn-ingresar {
-    width: 100%;
-    height: 42px;
-    margin-top: 10px;
-    background: linear-gradient(#19aee7, #0d90bd);
-    border-radius: 8px;
-    border: none;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+.menu-item {
+  display:flex;
+  align-items:center;
+  padding:14px 18px;
+  border-bottom:1px solid #e5e5e5;
+  cursor:pointer;
+  font-size:17px;
+  color:#444;
 }
 
-.btn-ingresar:hover {
-    background: linear-gradient(#17a0d0, #0b82a8);
+.submenu {
+  display:none;
+  flex-direction:column;
+  background:#fafafa;
+  border-left:3px solid #d0d0d0;
 }
 
-/* Link */
-.forgot {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    color: #0b94c6;
-    font-size: 14px;
+.submenu-item {
+  padding:12px 30px;
+  font-size:15px;
+  border-bottom:1px solid #e5e5e5;
+  cursor:pointer;
+  color:#555;
 }
 
-/* Sección inferior */
-.section-title {
-    font-size: 24px;
-    margin-top: 18px;
-    font-weight: bold;
-    color: #555;
-    padding-left: 12px;
+.submenu-item:hover {
+  background:#efefef;
 }
 
-.text-block {
-    padding: 0 14px 30px 14px;
-    color: #333;
-    font-size: 15px;
+.submenu-arrow {
+  margin-left:auto;
+  font-size:14px;
+  opacity:.7;
 }
 
-/* Responsive */
-@media (max-width:420px){
-    .login-box {
-        width: 88%;
-        margin-left: 8px;
-        margin-right: 8px;
-    }
-    .logo-uns {
-        height: 32px;
-    }
+/* ========================================================= */
+/* === 🎨 COLORES DEL CUADRO CELESTE COMO LA CAPTURA ======= */
+/* ========================================================= */
+
+/* Bloque celeste */
+.header-box {
+  background:#eef3f8;            /* celeste claro */
+  border:1px solid #d4dce4;      /* borde gris azulado */
+  padding:10px 12px;
+  border-radius:4px;
+  margin-bottom:15px;
+}
+
+/* Título celeste */
+.header-box-title {
+  color:#3a7db7;                 /* azul UNS */
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+/* Texto en rojo igual al original */
+.red {
+  color:#d10000;
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+/* Títulos "Inscripciones / Cursadas / Exámenes" */
+.title {
+  font-weight:bold;
+  color:#666;
+  font-size:15px;
+  margin-top:12px;
+  margin-bottom:6px;
 }
