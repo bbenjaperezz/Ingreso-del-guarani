@@ -2,70 +2,113 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>SIU Guaraní – Inicio de sesión</title>
+<title>SIU Guaraní – Ingreso</title>
+
 <style>
     body {
-        font-family: Arial, sans-serif;
-        background: #f2f2f2;
         margin: 0;
+        background: #ececec;
+        font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
     }
-    .login-box {
-        background: white;
-        padding: 30px;
-        width: 330px;
+
+    .login-container {
+        background: #ffffff;
+        width: 360px;
+        padding: 35px 30px;
         border-radius: 8px;
-        box-shadow: 0 0 8px rgba(0,0,0,0.2);
-        text-align: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.18);
     }
+
+    .titulo {
+        font-size: 23px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 25px;
+        letter-spacing: 0.5px;
+    }
+
+    label {
+        font-size: 14px;
+        color: #333;
+        display: block;
+        margin-top: 15px;
+    }
+
     input {
         width: 100%;
         padding: 10px;
-        margin-top: 15px;
-        border: 1px solid #ccc;
+        margin-top: 6px;
         border-radius: 4px;
+        font-size: 15px;
+        border: 1px solid #bfbfbf;
+        transition: 0.2s;
     }
+
+    input:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 3px rgba(0,123,255,0.4);
+    }
+
     button {
-        margin-top: 20px;
         width: 100%;
-        padding: 10px;
+        margin-top: 25px;
+        padding: 11px;
         background: #007bff;
         border: none;
-        color: white;
         border-radius: 4px;
+        color: white;
+        font-size: 16px;
         cursor: pointer;
-        font-size: 15px;
+        transition: 0.2s;
     }
-    .logo {
-        font-size: 22px;
-        margin-bottom: 15px;
-        color: #333;
+
+    button:hover {
+        background: #006ae0;
+    }
+
+    .error {
+        margin-top: 15px;
+        text-align: center;
+        color: #d60000;
+        font-size: 14px;
+        display: none;
     }
 </style>
 </head>
+
 <body>
 
-<div class="login-box">
-    <div class="logo">SIU Guaraní</div>
+<div class="login-container">
 
-    <input id="user" type="text" placeholder="Usuario">
-    <input id="pass" type="password" placeholder="Contraseña">
+    <div class="titulo">SIU Guaraní</div>
+
+    <label>Usuario</label>
+    <input id="user" type="text" placeholder="Ingresá tu usuario">
+
+    <label>Contraseña</label>
+    <input id="pass" type="password" placeholder="Ingresá tu contraseña">
 
     <button onclick="login()">Ingresar</button>
+
+    <div id="error" class="error">Usuario o contraseña incorrectos</div>
 </div>
 
 <script>
 function login() {
     const u = document.getElementById('user').value;
     const p = document.getElementById('pass').value;
+    const error = document.getElementById('error');
 
     if (u === "bbenjaperezz" && p === "162023") {
-        window.location.href = "menu.html";
+        window.location.href = "panel.html";
     } else {
-        alert("Usuario o contraseña incorrectos");
+        error.style.display = "block";
     }
 }
 </script>
