@@ -22,6 +22,7 @@
         align-items: center;
         padding-right: 15px;
         border-bottom: 1px solid #cfcfcf;
+        position: relative;
     }
 
     .topbar button {
@@ -40,33 +41,35 @@
         vertical-align: middle;
     }
 
-    /* MENÚ LATERAL */
-    .sidebar {
-        position: fixed;
+    /* MENU LATERAL */
+    .menu {
+        position: absolute;
         top: 55px;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: 230px;
         background: #ffffff;
-        border-bottom: 1px solid #ccc;
+        border-left: 1px solid #cfcfcf;
+        border-bottom: 1px solid #cfcfcf;
         display: none;
-        z-index: 999;
+        flex-direction: column;
+        padding: 10px 0;
+        z-index: 20;
     }
 
-    .sidebar div {
-        padding: 12px 15px;
-        border-top: 1px solid #eee;
+    .menu-item {
+        padding: 12px 18px;
         font-size: 16px;
-        color: #555;
-        background: #fff;
+        color: #444;
+        border-bottom: 1px solid #e5e5e5;
+        cursor: pointer;
     }
 
-    .sidebar div:hover {
-        background: #f5f5f5;
+    .menu-item:hover {
+        background: #f2f2f2;
     }
 
-    .arrow {
+    .submenu-arrow {
         float: right;
-        font-weight: bold;
     }
 
     /* CONTENEDOR */
@@ -76,7 +79,6 @@
         margin: 18px auto;
     }
 
-    /* TITULO */
     h2 {
         color: #006bb3;
         font-size: 24px;
@@ -84,7 +86,6 @@
         font-weight: normal;
     }
 
-    /* TARJETA */
     .card {
         background: #ffffff;
         border: 1px solid #d0d0d0;
@@ -94,7 +95,6 @@
         line-height: 1.45;
     }
 
-    /* SUBTÍTULOS */
     .title {
         font-weight: bold;
         color: #666;
@@ -103,7 +103,6 @@
         font-size: 15px;
     }
 
-    /* ROJO MAIL */
     .red {
         color: #d10000;
         font-weight: bold;
@@ -111,7 +110,6 @@
         font-size: 14px;
     }
 
-    /* SELECT */
     select {
         width: 100%;
         padding: 6px;
@@ -131,7 +129,6 @@
         margin-bottom: 5px;
     }
 
-    /* MENSAJE AZUL DE EXÁMENES */
     .exam-msg {
         background: #eef5fb;
         border-top: 1px solid #c9dae7;
@@ -142,21 +139,13 @@
         line-height: 1.4;
     }
 </style>
-
-<script>
-function toggleMenu() {
-    const menu = document.getElementById("sidebar");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-</script>
-
 </head>
+
 <body>
 
 <!-- BARRA SUPERIOR -->
 <div class="topbar">
 
-    <!-- PERSONA -->
     <button>
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
@@ -164,7 +153,6 @@ function toggleMenu() {
         </svg>" />
     </button>
 
-    <!-- CORREO -->
     <button>
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
@@ -173,30 +161,30 @@ function toggleMenu() {
         0
     </button>
 
-    <!-- MENÚ -->
-    <button onclick="toggleMenu()">
+    <!-- TRES RAYAS -->
+    <button id="menuBtn">
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
         <path d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/>
         </svg>" />
     </button>
+
+    <!-- MENU DESPLEGABLE -->
+    <div class="menu" id="menu">
+        <div class="menu-item">Cursadas ▾</div>
+        <div class="menu-item">Exámenes ▾</div>
+        <div class="menu-item">Ingreso ▾</div>
+        <div class="menu-item">Matrícula ▾</div>
+        <div class="menu-item">Certificaciones ▾</div>
+        <div class="menu-item">Consultas ▾</div>
+        <div class="menu-item">Servicios ▾</div>
+        <div class="menu-item">Encuestas ▾</div>
+        <div class="menu-item">Egresados ▾</div>
+        <div class="menu-item">Moodle ▾</div>
+    </div>
 </div>
 
-<!-- MENÚ LATERAL -->
-<div class="sidebar" id="sidebar">
-    <div>Cursadas <span class="arrow">▾</span></div>
-    <div>Exámenes <span class="arrow">▾</span></div>
-    <div>Ingreso <span class="arrow">▾</span></div>
-    <div>Matrícula <span class="arrow">▾</span></div>
-    <div>Certificaciones <span class="arrow">▾</span></div>
-    <div>Consultas <span class="arrow">▾</span></div>
-    <div>Servicios <span class="arrow">▾</span></div>
-    <div>Encuestas <span class="arrow">▾</span></div>
-    <div>Egresados <span class="arrow">▾</span></div>
-    <div>Moodle <span class="arrow">▾</span></div>
-</div>
-
-<!-- CONTENIDO SIU -->
+<!-- CONTENIDO -->
 <div class="container">
 
     <h2>Bienvenido</h2>
@@ -237,7 +225,6 @@ function toggleMenu() {
             <b>Fin:</b> 30/12/2025
         </p>
 
-        <!-- MENSAJE AZUL -->
         <div class="title">Inscripciones</div>
 
         <div class="exam-msg">
@@ -247,6 +234,13 @@ function toggleMenu() {
     </div>
 
 </div>
+
+<script>
+    document.getElementById("menuBtn").addEventListener("click", function() {
+        const menu = document.getElementById("menu");
+        menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    });
+</script>
 
 </body>
 </html>
