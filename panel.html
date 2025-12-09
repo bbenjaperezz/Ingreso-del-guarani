@@ -41,25 +41,26 @@ body{
   opacity:.95;
 }
 
-/* ============= CASA — CELESTE COMO IMAGEN ================= */
+/* ============= CASA — OCULTA INICIO, APARECE MENÚ ================= */
 .home-btn{
   width:36px;
   height:36px;
-  background:#ffffff00;     /* SIN fondo, igual SIU */
+  background:transparent;
   border:none;
-  display:none;             /* OCULTA AL ENTRAR */
+  display:none;             /* OCULTA AL INICIAR */
   justify-content:center;
   align-items:center;
   cursor:pointer;
+  margin-top:4px;
 }
 
 .home-btn svg{
   width:28px;
   height:28px;
-  fill:#1e90ff;            /* CELESTE EXACTO */
+  fill:#1e90ff;            /* CELESTE IGUAL FOTO */
 }
 
-/* Mostrar casa solo cuando el menú está abierto */
+/* Mostrar casa SOLO cuando el menú está abierto */
 .menu-open .home-btn{
   display:flex;
 }
@@ -87,6 +88,7 @@ body{
   justify-content:center;
   align-items:center;
   cursor:pointer;
+  position:relative;
 }
 
 .top-btn svg{
@@ -95,12 +97,20 @@ body{
   fill:#444;
 }
 
+.mail-count{
+  position:absolute;
+  bottom:2px;
+  right:4px;
+  font-size:11px;
+  color:#222;
+}
+
 /* ============================================
-   MENÚ DESPLEGABLE ORIGINAL
+   MENÚ DESPLEGABLE
 ============================================ */
 .menu{
   width:100%;
-  background:#EFEFEF;    /* gris real SIU */
+  background:#EFEFEF;
   border-bottom:1px solid #d0d0d0;
   display:flex;
   flex-direction:column;
@@ -219,7 +229,7 @@ select{
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
-    <!-- CASA (oculta hasta abrir menú) -->
+    <!-- CASA (OCULTA HASTA ABRIR MENÚ) -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h18V10z"/>
