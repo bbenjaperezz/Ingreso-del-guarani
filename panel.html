@@ -6,7 +6,6 @@
 <title>SIU Guaraní — Panel Académico</title>
 
 <style>
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:Arial, Helvetica, sans-serif;
@@ -14,49 +13,46 @@ body{
   color:#222;
 }
 
-/* ============================================================
-   TOPBAR — AHORA IDÉNTICO A LA FOTO
-============================================================ */
+/* TOPBAR */
 .topbar{
   width:100%;
   background:#ffffff;
   border-bottom:1px solid #d7d7d7;
   display:flex;
   justify-content:space-between;
-  align-items:center;          /* ALINEADO PERFECTO */
-  padding:8px 14px 6px 14px;
+  padding:10px 12px 6px 12px;
+  align-items:flex-start;
 }
 
-/* izquierda */
 .topbar-left{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
-  margin-top:4px;              /* IGUAL FOTO */
+  gap:6px;
 }
 
 .logo-img{
-  width:56px;
-  height:auto;
+  width:42px;
+  height:42px;
   object-fit:contain;
-  margin-bottom:4px;
+  opacity:.95;
 }
 
-/* casa oculta hasta abrir menu */
+/* CASA (solo visible cuando menú abierto) */
 .home-btn{
-  width:40px;
-  height:40px;
+  width:36px;
+  height:36px;
   background:transparent;
   border:none;
   display:none;
   justify-content:center;
   align-items:center;
   cursor:pointer;
+  margin-top:4px;
 }
 
 .home-btn svg{
-  width:32px;
-  height:32px;
+  width:28px;
+  height:28px;
   fill:#1e90ff;
 }
 
@@ -64,19 +60,17 @@ body{
   display:flex;
 }
 
-/* ============================================================
-   BOTONES DERECHA — AHORA IGUAL FOTO
-============================================================ */
+/* BOTONES DERECHA */
 .topbar-actions{
   display:flex;
-  align-items:center;
-  gap:10px;
+  gap:8px;
+  margin-top:2px;
 }
 
 .top-btn{
-  width:50px;
+  width:52px;
   height:36px;
-  background:linear-gradient(#ffffff,#e4e4e4);
+  background:linear-gradient(#fefefe, #e6e6e6);
   border:1px solid #bfc3c7;
   border-radius:6px;
   box-shadow:
@@ -86,27 +80,25 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  position:relative;
   cursor:pointer;
+  position:relative;
 }
 
 .top-btn svg{
-  width:20px;
-  height:20px;
-  fill:#333;
+  width:18px;
+  height:18px;
+  fill:#444;
 }
 
 .mail-count{
   position:absolute;
   bottom:2px;
-  right:5px;
-  font-size:12px;
-  color:#000;
+  right:4px;
+  font-size:11px;
+  color:#222;
 }
 
-/* ============================================================
-   MENÚ DESPLEGABLE
-============================================================ */
+/* MENU */
 .menu{
   width:100%;
   background:#EFEFEF;
@@ -120,17 +112,20 @@ body{
 }
 
 .menu.open{
-  max-height:800px;
+  max-height:900px;
 }
 
 .menu-item{
   padding:14px 18px;
   font-size:17px;
+  color:#444;
   border-bottom:1px solid #d9d9d9;
   cursor:pointer;
   display:flex;
   align-items:center;
 }
+
+.menu-item:hover{ background:#e7e7e7; }
 
 .submenu{
   max-height:0;
@@ -149,9 +144,15 @@ body{
   cursor:pointer;
 }
 
-/* ============================================================
-   CONTENIDO
-============================================================ */
+.submenu-item:hover{ background:#eaeaea; }
+
+.submenu-arrow{
+  margin-left:auto;
+  font-size:15px;
+  opacity:.8;
+}
+
+/* CONTENIDO */
 .container{
   width:92%;
   max-width:750px;
@@ -182,6 +183,7 @@ body{
 
 .red{color:#cc0000;margin-bottom:10px;font-weight:bold;}
 .title{margin-top:12px;margin-bottom:6px;font-weight:bold;color:#666;}
+
 ul{padding-left:22px;}
 ul li{margin-bottom:6px;}
 
@@ -211,7 +213,6 @@ select{
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
-    <!-- Casa oculta -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h18V10z"/>
@@ -221,50 +222,73 @@ select{
 
   <div class="topbar-actions">
     <button class="top-btn">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg>
+      <span class="user-arrow">▾</span>
     </button>
 
     <button class="top-btn mail-box">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8z"/></svg>
       <span class="mail-count">0</span>
     </button>
 
     <button class="top-btn menu-btn" id="menuBtn">
-      <svg viewBox="0 0 24 24">
-        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </button>
   </div>
-
 </div>
 
-<!-- MENÚ -->
+<!-- MENÚ DESPLEGABLE COMPLETO -->
 <nav id="menu" class="menu">
 
-  <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
-    Cursadas <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subCursadas" class="submenu">
+  <div class="menu-item" onclick="toggleSubmenu('m1')">Cursadas <span class="submenu-arrow">▾</span></div>
+  <div id="m1" class="submenu">
     <div class="submenu-item">Seguimiento</div>
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subInscripciones')">
-    Inscripciones <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subInscripciones" class="submenu">
-    <div class="submenu-item">Inscripción a Materias</div>
-  </div>
-
-  <div class="menu-item" onclick="toggleSubmenu('subExamenes')">
-    Exámenes <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subExamenes" class="submenu">
+  <div class="menu-item" onclick="toggleSubmenu('m2')">Exámenes <span class="submenu-arrow">▾</span></div>
+  <div id="m2" class="submenu">
     <div class="submenu-item">Inscripción a Exámenes</div>
     <div class="submenu-item">Mis Mesas</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m3')">Certificaciones <span class="submenu-arrow">▾</span></div>
+  <div id="m3" class="submenu">
+    <div class="submenu-item">Certificado Alumno Regular</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m4')">Ingreso <span class="submenu-arrow">▾</span></div>
+  <div id="m4" class="submenu">
+    <div class="submenu-item">Documentación</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m5')">Matrícula <span class="submenu-arrow">▾</span></div>
+  <div id="m5" class="submenu">
+    <div class="submenu-item">Reinscripción</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m6')">Consultas <span class="submenu-arrow">▾</span></div>
+  <div id="m6" class="submenu">
+    <div class="submenu-item">Historia Académica</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m7')">Servicios <span class="submenu-arrow">▾</span></div>
+  <div id="m7" class="submenu">
+    <div class="submenu-item">Biblioteca</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m8')">Encuestas <span class="submenu-arrow">▾</span></div>
+  <div id="m8" class="submenu">
+    <div class="submenu-item">Encuestas Pendientes</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m9')">Egresados <span class="submenu-arrow">▾</span></div>
+  <div id="m9" class="submenu">
+    <div class="submenu-item">Trámites</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('m10')">Moodle <span class="submenu-arrow">▾</span></div>
+  <div id="m10" class="submenu">
+    <div class="submenu-item">Acceder</div>
   </div>
 
 </nav>
@@ -279,19 +303,27 @@ select{
 
       <div class="red">Actualizá tu MAIL</div>
 
-      <div class="title">Inscripciones</div>
-      <ul>
-        <li>101 - Matemáticas</li>
-        <li>102 - Física</li>
-      </ul>
-
       <div class="title">Cursadas</div>
       <select><option>2025 - Segundo Cuatr.</option></select>
 
       <p>
         <b>Inicio:</b> 18/08/2025<br>
         <b>Fin:</b> 05/12/2025<br>
+        <b>Inscripciones:</b> 04/08 - 06/09<br>
+        <b>Correlativas:</b> hasta 19/09<br>
       </p>
+
+      <div class="title">Inscripciones</div>
+      <ul>
+        <li>101 - Matemáticas</li>
+        <li>102 - Física</li>
+        <li>103 - Construcción</li>
+        <li>104 - Estructuras</li>
+        <li>105 - Geotecnia</li>
+        <li>106 - Hidráulica</li>
+        <li>107 - Transporte</li>
+        <li>108 - Gestión de Proyectos</li>
+      </ul>
 
       <div class="title">Exámenes</div>
       <select><option>Turno 2025-12</option></select>
@@ -299,6 +331,7 @@ select{
       <div class="exam-msg">
         No tenés inscripciones a exámenes vigentes.
       </div>
+
     </div>
   </div>
 </main>
@@ -314,11 +347,10 @@ document.getElementById("menuBtn").onclick = ()=>{
 
 function toggleSubmenu(id){
   const box = document.getElementById(id);
-  if(box.style.maxHeight && box.style.maxHeight !== "0px"){
-    box.style.maxHeight = "0px";
-  }else{
-    box.style.maxHeight = box.scrollHeight + "px";
-  }
+  box.style.maxHeight = 
+    (box.style.maxHeight && box.style.maxHeight !== "0px")
+    ? "0px"
+    : box.scrollHeight + "px";
 }
 </script>
 
