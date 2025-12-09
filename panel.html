@@ -43,6 +43,7 @@ body{
   opacity:.92;
 }
 
+/* CASA — OCULTA AL INICIO */
 .home-btn{
   width:36px;
   height:36px;
@@ -52,10 +53,14 @@ body{
   box-shadow:
     inset 0 1px 0 #ffffff,
     0 1px 2px rgba(0,0,0,0.12);
-  display:flex;
+  display:none; /* ← OCULTA */
   justify-content:center;
   align-items:center;
   cursor:pointer;
+}
+
+.menu-open .home-btn{
+  display:flex; /* ← APARECE SOLO CUANDO SE ABRE EL MENÚ */
 }
 
 /* DERECHA */
@@ -82,44 +87,18 @@ body{
   position:relative;
   cursor:pointer;
 }
-
-/* Iconos */
 .top-btn svg{
   width:18px;
   height:18px;
   fill:#444;
 }
-
-/* Flechita usuario */
-.user-arrow{
-  font-size:12px;
-  margin-left:4px;
-  color:#444;
-}
-
-/* MAIL */
-.mail-box{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:4px;
-}
-
-.mail-count{
-  font-size:14px;
-  font-weight:bold;
-  color:#444;
-}
-
-/* Botón menú (tres rayitas reales) */
-.menu-btn svg{
-  width:22px !important;
-  height:22px !important;
-  opacity:.95;
-}
+.user-arrow{font-size:12px;margin-left:4px;color:#444;}
+.mail-box{display:flex;align-items:center;gap:4px;}
+.mail-count{font-size:14px;font-weight:bold;color:#444;}
+.menu-btn svg{width:22px !important;height:22px !important;opacity:.95;}
 
 /* ============================================
-   MENÚ LATERAL SIU
+   MENÚ DESPLEGABLE ORIGINAL
 ============================================ */
 .menu{
   width:100%;
@@ -180,7 +159,6 @@ body{
   padding:18px;
   border-radius:4px;
 }
-
 .header-box{
   background:#eef6fb;
   border:1px solid #dbe8ef;
@@ -195,23 +173,10 @@ body{
   font-weight:bold;
   margin-bottom:6px;
 }
-
-.red{
-  color:#cc0000;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-.title{
-  font-weight:bold;
-  color:#666;
-  margin-top:12px;
-  margin-bottom:6px;
-}
-
+.red{color:#cc0000;font-weight:bold;margin-bottom:10px;}
+.title{font-weight:bold;color:#666;margin-top:12px;margin-bottom:6px;}
 ul{padding-left:20px;color:#222;}
 ul li{margin-bottom:6px;}
-
 select{
   width:100%;
   padding:8px;
@@ -219,7 +184,6 @@ select{
   border:1px solid #d6dae0;
   background:#fff;
 }
-
 .exam-msg{
   background:#eef5fb;
   border-top:1px solid #c9dae7;
@@ -240,6 +204,7 @@ select{
   <div class="topbar-left">
     <img src="logo-uns.png" class="logo-img">
 
+    <!-- CASA OCULTA HASTA QUE ABRAS MENÚ -->
     <button class="home-btn">
       <svg viewBox="0 0 24 24">
         <path d="M12 3 3 10v10h6v-6h6v6h6V10z"/>
@@ -386,8 +351,11 @@ select{
 <script>
 // abrir/cerrar menú
 const menu = document.getElementById("menu");
+const body = document.body;
+
 document.getElementById("menuBtn").onclick = ()=>{
   menu.classList.toggle("open");
+  body.classList.toggle("menu-open"); // ← MUESTRA LA CASA
 };
 
 // submenús
