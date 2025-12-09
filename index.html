@@ -1,57 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIU Guaraní - Ingreso</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>SIU Guaraní – Inicio de sesión</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .login-box {
+        background: white;
+        padding: 30px;
+        width: 330px;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    .logo {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+</style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="https://g3w.uns.edu.ar/Guarani3w/img/logo_uns.png" class="logo">
-    </div>
+<div class="login-box">
+    <div class="logo">SIU Guaraní</div>
 
-    <div class="container">
+    <input id="user" type="text" placeholder="Usuario">
+    <input id="pass" type="password" placeholder="Contraseña">
 
-        <h1>Ingresá tus datos</h1>
+    <button onclick="login()">Ingresar</button>
+</div>
 
-        <label>Usuario</label>
-        <input type="text" placeholder="">
+<script>
+function login() {
+    const u = document.getElementById('user').value;
+    const p = document.getElementById('pass').value;
 
-        <label>Contraseña</label>
-        <input type="password" placeholder="">
-
-        <button class="btn">Ingresar</button>
-
-        <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
-
-        <h2>SIU Guaraní</h2>
-
-        <p>Con este sistema podés entre otras opciones:</p>
-
-        <b>Si sos alumno:</b>
-        <ul>
-            <li>Inscribirte a cursados y exámenes.</li>
-            <li>Consultar el plan de estudios de tu carrera y tu historia académica.</li>
-            <li>Solicitar certificaciones.</li>
-        </ul>
-
-        <b>Si sos docente:</b>
-        <ul>
-            <li>Consultar tus comisiones y mesas de examen y los alumnos inscriptos.</li>
-            <li>Cargar e imprimir tus Actas Cursado y Promoción y Examen.</li>
-            <li>Obtener listados en formato pdf y xls.</li>
-        </ul>
-
-        <p><b>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</b></p>
-
-        <p class="recorda">
-            <b>Recordá:</b> Tus trámites terminan cuando cerrás tu sesión.<br>
-            Para esto, usá la opción "Cerrar Sesión" de tu Menú de Sesión en la parte superior derecha de la página.
-        </p>
-
-    </div>
+    if (u === "bbenjaperezz" && p === "162023") {
+        window.location.href = "menu.html";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+}
+</script>
 
 </body>
 </html>
