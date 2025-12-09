@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Panel Académico — SIU Guaraní</title>
+<title>Seguimiento de Cursadas — SIU Guaraní</title>
 
 <style>
+/* --- Reset / básicos --- */
 * { box-sizing: border-box; }
-body {
+body{
   font-family: Arial, Helvetica, sans-serif;
-  background: #f2f4f6;
-  margin: 0;
-  color: #333;
+  background:#f2f4f6;
+  margin:0;
+  color:#333;
 }
 
-/* --- Barra superior --- */
+/* --- Barra superior igual al panel --- */
 .topbar {
   background: #ffffff;
   padding: 10px 14px;
+  font-size: 20px;
+  color: #555;
   border-bottom: 1px solid #dcdcdc;
   display: flex;
   align-items: center;
@@ -28,164 +31,205 @@ body {
   height: 34px;
 }
 
-/* Casa oculta al entrar */
-.home-btn {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  background: #ffffff;
-  border: 1px solid #b7e3ff;
-  cursor: pointer;
-}
-.menu-open .home-btn { display: flex; }
-.home-btn svg {
-  width: 30px;
-  height: 30px;
-  fill: #1e90ff;
+.menu-icon { 
+  font-size: 26px; 
+  cursor: pointer; 
+  padding: 6px 8px; 
+  color: #444; 
 }
 
-.menu-icon {
-  font-size: 26px;
-  cursor: pointer;
-  padding: 6px 8px;
-  color: #444;
+/* --- Contenido original --- */
+.container{
+  width:92%;
+  max-width:750px;
+  margin:20px auto;
 }
 
-/* --- Menú lateral --- */
-.menu {
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #d0d0d0;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-.menu.open { max-height: 800px; }
-
-.menu-item {
-  padding: 14px 18px;
-  font-size: 17px;
-  color: #444;
-  border-bottom: 1px solid #e5e5e5;
-  cursor: pointer;
-}
-.menu-item:hover { background: #f2f2f2; }
-
-.container {
-  width: 92%;
-  max-width: 750px;
-  margin: 20px auto;
+.card{
+  background:#fff;
+  border:1px solid #d0d0d0;
+  padding:18px;
+  border-radius:4px;
 }
 
-/* --- Tarjetas principales --- */
-.card {
-  background: #fff;
-  border: 1px solid #bfc7ce;
-  padding: 18px;
-  border-radius: 6px;
-  margin-bottom: 30px;
+.title{
+  color:#1686b6;
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:18px;
 }
 
-.title {
-  color: #1686b6;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 18px;
+.filter-box{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:20px;
 }
 
-/* --- Materias --- */
-.section-title {
-  background: #f5f6f7;
-  padding: 12px;
-  font-weight: bold;
-  font-size: 17px;
-  border-bottom: 1px solid #d5d5d5;
+select{
+  width:100%;
+  padding:10px;
+  border-radius:4px;
+  border:1px solid #cdd2d6;
 }
 
-.subject {
-  background: #fff;
-  border: 1px solid #cfd7df;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 4px;
+.year-title{
+  font-weight:700;
+  color:#444;
+  background:#e3f0fa;
+  border:1px solid #cfdfe9;
+  padding:10px 12px;
+  border-radius:4px;
+  margin-top:20px;
+  margin-bottom:10px;
+  font-size:18px;
 }
-.approved { border-left: 4px solid #2ba500; }
-.ongoing { border-left: 4px solid #0073c9; }
-.failed { border-left: 4px solid #d10000; }
-.subject b { font-size: 16px; }
-.subject small { color: #555; }
+
+.materia-item{
+  border:1px solid #d9d9d9;
+  padding:12px;
+  border-radius:4px;
+  margin-bottom:10px;
+  background:#fafafa;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.badge{
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.badge.aprobada{
+  background:#d5f5d5;
+  color:#0a7a0a;
+  border:1px solid #91d091;
+}
+
+.badge.en-curso{
+  background:#fff4d2;
+  color:#9c7300;
+  border:1px solid #ead596;
+}
 </style>
 </head>
 
 <body>
+
 <!-- Barra superior -->
 <div class="topbar">
-  <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo-uns.png" class="logo-uns" alt="UNS">
-    <button class="home-btn" onclick="window.location.href='panel.html'">
-      <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3z"/></svg>
-    </button>
-  </div>
-  <div class="menu-icon" id="menuBtn">&#9776;</div>
+  <img src="logo-uns.png" class="logo-uns" alt="UNS">
+  <div class="menu-icon" onclick="window.location.href='panel.html'">&#9776;</div>
 </div>
 
-<!-- Menú -->
-<nav id="menu" class="menu">
-  <div class="menu-item" onclick="mostrarSeccion('cursadas')">Cursadas</div>
-  <div class="menu-item" onclick="mostrarSeccion('examenes')">Exámenes</div>
-  <div class="menu-item" onclick="window.open('certificado_perez.pdf','_blank')">Certificado</div>
-</nav>
-
-<!-- Contenido -->
 <div class="container">
+  <div class="card">
 
-  <!-- CURSADAS -->
-  <div id="cursadas" class="card">
-    <div class="title">Materias — Seguimiento de Cursadas</div>
+    <div class="title">Seguimiento de Cursadas</div>
 
-    <div class="section-title">Materias Aprobadas</div>
-    <div class="subject approved"><b>Álgebra y Geometría I</b><br><small>Nota: 8 — Fecha: 12/07/2024</small></div>
-    <div class="subject approved"><b>Introducción a la Programación</b><br><small>Nota: 9 — Fecha: 20/07/2024</small></div>
-    <div class="subject approved"><b>Análisis Matemático I</b><br><small>Nota: 7 — Fecha: 05/08/2024</small></div>
+    <!-- FILTROS -->
+    <div class="filter-box">
+      <select id="filter-year">
+        <option value="all">Todos los años</option>
+        <option value="1">Primer Año</option>
+      </select>
 
-    <div class="section-title">Materias en Curso</div>
-    <div class="subject ongoing"><b>Física I</b><br><small>Cursando — 2025</small></div>
-    <div class="subject ongoing"><b>Estructura de Datos</b><br><small>Cursando — 2025</small></div>
+      <select id="filter-materia">
+        <option value="all">Todas las materias</option>
+      </select>
+    </div>
 
-    <div class="section-title">Materias Desaprobadas</div>
-    <div class="subject failed"><b>Química General</b><br><small>Nota: 2 — Fecha: 14/03/2024</small></div>
+    <!-- LISTA DE MATERIAS -->
+    <div id="materias-list">
+
+      <!-- ------- PRIMER AÑO ------- -->
+      <div data-year="1">
+        <div class="year-title">Primer Año</div>
+
+        <div class="materia-item" data-name="Matemática I">
+          <span>101 - Matemática I (Cálculo diferencial)</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+        <div class="materia-item" data-name="Física I">
+          <span>102 - Física I</span>
+          <span class="badge en-curso">En curso</span>
+        </div>
+
+        <div class="materia-item" data-name="Construcción">
+          <span>103 - Construcción</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+        <div class="materia-item" data-name="Estructuras">
+          <span>104 - Estructuras</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+        <div class="materia-item" data-name="Geotecnia">
+          <span>105 - Geotecnia</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+        <div class="materia-item" data-name="Hidráulica">
+          <span>106 - Hidráulica</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+        <div class="materia-item" data-name="Transporte">
+          <span>107 - Transporte</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+        <div class="materia-item" data-name="Gestión de Proyectos">
+          <span>108 - Gestión de Proyectos</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-
-  <!-- EXÁMENES -->
-  <div id="examenes" class="card" style="display:none;">
-    <div class="title">Notas de Exámenes</div>
-    <div class="subject approved"><b>Álgebra y Geometría I</b><br><small>Parcial 1: 7 — Final: 8</small></div>
-    <div class="subject approved"><b>Introducción a la Programación</b><br><small>Parcial 1: 8 — Final: 9</small></div>
-    <div class="subject failed"><b>Química General</b><br><small>Parcial 1: 3 — Final: 2</small></div>
-  </div>
-
 </div>
 
 <script>
-const menu = document.getElementById("menu");
-const body = document.body;
-document.getElementById("menuBtn").onclick = () => {
-  menu.classList.toggle("open");
-  body.classList.toggle("menu-open");
-};
+// ------ GENERAR OPCIONES DE MATERIAS ------
+let materias = document.querySelectorAll(".materia-item");
+let materiaSelect = document.getElementById("filter-materia");
 
-// Mostrar secciones
-function mostrarSeccion(id){
-  document.querySelectorAll(".card").forEach(c => c.style.display = "none");
-  document.getElementById(id).style.display = "block";
-  menu.classList.remove("open");
-  body.classList.remove("menu-open");
+materias.forEach(m => {
+  let name = m.getAttribute("data-name");
+  let opt = document.createElement("option");
+  opt.value = name;
+  opt.textContent = name;
+  materiaSelect.appendChild(opt);
+});
+
+// ------ FILTROS ------
+document.getElementById("filter-year").addEventListener("change", filtrar);
+document.getElementById("filter-materia").addEventListener("change", filtrar);
+
+function filtrar(){
+  let y = document.getElementById("filter-year").value;
+  let m = document.getElementById("filter-materia").value;
+
+  document.querySelectorAll("[data-year]").forEach(sec=>{
+    sec.style.display = (y==="all" || sec.getAttribute("data-year")===y) ? "block" : "none";
+  });
+
+  materias.forEach(mat=>{
+    let name = mat.getAttribute("data-name");
+    let parentYear = mat.parentElement.getAttribute("data-year");
+
+    let showByYear = (y==="all" || parentYear===y);
+    let showByMat = (m==="all" || m===name);
+
+    mat.style.display = (showByYear && showByMat) ? "flex" : "none";
+  });
 }
 </script>
 
