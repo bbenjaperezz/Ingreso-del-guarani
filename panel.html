@@ -87,17 +87,16 @@
         font-weight: normal;
     }
 
-    /* 🔵 TARJETA COMPLETA CON FONDO CELESTITO (como SIU original) */
     .card {
-        background: #eef3f8;
-        border: 1px solid #d4dce4;
+        background: #ffffff;
+        border: 1px solid #d0d0d0;
         padding: 18px;
         border-radius: 4px;
         font-size: 14px;
         line-height: 1.45;
     }
 
-    /* 🔵 BLOQUE CELESTE DEL TITULO */
+    /* BLOQUE CELESTE */
     .header-box {
         background: #eef3f8;
         border: 1px solid #d4dce4;
@@ -163,7 +162,6 @@
 
 <!-- BARRA SUPERIOR -->
 <div class="topbar">
-
     <button>
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
@@ -214,19 +212,7 @@
             <div class="red">Actualizá tu MAIL</div>
         </div>
 
-        <div class="title">Cursadas</div>
-        <select>
-            <option>2025 - Segundo Cuatr.</option>
-        </select>
-
-        <p>
-            <b>Inicio Clases:</b> 18/08/2025<br>
-            <b>Fin Clases:</b> 05/12/2025<br>
-            <b>Inicio Inscripciones:</b> 04/08/2025<br>
-            <b>Fin Inscripciones:</b> 06/09/2025<br>
-            <b>Correlativas hasta:</b> 19/09/2025
-        </p>
-
+        <!-- 🔄 ORDEN INVERTIDO: PRIMERO ÍTEMS, DESPUÉS CURSADA -->
         <div class="title">Inscripciones</div>
         <ul>
             <li>103 - DIDACTICA</li>
@@ -235,12 +221,26 @@
             <li>110 - TALLER DE EXP.MUS.I</li>
         </ul>
 
-        <div class="title" style="margin-top:20px;">Exámenes</div>
+        <div class="title" style="margin-top:12px;">Cursadas</div>
+        <select>
+            <option>2025 - Segundo Cuatr.</option>
+        </select>
+
+        <p style="margin-top:8px;">
+            <b>Inicio Clases:</b> 18/08/2025<br>
+            <b>Fin Clases:</b> 05/12/2025<br>
+            <b>Inicio Inscripciones:</b> 04/08/2025<br>
+            <b>Fin Inscripciones:</b> 06/09/2025<br>
+            <b>Correlativas hasta:</b> 19/09/2025
+        </p>
+
+        <!-- EXÁMENES -->
+        <div class="title" style="margin-top:12px;">Exámenes</div>
         <select>
             <option>Turno 2025-12</option>
         </select>
 
-        <p>
+        <p style="margin-top:8px;">
             <b>Inicio:</b> 01/12/2025<br>
             <b>Fin:</b> 30/12/2025
         </p>
