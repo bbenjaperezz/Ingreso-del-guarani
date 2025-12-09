@@ -40,6 +40,35 @@
         vertical-align: middle;
     }
 
+    /* MENÚ LATERAL */
+    .sidebar {
+        position: fixed;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border-bottom: 1px solid #ccc;
+        display: none;
+        z-index: 999;
+    }
+
+    .sidebar div {
+        padding: 12px 15px;
+        border-top: 1px solid #eee;
+        font-size: 16px;
+        color: #555;
+        background: #fff;
+    }
+
+    .sidebar div:hover {
+        background: #f5f5f5;
+    }
+
+    .arrow {
+        float: right;
+        font-weight: bold;
+    }
+
     /* CONTENEDOR */
     .container {
         width: 92%;
@@ -113,14 +142,21 @@
         line-height: 1.4;
     }
 </style>
-</head>
 
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("sidebar");
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</head>
 <body>
 
 <!-- BARRA SUPERIOR -->
 <div class="topbar">
 
-    <!-- PERSONITA -->
+    <!-- PERSONA -->
     <button>
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
@@ -137,13 +173,27 @@
         0
     </button>
 
-    <!-- TRES RAYAS -->
-    <button>
+    <!-- MENÚ -->
+    <button onclick="toggleMenu()">
         <img class="icon" src="data:image/svg+xml;utf8,
         <svg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 24 24'>
         <path d='M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z'/>
         </svg>" />
     </button>
+</div>
+
+<!-- MENÚ LATERAL -->
+<div class="sidebar" id="sidebar">
+    <div>Cursadas <span class="arrow">▾</span></div>
+    <div>Exámenes <span class="arrow">▾</span></div>
+    <div>Ingreso <span class="arrow">▾</span></div>
+    <div>Matrícula <span class="arrow">▾</span></div>
+    <div>Certificaciones <span class="arrow">▾</span></div>
+    <div>Consultas <span class="arrow">▾</span></div>
+    <div>Servicios <span class="arrow">▾</span></div>
+    <div>Encuestas <span class="arrow">▾</span></div>
+    <div>Egresados <span class="arrow">▾</span></div>
+    <div>Moodle <span class="arrow">▾</span></div>
 </div>
 
 <!-- CONTENIDO SIU -->
@@ -187,7 +237,7 @@
             <b>Fin:</b> 30/12/2025
         </p>
 
-        <!-- 🟦 BLOQUE AZUL AGREGADO -->
+        <!-- MENSAJE AZUL -->
         <div class="title">Inscripciones</div>
 
         <div class="exam-msg">
