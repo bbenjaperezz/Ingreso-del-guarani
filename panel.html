@@ -8,7 +8,7 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #d9dfe5; /* ✔️ FONDO CLARO COMO GUARANÍ */
+        background: #d9dfe5;
         color: #444;
     }
 
@@ -40,20 +40,20 @@
         vertical-align: middle;
     }
 
-    /* MENU SUPERIOR */
+    /* MENU SUPERIOR COMPLETO */
     .menu {
         width: 100%;
         background: #ffffff;
         border-bottom: 1px solid #cfcfcf;
         display: none;
         flex-direction: column;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
         z-index: 50;
     }
 
     .menu-item {
-        padding: 14px 18px;
+        padding: 13px 18px;
         font-size: 17px;
         color: #444;
         border-bottom: 1px solid #e5e5e5;
@@ -72,12 +72,12 @@
         color: #006bb3;
         font-size: 27px;
         margin-bottom: 12px;
-        font-weight: normal;
+        font-weight: 600; /* ✔️ MÁS ANCHO COMO GUARNI */
     }
 
-    /* ✔️ NUEVO: FONDO UNIFICADO TIPO GUARANÍ */
+    /* TARJETA */
     .card {
-        background: #eef3f8; /* ✔️ MISMO CELESTE QUE CALENDARIO */
+        background: #eef3f8;
         border: 1px solid #d0d7dd;
         padding: 18px;
         border-radius: 4px;
@@ -86,7 +86,7 @@
     }
 
     .header-box {
-        background: #e4ebf3; /* un poco más fuerte como el original */
+        background: #e4ebf3;
         border: 1px solid #c9d4df;
         padding: 10px 12px;
         border-radius: 4px;
@@ -122,16 +122,6 @@
         font-size: 14px;
     }
 
-    ul {
-        padding-left: 20px;
-        margin: 6px 0;
-    }
-
-    ul li {
-        margin-bottom: 5px;
-    }
-
-    /* EXÁMENES */
     .exam-msg {
         background: #dfe9f2;
         border: 1px solid #c3d3e2;
@@ -141,23 +131,20 @@
         color: #0b6fb8;
     }
 
-    /* 🔧 MOBILE FIX */
+    /* MOBILE FIX */
     @media (max-width: 480px) {
-        body {
-            background: #d9dfe5;
-        }
-
         .container {
             padding: 0 6px;
         }
-
         .card {
             padding: 14px;
         }
-
         h2 {
-            font-size: 22px;
+            font-size: 24px;
             margin-left: 4px;
+        }
+        .menu-item {
+            font-size: 18px;
         }
     }
 </style>
@@ -189,11 +176,18 @@
     </button>
 </div>
 
-<!-- MENU -->
+<!-- MENU COMPLETO -->
 <div class="menu" id="menu">
     <div class="menu-item">Cursadas ▾</div>
     <div class="menu-item">Exámenes ▾</div>
     <div class="menu-item">Ingreso ▾</div>
+    <div class="menu-item">Matrícula ▾</div>
+    <div class="menu-item">Certificaciones ▾</div>
+    <div class="menu-item">Consultas ▾</div>
+    <div class="menu-item">Servicios ▾</div>
+    <div class="menu-item">Encuestas ▾</div>
+    <div class="menu-item">Egresados ▾</div>
+    <div class="menu-item">Moodle ▾</div>
 </div>
 
 <!-- CONTENIDO -->
@@ -240,7 +234,7 @@
 </div>
 
 <script>
-document.getElementById("menuBtn").addEventListener("click", function() {
+document.getElementById("menuBtn").addEventListener("click", () => {
     const menu = document.getElementById("menu");
     menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 });
