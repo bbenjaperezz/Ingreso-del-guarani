@@ -61,7 +61,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 8px; /* flecha CERCA del texto */
+        gap: 5px;
     }
 
     .menu-item:hover {
@@ -69,8 +69,8 @@
     }
 
     .submenu-arrow {
-        font-size: 15px;
-        margin-left: 3px; /* aún más pegado como en SIU */
+        font-size: 14px;
+        margin-left: 2px;
     }
 
     /* CONTENEDOR */
@@ -172,7 +172,11 @@
 
 <!-- MENU DESPLEGABLE -->
 <div class="menu" id="menu">
+
+    <!-- ✔ Invertido como pediste: primero ITEMS después CURSADAS -->
+    <div class="menu-item">Inscripciones<span class="submenu-arrow">▾</span></div>
     <div class="menu-item">Cursadas<span class="submenu-arrow">▾</span></div>
+
     <div class="menu-item">Exámenes<span class="submenu-arrow">▾</span></div>
     <div class="menu-item">Ingreso<span class="submenu-arrow">▾</span></div>
     <div class="menu-item">Matrícula<span class="submenu-arrow">▾</span></div>
