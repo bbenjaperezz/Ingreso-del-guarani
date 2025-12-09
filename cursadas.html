@@ -28,11 +28,12 @@ body{
 
 .title{
   color:#1686b6;
-  font-size:20px;
+  font-size:22px;
   font-weight:700;
-  margin-bottom:15px;
+  margin-bottom:18px;
 }
 
+/* Filtros */
 .filter-box{
   display:flex;
   flex-direction:column;
@@ -47,17 +48,20 @@ select{
   border:1px solid #cdd2d6;
 }
 
+/* Años */
 .year-title{
   font-weight:700;
   color:#444;
-  background:#eef6fb;
-  border:1px solid #dce7ee;
-  padding:8px 12px;
+  background:#e3f0fa;
+  border:1px solid #cfdfe9;
+  padding:10px 12px;
   border-radius:4px;
   margin-top:20px;
   margin-bottom:10px;
+  font-size:18px;
 }
 
+/* Materias */
 .materia-item{
   border:1px solid #d9d9d9;
   padding:12px;
@@ -70,7 +74,7 @@ select{
 }
 
 .badge{
-  padding:4px 10px;
+  padding:4px 12px;
   border-radius:20px;
   font-size:13px;
   font-weight:bold;
@@ -102,10 +106,6 @@ select{
       <select id="filter-year">
         <option value="all">Todos los años</option>
         <option value="1">Primer Año</option>
-        <option value="2">Segundo Año</option>
-        <option value="3">Tercer Año</option>
-        <option value="4">Cuarto Año</option>
-        <option value="5">Quinto Año</option>
       </select>
 
       <select id="filter-materia">
@@ -116,39 +116,35 @@ select{
     <!-- LISTA DE MATERIAS -->
     <div id="materias-list">
 
-      <!-- ------- AÑO 1 ------- -->
+      <!-- ------- PRIMER AÑO ------- -->
       <div data-year="1">
         <div class="year-title">Primer Año</div>
 
         <div class="materia-item" data-name="Matemática I">
-          <span>Matemática I</span>
-          <span class="badge aprobada">APROBADA</span>
+          <span>Matemática I (Cálculo diferencial)</span>
+          <span class="badge aprobada">Aprobada</span>
         </div>
 
-        <div class="materia-item" data-name="Álgebra y Geometría">
-          <span>Álgebra y Geometría</span>
-          <span class="badge aprobada">APROBADA</span>
+        <div class="materia-item" data-name="Matemática II">
+          <span>Matemática II (Cálculo integral)</span>
+          <span class="badge aprobada">Aprobada</span>
         </div>
 
-        <div class="materia-item" data-name="Introducción a la Ingeniería">
-          <span>Introducción a la Ingeniería</span>
-          <span class="badge aprobada">APROBADA</span>
+        <div class="materia-item" data-name="Álgebra Lineal">
+          <span>Álgebra Lineal</span>
+          <span class="badge aprobada">Aprobada</span>
         </div>
-      </div>
 
-      <!-- ------- AÑO 2 ------- -->
-      <div data-year="2">
-        <div class="year-title">Segundo Año</div>
+        <div class="materia-item" data-name="Probabilidad y Estadística">
+          <span>Probabilidad y Estadística</span>
+          <span class="badge aprobada">Aprobada</span>
+        </div>
 
         <div class="materia-item" data-name="Física I">
           <span>Física I</span>
-          <span class="badge en-curso">EN CURSO</span>
+          <span class="badge en-curso">En curso</span>
         </div>
 
-        <div class="materia-item" data-name="Estadística Aplicada">
-          <span>Estadística Aplicada</span>
-          <span class="badge aprobada">APROBADA</span>
-        </div>
       </div>
 
     </div>
@@ -157,16 +153,16 @@ select{
 </div>
 
 <script>
-// ------ GENERAR LISTA PARA FILTRO DE MATERIAS ------
+// ------ GENERAR OPCIONES DE MATERIAS ------
 let materias = document.querySelectorAll(".materia-item");
 let materiaSelect = document.getElementById("filter-materia");
 
 materias.forEach(m => {
   let name = m.getAttribute("data-name");
-  let option = document.createElement("option");
-  option.value = name;
-  option.textContent = name;
-  materiaSelect.appendChild(option);
+  let opt = document.createElement("option");
+  opt.value = name;
+  opt.textContent = name;
+  materiaSelect.appendChild(opt);
 });
 
 // ------ FILTROS ------
@@ -177,22 +173,18 @@ function filtrar(){
   let y = document.getElementById("filter-year").value;
   let m = document.getElementById("filter-materia").value;
 
-  document.querySelectorAll("[data-year]").forEach(seccion=>{
-    let year = seccion.getAttribute("data-year");
-    seccion.style.display = (y === "all" || y === year) ? "block" : "none";
+  document.querySelectorAll("[data-year]").forEach(sec=>{
+    sec.style.display = (y==="all" || sec.getAttribute("data-year")===y) ? "block" : "none";
   });
 
   materias.forEach(mat=>{
     let name = mat.getAttribute("data-name");
     let parentYear = mat.parentElement.getAttribute("data-year");
 
-    // filtro por año
-    let showByYear = (y === "all" || y === parentYear);
+    let showByYear = (y==="all" || parentYear===y);
+    let showByMat = (m==="all" || m===name);
 
-    // filtro por materia
-    let showByMateria = (m === "all" || m === name);
-
-    mat.style.display = (showByYear && showByMateria) ? "flex" : "none";
+    mat.style.display = (showByYear && showByMat) ? "flex" : "none";
   });
 }
 </script>
