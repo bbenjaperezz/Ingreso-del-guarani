@@ -1,24 +1,24 @@
-/* --- Configuración general --- */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: #fafafa;
 }
 
-/* --- Encabezado superior --- */
+/* Encabezado */
 .header {
     background: #ffffff;
     padding: 15px;
     border-bottom: 1px solid #ddd;
 }
 
-/* --- LOGO (CORRECTO) --- */
+/* Logo ajustado y sin fondo negro (PNG necesario) */
 .logo-uns {
-    width: 80px;       /* Se ve bien sin importar el dispositivo */
+    width: 80px;
+    height: auto;
     display: block;
 }
 
-/* --- Contenedor general --- */
+/* Contenedor general */
 .container {
     width: 90%;
     max-width: 450px;
@@ -26,12 +26,12 @@ body {
     margin-top: 30px;
 }
 
-/* --- Títulos --- */
+/* Titulos */
 h1, h2 {
     color: #555;
 }
 
-/* --- Inputs --- */
+/* Inputs */
 input {
     width: 100%;
     padding: 12px;
@@ -40,7 +40,7 @@ input {
     border-radius: 4px;
 }
 
-/* --- Botón --- */
+/* Botón Ingresar */
 .btn {
     width: 140px;
     background: #32a8d8;
@@ -54,7 +54,7 @@ input {
     cursor: pointer;
 }
 
-/* --- Link de olvidaste tu contraseña --- */
+/* Link */
 .forgot {
     display: block;
     margin-top: 15px;
@@ -62,12 +62,12 @@ input {
     text-decoration: none;
 }
 
-/* --- Listas --- */
+/* Lista */
 ul {
     margin-top: 5px;
 }
 
-/* --- Mensaje recordatorio --- */
+/* Bloque Recordá */
 .recorda {
     margin-top: 25px;
 }
