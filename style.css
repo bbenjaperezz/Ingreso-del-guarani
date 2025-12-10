@@ -1,218 +1,191 @@
-/* ----- reset & base ----- */
-*{box-sizing:border-box}
-body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color:#222;}
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f2f4f6;
+  color:#222;
+}
 
-/* ----- header ----- */
-.header{
+/* TOPBAR */
+.topbar{
+  width:100%;
   background:#ffffff;
-  border-bottom:1px solid #e1e4e8;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  border-bottom:1px solid #d7d7d7;
+  display:flex;
+  justify-content:space-between;
+  padding:6px 10px 4px 10px;
+  align-items:flex-start;
 }
-.header-inner{
-  max-width:1150px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:10px 16px;
-}
-.logo{display:flex;align-items:center;gap:10px}
 
-/* 🔵 LOGO UNS CORREGIDO */
 .logo-img{
-  height:34px;
-  width:34px;
+  width:38px;
+  height:38px;
   object-fit:contain;
-  border-radius:4px;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 
-.logo-text{font-weight:700;color:#0d5d85;font-size:18px}
-.logo-small{font-weight:400;font-size:12px;margin-left:8px;color:#567}
-
-/* nav */
-.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center;}
-.main-nav .nav-item{position:relative}
-.main-nav a, .main-nav .sub-btn{
-  display:inline-block;padding:8px 12px;border:1px solid #e6e9ec;background:#fafafa;border-radius:3px;color:#333;text-decoration:none;font-size:14px;cursor:pointer;
-}
-.main-nav .active .sub-btn, .main-nav .active a{background:#1690c7;color:#fff;border-color:#1690c7}
-.main-nav .sub{
-  display:none;position:absolute;top:40px;left:0;background:#fff;border:1px solid #dfe7ea;
-  min-width:220px;box-shadow:0 8px 18px rgba(0,0,0,0.08);z-index:9999;
-  padding:6px 0;border-radius:4px
-}
-.main-nav .sub li a{display:block;padding:8px 12px;border-bottom:1px solid #f2f6f7;color:#333}
-.main-nav .sub li a:hover{background:#f7fbff;color:#003e63}
-.main-nav .has-sub.open .sub{display:block}
-
-/* user info */
-.user-info{margin-left:auto;color:#0b4c66;font-weight:700}
-
-/* ----- page grid ----- */
-.page{
-  max-width:1150px;margin:18px auto;
-  display:grid;grid-template-columns:260px 1fr 300px;
-  gap:18px;padding:0 12px;
-  position: relative;
-  z-index: 1;
+/* Iconos derecha */
+.topbar-actions{
+  display:flex;
+  gap:6px;
+  margin-top:0px;
 }
 
-/* boxes */
-.box{background:#fff;border-radius:6px;padding:14px;box-shadow:0 4px 12px rgba(0,0,0,0.03)}
-.box h3{margin:0 0 10px 0;color:#0b5d7a}
-
-/* sidebar left */
-.sidebar-left .filter-block label{display:block;margin:8px 0;color:#333;font-size:14px}
-.sidebar-left hr{border:none;border-top:1px solid #eef3f5;margin:12px 0}
-
-/* main panel */
-.panel{
-  position: relative;
-  z-index: 1;
+.top-btn{
+  width:44px;
+  height:32px;
+  background:linear-gradient(#fafafa,#e3e3e3);
+  border:1px solid #bfc3c7;
+  border-radius:6px;
+  box-shadow:
+    inset 0 1px 0 #ffffff,
+    inset 0 -1px 0 #d4d4d4;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  position:relative;
 }
 
-.panel h1{color:#1686b6;margin:0 0 8px 0}
-.meta{display:flex;justify-content:space-between;color:#6d7276;margin-bottom:14px}
-.controls{display:flex;gap:12px;align-items:center;margin-bottom:16px}
-.control-group label{display:block;color:#556; font-size:13px;margin-bottom:6px}
-.control-group select{padding:8px;border-radius:6px;border:1px solid #d6dae0;background:#fbfdff}
-.btn-blue{background:#1690c7;color:#fff;border:none;padding:9px 12px;border-radius:6px;cursor:pointer}
-
-/* year block */
-.year-block{background:#ffffff;border-radius:6px;padding:14px;margin-bottom:18px}
-.year-bar{background:#bfe1f3;color:#0b5d7a;padding:10px;border-radius:4px;font-weight:700;margin-bottom:12px}
-
-/* subject rows */
-.subject{
-  background:#f6f7f8;border-radius:6px;padding:12px;margin-bottom:10px;
-  display:flex;justify-content:space-between;align-items:center;
-  border:1px solid #e9ecef;
-}
-.subject-title{font-weight:700;color:#333;max-width:72%}
-.subject-meta{color:#4e5a60;font-size:14px;display:flex;align-items:center;gap:6px;white-space:nowrap}
-
-/* tags */
-.tag{padding:6px 10px;border-radius:6px;color:#fff;font-weight:700;font-size:13px;min-width:72px;text-align:center}
-.tag.green{background:#00a651}
-.tag.red{background:#e74c3c}
-.tag.blue{background:#00a0d6}
-.tag.orange{background:#ff9f1a}
-
-/* classes for filtering states */
-.promocionada .tag{background:#1fae4f}
-.aprobada .tag{background:#00a651}
-.desaprobada .tag{background:#e74c3c}
-.ausente .tag{background:#a0a0a0}
-.en-curso .tag{background:#00a0d6}
-
-/* right sidebar */
-.sidebar-right .box{margin-bottom:14px}
-.sidebar-right h4{margin:0 0 8px 0;color:#0b5d7a}
-
-/* responsive */
-@media (max-width: 980px){
-  .page{grid-template-columns:1fr;padding:0 12px}
-  .user-info{display:none}
-  .main-nav ul{overflow:auto}
-  .logo{font-size:16px}
+.top-btn svg{
+  width:16px;
+  height:16px;
+  fill:#555;
 }
 
-/* === 🔥 FIX DEFINITIVO PARA QUE LOS SUBMENÚS NO SE TAPEN 🔥 === */
-.header {
-  overflow: visible !important;
+.mail-count{
+  position:absolute;
+  bottom:1px;
+  right:4px;
+  font-size:10px;
+  color:#222;
 }
 
-.header-inner {
-  overflow: visible !important;
-  position: relative;
-  z-index: 999999 !important;
+/* MENÚ — IDÉNTICO SIU */
+.menu{
+  width:100%;
+  background:#EFEFEF;
+  border-bottom:1px solid #d0d0d0;
+  display:flex;
+  flex-direction:column;
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .30s ease;
 }
 
-.main-nav {
-  position: relative;
-  z-index: 999999 !important;
+.menu.open{
+  max-height:1100px;
 }
 
-.main-nav .sub {
-  position: absolute !important;
-  z-index: 999999 !important;
-}
-
-/* ========================================================= */
-/* === 🔵 ESTILOS AGREGADOS PARA LOS SUBMENÚS DEL PANEL === */
-/* ========================================================= */
-
-.menu {
-  background:#fff;
-  border-bottom:1px solid #cfcfcf;
-}
-
-.menu-item {
+.menu-item{
+  padding:14px 18px;
+  font-size:16px;
+  color:#333;
+  border-bottom:1px solid #d9d9d9;
+  cursor:pointer;
   display:flex;
   align-items:center;
-  padding:14px 18px;
-  border-bottom:1px solid #e5e5e5;
-  cursor:pointer;
-  font-size:17px;
-  color:#444;
 }
 
-.submenu {
-  display:none;
+.menu-item:hover{
+  background:#e4e4e4;
+}
+
+.submenu{
+  max-height:0;
+  overflow:hidden;
+  background:#f6f6f6;
+  border-left:3px solid #bbbbbb;
+  transition:max-height .25s ease;
+  display:flex;
   flex-direction:column;
-  background:#fafafa;
-  border-left:3px solid #d0d0d0;
 }
 
-.submenu-item {
-  padding:12px 30px;
-  font-size:15px;
-  border-bottom:1px solid #e5e5e5;
-  cursor:pointer;
-  color:#555;
-}
-
-.submenu-item:hover {
-  background:#efefef;
-}
-
-.submenu-arrow {
-  margin-left:auto;
+.submenu-item{
+  padding:12px 38px;
   font-size:14px;
+  border-bottom:1px solid #e2e2e2;
+  cursor:pointer;
+}
+
+.submenu-item:hover{
+  background:#ececec;
+}
+
+.submenu-arrow{
+  margin-left:auto;
+  font-size:13px;
   opacity:.7;
 }
 
-/* ========================================================= */
-/* === 🎨 COLORES DEL CUADRO CELESTE COMO LA CAPTURA ======= */
-/* ========================================================= */
+/* CONTENIDO */
+.container{
+  width:92%;
+  max-width:750px;
+  margin:14px auto;
+}
 
-/* Bloque celeste */
-.header-box {
-  background:#eef3f8;            /* celeste claro */
-  border:1px solid #d4dce4;      /* borde gris azulado */
+.card{
+  background:#fff;
+  border:1px solid #aab7c4;
+  padding:14px;
+  border-radius:4px;
+}
+
+.header-box{
+  background:#eef6fb;
+  border:1px solid #d0dce4;
   padding:10px 12px;
   border-radius:4px;
-  margin-bottom:15px;
+  margin-bottom:12px;
 }
 
-/* Título celeste */
-.header-box-title {
-  color:#3a7db7;                 /* azul UNS */
+.header-box-title{
+  color:#1686b6;
   font-size:14px;
   font-weight:bold;
-  margin-bottom:6px;
+  margin-bottom:2px;
 }
 
-/* Texto en rojo igual al original */
-.red {
-  color:#d10000;
+.red{
+  color:#cc0000;
   font-weight:bold;
-  font-size:14px;
-  margin-bottom:10px;
+  margin:4px 0 10px 0;
 }
 
-/* Títulos "Inscripciones / Cursadas / Exámenes" */
-.title {
+.title{
+  margin:10px 0 4px;
   font-weight:bold;
   color:#666;
-  font-size:15px;
-  margin-top:12px;
-  margin-bottom:6px;
+  font-size:14px;
 }
+
+ul{padding-left:20px;font-size:14px;}
+ul li{margin-bottom:5px;}
+
+select{
+  width:100%;
+  padding:6px;
+  border:1px solid #d0d0d0;
+  border-radius:4px;
+  background:white;
+  font-size:14px;
+}
+
+.exam-block{
+  background:#eef6fb;
+  border:1px solid #d0dce4;
+  padding:8px 10px;
+  border-radius:4px;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.exam-msg{
+  background:#eef5fb;
+  border-top:1px solid #c9dae7;
+  padding:8px 10px;
+  color:#0b6fb8;
+  margin-top:6px;
+  font-size:14px;
+}
+</style>
