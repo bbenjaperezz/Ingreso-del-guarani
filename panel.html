@@ -251,14 +251,15 @@ select{
   </div>
 </div>
 
-<!-- MENÚ CORREGIDO -->
+<!-- MENÚ -->
 <nav id="menu" class="menu">
 
   <div class="menu-item" onclick="toggleSubmenu('m1')">
     Cursadas <span class="submenu-arrow">▾</span>
   </div>
   <div id="m1" class="submenu">
-    <div class="submenu-item">Seguimiento</div>
+    <!-- ⭐ AGREGADO IMPORTANTE ⭐ -->
+    <div class="submenu-item" onclick="location.href='cursada.html'">Seguimiento</div>
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('m2')">
