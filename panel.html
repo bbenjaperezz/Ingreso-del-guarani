@@ -1,264 +1,317 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel UNS</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SIU Guaraní — Panel Académico</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
-    }
+*{box-sizing:border-box}
+body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color:#222;}
 
-    /* ▷ BARRA SUPERIOR */
-    .top-bar {
-        width: 100%;
-        background: white;
-        padding: 10px 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #ddd;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-    }
+.topbar {
+  width:100%;
+  background:#ffffff;
+  border-bottom:1px solid #e1e4e8;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 12px;
+  gap:12px;
+  position:relative;
+  z-index:1000;
+}
 
-    .top-left img {
-        height: 60px;
-    }
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
-    .top-right {
-        display: flex;
-        gap: 12px;
-    }
+.logo-img{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  border-radius:4px;
+}
 
-    .icon-btn {
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 10px 14px;
-        font-size: 22px;
-        cursor: pointer;
-    }
+/* QUITO LA CASITA DEL TOPBAR: YA NO ESTÁ AQUÍ */
 
-    /* ▷ SIDEBAR */
-    .sidebar {
-        width: 260px;
-        background: white;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: -260px;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-        border-right: 1px solid #ccc;
-        padding-top: 100px;
-        z-index: 999;
-    }
+.topbar-actions{display:flex;align-items:center;gap:8px}
+.topbar-actions button{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:40px;border-radius:6px;
+  border:1px solid #e6e9ec;background:#fafafa;cursor:pointer;
+  box-shadow:0 1px 0 rgba(0,0,0,0.02);
+}
+.topbar-actions button .icon{width:22px;height:22px}
 
-    .sidebar.open {
-        left: 0;
-    }
+.mail-count{
+  color:#1690c7;
+  font-weight:700;
+  margin-left:6px;
+  font-size:14px;
+}
 
-    .menu-logo {
-        display: block;
-        width: 120px;
-        margin: 0 auto 20px auto;
-    }
+.menu {
+  width:100%;
+  background:#ffffff;
+  border-bottom:1px solid #cfcfcf;
+  display:none;
+  flex-direction:column;
+  padding-top:10px;
+  padding-bottom:10px;
+  z-index:50;
+}
 
-    .home-icon {
-        display: block;
-        width: 55px;
-        margin: 0 auto 20px auto;
-    }
+.menu-item {
+  padding:14px 18px;
+  font-size:17px;
+  color:#444;
+  border-bottom:1px solid #e5e5e5;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.menu-item:hover{background:#f2f2f2}
 
-    /* ▷ ITEMS DEL MENÚ */
-    .menu-item {
-        padding: 14px;
-        font-size: 18px;
-        background: #eeeeee;
-        border-bottom: 1px solid #ccc;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-    }
+.menu-item svg{
+  margin-right:6px;
+}
 
-    .menu-item:hover {
-        background: #e2e2e2;
-    }
+.submenu{
+  display:none;
+  flex-direction:column;
+  background:#fafafa;
+  border-left:3px solid #d0d0d0;
+}
+.submenu-item{
+  padding:12px 30px;
+  font-size:15px;
+  border-bottom:1px solid #e5e5e5;
+  color:#555;
+  cursor:pointer;
+}
+.submenu-item:hover{background:#efefef}
+.submenu-arrow{margin-left:auto;font-size:15px;opacity:.8}
 
-    /* Flecha */
-    .arrow {
-        transition: transform 0.2s;
-        font-size: 18px;
-    }
+.container{
+  width:92%;
+  max-width:750px;
+  margin:18px auto;
+}
+.card{background:#fff;border:1px solid #d0d0d0;padding:18px;border-radius:4px;font-size:14px;line-height:1.45}
 
-    .arrow.open {
-        transform: rotate(180deg);
-    }
+.header-box{
+  background:#eef6fb;
+  border:1px solid #dbe8ef;
+  padding:10px 12px;
+  border-radius:4px;
+  margin-bottom:15px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.header-box-title{
+  color:#1686b6;
+  font-size:14px;
+  margin-bottom:6px;
+  font-weight:700;
+}
+.red{
+  color:#cc0000;
+  font-weight:700;
+  margin-bottom:10px;
+  font-size:14px;
+}
+.title{
+  font-weight:700;
+  color:#666;
+  margin-top:12px;
+  margin-bottom:6px;
+  font-size:15px;
+}
+ul{padding-left:20px;margin-top:5px;color:#222}
+ul li{margin-bottom:6px}
 
-    /* ▷ SUBMENÚ */
-    .submenu {
-        background: white;
-        display: none;
-    }
+select{
+  width:100%;
+  padding:8px;
+  border-radius:4px;
+  border:1px solid #d6dae0;
+  background:#fff;
+}
 
-    .submenu div {
-        padding: 12px 30px;
-        font-size: 17px;
-        border-bottom: 1px solid #ddd;
-        cursor: pointer;
-    }
+.exam-msg{
+  background:#eef5fb;
+  border-top:1px solid #c9dae7;
+  padding:10px 12px;
+  color:#0b6fb8;
+  font-size:14px;
+  margin-top:6px;
+}
 
-    .submenu div:hover {
-        background: #f0f0f0;
-    }
-
-    /* ▷ CONTENIDO PRINCIPAL */
-    .content {
-        padding: 120px 20px 20px 20px;
-    }
-
-    h1 {
-        color: #0074c7;
-        font-size: 34px;
-        margin-bottom: 5px;
-    }
-
-    .card {
-        background: white;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        max-width: 95%;
-        margin: auto;
-    }
-
-    .card h2 {
-        font-size: 20px;
-        color: #0074c7;
-        margin-bottom: 10px;
-    }
-
-    .label-bold {
-        font-weight: bold;
-    }
+@media (max-width:980px){
+  .container{width:96%}
+  .menu{display:flex}
+}
 </style>
 </head>
+
 <body>
 
-<!-- ▷ BARRA SUPERIOR -->
-<div class="top-bar">
-    <div class="top-left">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Logo_UNS.png">
-    </div>
+<!-- TOPBAR -->
+<div class="topbar">
 
-    <div class="top-right">
-        <button class="icon-btn">👤</button>
-        <button class="icon-btn">✉️</button>
-        <button id="menuBtn" class="icon-btn">☰</button>
-    </div>
+  <div class="topbar-left">
+
+    <!-- TU LOGO REAL -->
+    <img src="logo-uns.png" alt="UNS" class="logo-img">
+
+    <!-- 🔥 CASITA ELIMINADA DEL TOPBAR -->
+  </div>
+
+  <div class="topbar-actions">
+
+    <button>
+      <svg class="icon" viewBox="0 0 24 24" fill="#000">
+        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+      </svg>
+    </button>
+
+    <button>
+      <svg class="icon" viewBox="0 0 24 24" fill="#000">
+        <path d="M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8z"/>
+      </svg>
+      <span class="mail-count">0</span>
+    </button>
+
+    <button id="menuBtn">
+      <svg class="icon" viewBox="0 0 24 24" fill="#000">
+        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+      </svg>
+    </button>
+
+  </div>
 </div>
 
-<!-- ▷ SIDEBAR -->
-<div id="sidebar" class="sidebar">
+<!-- MENU -->
+<nav id="menu" class="menu" aria-hidden="true">
 
-    <img class="menu-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Logo_UNS.png">
-    <img class="home-icon" src="https://cdn-icons-png.flaticon.com/512/1946/1946433.png">
+  <!-- 🔥🔥🔥 CASITA AGREGADA DENTRO DEL MENÚ (COMO ANTES) -->
+  <div class="menu-item" onclick="location.href='index.html'">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1686b6">
+      <path d="M12 3l9 7v11H6v-7H9v7H4V10z"/>
+    </svg>
+    Inicio
+  </div>
 
-    <!-- MENU COMPLETO -->
-    <div class="menu-item" onclick="toggleMenu('cursadas', this)">Cursadas <span class="arrow">▼</span></div>
-    <div id="cursadas" class="submenu">
-        <div>Seguimiento</div>
+  <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
+    Cursadas <span class="submenu-arrow">▾</span>
+  </div>
+
+  <div id="subCursadas" class="submenu">
+    <div class="submenu-item">Inscripción</div>
+    <div class="submenu-item" onclick="location.href='cursadas.html'">Seguimiento</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subExamenes')">
+    Exámenes <span class="submenu-arrow">▾</span>
+  </div>
+  <div id="subExamenes" class="submenu">
+    <div class="submenu-item">Inscripción a Exámenes</div>
+    <div class="submenu-item">Mis Mesas</div>
+    <div class="submenu-item">Historial</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subCertificados')">
+    Certificaciones <span class="submenu-arrow">▾</span>
+  </div>
+  <div id="subCertificados" class="submenu">
+    <div class="submenu-item" onclick="window.open('certificado_visconti.pdf','_blank')">
+      Solicitud de Certificados
     </div>
+    <div class="submenu-item">Consulta / Anulación</div>
+  </div>
 
-    <div class="menu-item" onclick="toggleMenu('examenes', this)">Exámenes <span class="arrow">▼</span></div>
-    <div id="examenes" class="submenu">
-        <div>Inscripción a Exámenes</div>
-        <div>Mis Mesas</div>
+  <div class="menu-item" onclick="toggleSubmenu('subIngreso')">Ingreso <span class="submenu-arrow">▾</span></div>
+  <div id="subIngreso" class="submenu">
+    <div class="submenu-item">Requisitos</div>
+    <div class="submenu-item">Documentación</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subMatricula')">Matrícula <span class="submenu-arrow">▾</span></div>
+  <div id="subMatricula" class="submenu">
+    <div class="submenu-item">Generar Matrícula</div>
+    <div class="submenu-item">Pagos / Aranceles</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subConsultas')">Consultas <span class="submenu-arrow">▾</span></div>
+  <div id="subConsultas" class="submenu">
+    <div class="submenu-item">Consultar Alumno</div>
+    <div class="submenu-item">Estado Académico</div>
+  </div>
+
+  <div class="menu-item">Servicios</div>
+  <div class="menu-item">Encuestas</div>
+  <div class="menu-item">Egresados</div>
+  <div class="menu-item">Moodle</div>
+
+</nav>
+
+<main class="container">
+  <h2 style="color:#1686b6;">Bienvenido</h2>
+
+  <div class="card">
+    <div class="header-box">
+      <div class="header-box-title">Calendario Académico</div>
+      <div class="red">Actualizá tu MAIL</div>
+
+      <div class="title">Inscripciones</div>
+      <ul>
+        <li>101 - Matemáticas</li>
+        <li>102 - Física</li>
+        <li>103 - Construcción</li>
+        <li>104 - Estructuras</li>
+        <li>105 - Geotecnia</li>
+        <li>106 - Hidráulica</li>
+        <li>107 - Transporte</li>
+        <li>108 - Gestión de Proyectos</li>
+      </ul>
+
+      <div class="title">Cursadas</div>
+      <select><option>2025 - Segundo Cuatr.</option></select>
+
+      <p><b>Inicio:</b> 18/08/2025<br>
+      <b>Fin:</b> 05/12/2025<br>
+      <b>Inscripciones:</b> 04/08 - 06/09<br>
+      <b>Correlativas:</b> hasta 19/09</p>
+
+      <div class="title">Exámenes</div>
+      <select><option>Turno 2025-12</option></select>
+
+      <p><b>Inicio:</b> 01/12/2025<br>
+      <b>Fin:</b> 30/12/2025</p>
+
+      <div class="title">Inscripciones</div>
+      <div class="exam-msg">
+        No tenés inscripciones a exámenes vigentes para el turno seleccionado.
+      </div>
+
     </div>
+  </div>
 
-    <div class="menu-item" onclick="toggleMenu('certificaciones', this)">Certificaciones <span class="arrow">▼</span></div>
-    <div id="certificaciones" class="submenu">
-        <div>Certificado Alumno Regular</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('ingreso', this)">Ingreso <span class="arrow">▼</span></div>
-    <div id="ingreso" class="submenu">
-        <div>Preinscripción</div>
-        <div>Estado de Ingreso</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('matricula', this)">Matrícula <span class="arrow">▼</span></div>
-    <div id="matricula" class="submenu">
-        <div>Pago de Matrícula</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('consultas', this)">Consultas <span class="arrow">▼</span></div>
-    <div id="consultas" class="submenu">
-        <div>Historia Académica</div>
-        <div>Regularidad</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('servicios', this)">Servicios <span class="arrow">▼</span></div>
-    <div id="servicios" class="submenu">
-        <div>Biblioteca</div>
-        <div>Comedor</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('encuestas', this)">Encuestas <span class="arrow">▼</span></div>
-    <div id="encuestas" class="submenu">
-        <div>Encuestas Pendientes</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('egresados', this)">Egresados <span class="arrow">▼</span></div>
-    <div id="egresados" class="submenu">
-        <div>Trámites de Egreso</div>
-    </div>
-
-    <div class="menu-item" onclick="toggleMenu('moodle', this)">Moodle <span class="arrow">▼</span></div>
-    <div id="moodle" class="submenu">
-        <div>Ingresar a Moodle</div>
-    </div>
-
-</div>
-
-<!-- ▷ CONTENIDO -->
-<div class="content">
-    <h1>Bienvenido</h1>
-
-    <div class="card">
-        <h2>Cursadas</h2>
-
-        <p><span class="label-bold">2025 – Segundo Cuatr.</span></p>
-
-        <p><span class="label-bold">Inicio:</span> 18/08/2025</p>
-        <p><span class="label-bold">Fin:</span> 05/12/2025</p>
-        <p><span class="label-bold">Inscripciones:</span> 04/08 - 06/09</p>
-        <p><span class="label-bold">Correlativas:</span> hasta 19/09</p>
-    </div>
-</div>
+</main>
 
 <script>
-/* ABRIR/CERRAR SIDEBAR */
-document.getElementById("menuBtn").onclick = () => {
-    document.getElementById("sidebar").classList.toggle("open");
-};
+document.getElementById("menuBtn").addEventListener("click", ()=>{
+  const menu = document.getElementById("menu");
+  const isOpen = menu.style.display === "flex";
+  menu.style.display = isOpen ? "none" : "flex";
+});
 
-/* EXPANDIR SUBMENÚ */
-function toggleMenu(id, element) {
-    const submenu = document.getElementById(id);
-    const arrow = element.querySelector(".arrow");
-
-    const isOpen = submenu.style.display === "block";
-
-    submenu.style.display = isOpen ? "none" : "block";
-    arrow.classList.toggle("open", !isOpen);
+function toggleSubmenu(id){
+  const s=document.getElementById(id);
+  s.style.display = s.style.display==="flex" ? "none" : "flex";
 }
 </script>
 
