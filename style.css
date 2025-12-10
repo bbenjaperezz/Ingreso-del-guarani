@@ -18,8 +18,8 @@ body{
 }
 
 .logo-img{
-  width:38px;
-  height:38px;
+  width:36px;
+  height:36px;
   object-fit:contain;
 }
 
@@ -27,18 +27,14 @@ body{
 .topbar-actions{
   display:flex;
   gap:6px;
-  margin-top:0px;
 }
 
 .top-btn{
-  width:44px;
-  height:32px;
+  width:42px;
+  height:30px;
   background:linear-gradient(#fafafa,#e3e3e3);
   border:1px solid #bfc3c7;
   border-radius:6px;
-  box-shadow:
-    inset 0 1px 0 #ffffff,
-    inset 0 -1px 0 #d4d4d4;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -47,20 +43,20 @@ body{
 }
 
 .top-btn svg{
-  width:16px;
-  height:16px;
+  width:15px;
+  height:15px;
   fill:#555;
 }
 
 .mail-count{
   position:absolute;
-  bottom:1px;
-  right:4px;
-  font-size:10px;
+  bottom:0;
+  right:3px;
+  font-size:9.5px;
   color:#222;
 }
 
-/* MENÚ — IDÉNTICO SIU */
+/* MENÚ — IDÉNTICO AL ORIGINAL */
 .menu{
   width:100%;
   background:#EFEFEF;
@@ -69,16 +65,17 @@ body{
   flex-direction:column;
   max-height:0;
   overflow:hidden;
-  transition:max-height .30s ease;
+  padding-top:4px;
+  transition:max-height .28s ease;
 }
 
 .menu.open{
-  max-height:1100px;
+  max-height:900px;
 }
 
 .menu-item{
-  padding:14px 18px;
-  font-size:16px;
+  padding:10px 16px;
+  font-size:14px;
   color:#333;
   border-bottom:1px solid #d9d9d9;
   cursor:pointer;
@@ -87,7 +84,7 @@ body{
 }
 
 .menu-item:hover{
-  background:#e4e4e4;
+  background:#e6e6e6;
 }
 
 .submenu{
@@ -95,14 +92,14 @@ body{
   overflow:hidden;
   background:#f6f6f6;
   border-left:3px solid #bbbbbb;
-  transition:max-height .25s ease;
+  transition:max-height .22s ease;
   display:flex;
   flex-direction:column;
 }
 
 .submenu-item{
-  padding:12px 38px;
-  font-size:14px;
+  padding:9px 32px;
+  font-size:13px;
   border-bottom:1px solid #e2e2e2;
   cursor:pointer;
 }
@@ -113,35 +110,35 @@ body{
 
 .submenu-arrow{
   margin-left:auto;
-  font-size:13px;
-  opacity:.7;
+  font-size:12px;
+  opacity:.65;
 }
 
 /* CONTENIDO */
 .container{
   width:92%;
   max-width:750px;
-  margin:14px auto;
+  margin:12px auto;
 }
 
 .card{
   background:#fff;
   border:1px solid #aab7c4;
-  padding:14px;
+  padding:12px;
   border-radius:4px;
 }
 
 .header-box{
   background:#eef6fb;
   border:1px solid #d0dce4;
-  padding:10px 12px;
+  padding:8px 10px;
   border-radius:4px;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .header-box-title{
   color:#1686b6;
-  font-size:14px;
+  font-size:13px;
   font-weight:bold;
   margin-bottom:2px;
 }
@@ -149,18 +146,19 @@ body{
 .red{
   color:#cc0000;
   font-weight:bold;
-  margin:4px 0 10px 0;
+  margin:4px 0 8px;
+  font-size:13px;
 }
 
 .title{
-  margin:10px 0 4px;
+  margin:8px 0 3px;
   font-weight:bold;
   color:#666;
-  font-size:14px;
+  font-size:13px;
 }
 
-ul{padding-left:20px;font-size:14px;}
-ul li{margin-bottom:5px;}
+ul{padding-left:18px;font-size:13px;}
+ul li{margin-bottom:4px;}
 
 select{
   width:100%;
@@ -168,7 +166,7 @@ select{
   border:1px solid #d0d0d0;
   border-radius:4px;
   background:white;
-  font-size:14px;
+  font-size:13px;
 }
 
 .exam-block{
@@ -176,8 +174,8 @@ select{
   border:1px solid #d0dce4;
   padding:8px 10px;
   border-radius:4px;
-  margin-top:10px;
-  font-size:14px;
+  margin-top:8px;
+  font-size:13px;
 }
 
 .exam-msg{
@@ -186,6 +184,6 @@ select{
   padding:8px 10px;
   color:#0b6fb8;
   margin-top:6px;
-  font-size:14px;
+  font-size:13px;
 }
 </style>
