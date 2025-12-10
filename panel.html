@@ -114,9 +114,9 @@ body{
   transition:max-height .35s ease;
 }
 
-/* CORRECCIÓN CRÍTICA */
-body.menu-open .menu{
-  max-height:900px !important;
+/* 💥 CORRECCIÓN CLAVE: ESTA ES LA QUE FALTABA */
+.menu.open {
+  max-height: 900px !important;
 }
 
 .menu-item{
@@ -368,7 +368,7 @@ const menu = document.getElementById("menu");
 const body  = document.body;
 
 document.getElementById("menuBtn").onclick = ()=>{
-  menu.classList.toggle("open");
+  menu.classList.toggle("open");  // <— ESTA CLASE ES LA QUE ACTIVA EL MENÚ
   body.classList.toggle("menu-open");
 };
 
