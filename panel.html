@@ -98,37 +98,39 @@ body{
   color:#222;
 }
 
-/* ⭐ MENÚ CORREGIDO ⭐ */
+/* ===================================== */
+/*        MENÚ ORIGINAL SIU              */
+/* ===================================== */
+
 .menu{
   width:100%;
   background:#EFEFEF;
   border-bottom:1px solid #d0d0d0;
   display:flex;
   flex-direction:column;
-
-  /* 🔧 FIX: menú más arriba, sin hueco */
-  padding-top: 8px;
-
+  padding-top:4px;         /* igual SIU */
   max-height:0;
   overflow:hidden;
-  transition:max-height .35s ease;
+  transition:max-height .30s ease;
 }
 
 .menu.open{
-  max-height:1000px;
+  max-height:900px;
 }
 
 .menu-item{
-  padding:20px 22px;
-  font-size:18px;
-  color:#444;
+  padding:12px 16px;       /* igual SIU */
+  font-size:15px;          /* igual SIU */
+  color:#333;
   border-bottom:1px solid #d9d9d9;
   cursor:pointer;
   display:flex;
   align-items:center;
 }
 
-.menu-item:hover{ background:#e2e2e2; }
+.menu-item:hover{
+  background:#e4e4e4;
+}
 
 .submenu{
   max-height:0;
@@ -141,18 +143,20 @@ body{
 }
 
 .submenu-item{
-  padding:15px 40px;
-  font-size:16px;
+  padding:10px 32px;       /* igual SIU */
+  font-size:14px;          /* igual SIU */
   border-bottom:1px solid #e2e2e2;
   cursor:pointer;
 }
 
-.submenu-item:hover{ background:#eaeaea; }
+.submenu-item:hover{
+  background:#ececec;
+}
 
 .submenu-arrow{
   margin-left:auto;
-  font-size:15px;
-  opacity:.8;
+  font-size:13px;
+  opacity:.7;
 }
 
 /* CONTENIDO */
