@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panel UNS</title>
 
-<!-- Estilos base UNS -->
 <style>
     body {
         margin: 0;
@@ -13,7 +12,7 @@
         background: #f5f5f5;
     }
 
-    /* HEADER SUPERIOR */
+    /* ▷ BARRA SUPERIOR */
     .top-bar {
         width: 100%;
         background: white;
@@ -22,6 +21,10 @@
         align-items: center;
         justify-content: space-between;
         border-bottom: 1px solid #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
     }
 
     .top-left img {
@@ -39,14 +42,10 @@
         border-radius: 8px;
         padding: 10px 14px;
         font-size: 22px;
+        cursor: pointer;
     }
 
-    /* ICONO DE MENÚ */
-    #menuBtn {
-        font-size: 26px;
-    }
-
-    /* MENÚ LATERAL */
+    /* ▷ SIDEBAR */
     .sidebar {
         width: 260px;
         background: white;
@@ -54,31 +53,30 @@
         position: fixed;
         top: 0;
         left: -260px;
-        transition: 0.3s;
+        transition: left 0.3s ease;
         overflow-y: auto;
         border-right: 1px solid #ccc;
-        padding-top: 20px;
+        padding-top: 100px;
+        z-index: 999;
     }
 
     .sidebar.open {
         left: 0;
     }
 
-    /* Logo dentro del menú */
     .menu-logo {
         display: block;
         width: 120px;
         margin: 0 auto 20px auto;
     }
 
-    /* ICONO DE LA CASA */
     .home-icon {
         display: block;
-        width: 60px;
-        margin: 0 auto 15px auto;
+        width: 55px;
+        margin: 0 auto 20px auto;
     }
 
-    /* ITEMS DEL MENÚ PRINCIPAL */
+    /* ▷ ITEMS DEL MENÚ */
     .menu-item {
         padding: 14px;
         font-size: 18px;
@@ -86,30 +84,44 @@
         border-bottom: 1px solid #ccc;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         cursor: pointer;
     }
 
-    /* SUBITEMS */
+    .menu-item:hover {
+        background: #e2e2e2;
+    }
+
+    /* Flecha */
+    .arrow {
+        transition: transform 0.2s;
+        font-size: 18px;
+    }
+
+    .arrow.open {
+        transform: rotate(180deg);
+    }
+
+    /* ▷ SUBMENÚ */
     .submenu {
-        display: none;
         background: white;
+        display: none;
     }
 
     .submenu div {
-        padding: 12px 20px;
+        padding: 12px 30px;
         font-size: 17px;
         border-bottom: 1px solid #ddd;
+        cursor: pointer;
     }
 
-    .arrow {
-        font-size: 20px;
-        color: #555;
+    .submenu div:hover {
+        background: #f0f0f0;
     }
 
-    /* SECCIÓN PRINCIPAL */
+    /* ▷ CONTENIDO PRINCIPAL */
     .content {
-        padding: 20px;
-        margin-top: 10px;
+        padding: 120px 20px 20px 20px;
     }
 
     h1 {
@@ -118,7 +130,6 @@
         margin-bottom: 5px;
     }
 
-    /* TARJETA PRINCIPAL */
     .card {
         background: white;
         padding: 15px;
@@ -137,13 +148,11 @@
     .label-bold {
         font-weight: bold;
     }
-
 </style>
-
 </head>
 <body>
 
-<!-- BARRA SUPERIOR -->
+<!-- ▷ BARRA SUPERIOR -->
 <div class="top-bar">
     <div class="top-left">
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Logo_UNS.png">
@@ -156,60 +165,70 @@
     </div>
 </div>
 
-<!-- MENÚ LATERAL -->
+<!-- ▷ SIDEBAR -->
 <div id="sidebar" class="sidebar">
 
-    <!-- Logo arriba -->
     <img class="menu-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Logo_UNS.png">
-
-    <!-- CASA -->
     <img class="home-icon" src="https://cdn-icons-png.flaticon.com/512/1946/1946433.png">
 
-    <!-- MENÚ COMPLETO UNS -->
-    <div class="menu-item" onclick="toggleMenu('cursadas')">Cursadas <span class="arrow">▼</span></div>
+    <!-- MENU COMPLETO -->
+    <div class="menu-item" onclick="toggleMenu('cursadas', this)">Cursadas <span class="arrow">▼</span></div>
     <div id="cursadas" class="submenu">
         <div>Seguimiento</div>
     </div>
 
-    <div class="menu-item" onclick="toggleMenu('examenes')">Exámenes <span class="arrow">▼</span></div>
+    <div class="menu-item" onclick="toggleMenu('examenes', this)">Exámenes <span class="arrow">▼</span></div>
     <div id="examenes" class="submenu">
         <div>Inscripción a Exámenes</div>
         <div>Mis Mesas</div>
     </div>
 
-    <div class="menu-item" onclick="toggleMenu('certificaciones')">Certificaciones <span class="arrow">▼</span></div>
+    <div class="menu-item" onclick="toggleMenu('certificaciones', this)">Certificaciones <span class="arrow">▼</span></div>
     <div id="certificaciones" class="submenu">
         <div>Certificado Alumno Regular</div>
     </div>
 
-    <div class="menu-item" onclick="toggleMenu('ingreso')">Ingreso <span class="arrow">▼</span></div>
-    <div id="ingreso" class="submenu"></div>
+    <div class="menu-item" onclick="toggleMenu('ingreso', this)">Ingreso <span class="arrow">▼</span></div>
+    <div id="ingreso" class="submenu">
+        <div>Preinscripción</div>
+        <div>Estado de Ingreso</div>
+    </div>
 
-    <div class="menu-item" onclick="toggleMenu('matricula')">Matrícula <span class="arrow">▼</span></div>
-    <div id="matricula" class="submenu"></div>
+    <div class="menu-item" onclick="toggleMenu('matricula', this)">Matrícula <span class="arrow">▼</span></div>
+    <div id="matricula" class="submenu">
+        <div>Pago de Matrícula</div>
+    </div>
 
-    <div class="menu-item" onclick="toggleMenu('consultas')">Consultas <span class="arrow">▼</span></div>
+    <div class="menu-item" onclick="toggleMenu('consultas', this)">Consultas <span class="arrow">▼</span></div>
     <div id="consultas" class="submenu">
         <div>Historia Académica</div>
+        <div>Regularidad</div>
     </div>
 
-    <div class="menu-item" onclick="toggleMenu('servicios')">Servicios <span class="arrow">▼</span></div>
+    <div class="menu-item" onclick="toggleMenu('servicios', this)">Servicios <span class="arrow">▼</span></div>
     <div id="servicios" class="submenu">
         <div>Biblioteca</div>
+        <div>Comedor</div>
     </div>
 
-    <div class="menu-item" onclick="toggleMenu('encuestas')">Encuestas <span class="arrow">▼</span></div>
-    <div id="encuestas" class="submenu"></div>
+    <div class="menu-item" onclick="toggleMenu('encuestas', this)">Encuestas <span class="arrow">▼</span></div>
+    <div id="encuestas" class="submenu">
+        <div>Encuestas Pendientes</div>
+    </div>
 
-    <div class="menu-item" onclick="toggleMenu('egresados')">Egresados <span class="arrow">▼</span></div>
-    <div id="egresados" class="submenu"></div>
+    <div class="menu-item" onclick="toggleMenu('egresados', this)">Egresados <span class="arrow">▼</span></div>
+    <div id="egresados" class="submenu">
+        <div>Trámites de Egreso</div>
+    </div>
 
-    <div class="menu-item" onclick="toggleMenu('moodle')">Moodle <span class="arrow">▼</span></div>
-    <div id="moodle" class="submenu"></div>
+    <div class="menu-item" onclick="toggleMenu('moodle', this)">Moodle <span class="arrow">▼</span></div>
+    <div id="moodle" class="submenu">
+        <div>Ingresar a Moodle</div>
+    </div>
 
 </div>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- ▷ CONTENIDO -->
 <div class="content">
     <h1>Bienvenido</h1>
 
@@ -225,16 +244,22 @@
     </div>
 </div>
 
-<!-- SCRIPT MENÚ -->
 <script>
-function toggleMenu(id) {
-    let menu = document.getElementById(id);
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
+/* ABRIR/CERRAR SIDEBAR */
 document.getElementById("menuBtn").onclick = () => {
     document.getElementById("sidebar").classList.toggle("open");
 };
+
+/* EXPANDIR SUBMENÚ */
+function toggleMenu(id, element) {
+    const submenu = document.getElementById(id);
+    const arrow = element.querySelector(".arrow");
+
+    const isOpen = submenu.style.display === "block";
+
+    submenu.style.display = isOpen ? "none" : "block";
+    arrow.classList.toggle("open", !isOpen);
+}
 </script>
 
 </body>
