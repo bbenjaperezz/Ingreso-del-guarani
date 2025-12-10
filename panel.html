@@ -37,7 +37,6 @@ body{
   opacity:.95;
 }
 
-/* CASA */
 .home-btn{
   width:36px;
   height:36px;
@@ -49,24 +48,13 @@ body{
   align-items:center;
   cursor:pointer;
 }
+.menu-open .home-btn{display:flex;}
 
-.home-btn svg{
-  width:28px;
-  height:28px;
-  fill:#1e90ff;
-}
-
-.menu-open .home-btn{
-  display:flex;
-}
-
-/* BOTONES DERECHA */
 .topbar-actions{
   display:flex;
   gap:8px;
   margin-top:2px;
 }
-
 .top-btn{
   width:52px;
   height:36px;
@@ -83,20 +71,8 @@ body{
   cursor:pointer;
   position:relative;
 }
-
-.top-btn svg{
-  width:18px;
-  height:18px;
-  fill:#444;
-}
-
-.mail-count{
-  position:absolute;
-  bottom:2px;
-  right:4px;
-  font-size:11px;
-  color:#222;
-}
+.top-btn svg{width:18px;height:18px;fill:#444;}
+.mail-count{position:absolute;bottom:2px;right:4px;font-size:11px;color:#222;}
 
 /* MENU */
 .menu{
@@ -110,10 +86,7 @@ body{
   overflow:hidden;
   transition:max-height .35s ease;
 }
-
-.menu.open {
-  max-height: 900px !important;
-}
+.menu.open{max-height:900px !important;}
 
 .menu-item{
   padding:12px 10px;
@@ -123,11 +96,12 @@ body{
   cursor:pointer;
   display:flex;
   align-items:center;
-  background:#efefef;
+  gap:6px;      /* ← FIX: acerca el ▾ */
 }
 
-.menu-item:hover{
-  background:#e4e4e4;
+.submenu-arrow{
+  font-size:13px;
+  opacity:.7;
 }
 
 .submenu{
@@ -139,23 +113,13 @@ body{
   display:flex;
   flex-direction:column;
 }
-
 .submenu-item{
-  padding:10px 32px;
+  padding:10px 26px;
   font-size:14px;
   border-bottom:1px solid #e2e2e2;
   cursor:pointer;
 }
-
-.submenu-item:hover{
-  background:#ececec;
-}
-
-.submenu-arrow{
-  margin-left:8px;
-  font-size:13px;
-  opacity:.7;
-}
+.submenu-item:hover{background:#ececec;}
 
 /* CONTENIDO */
 .container{
@@ -228,9 +192,7 @@ select{
     <img src="logo-uns.png" class="logo-img">
 
     <button class="home-btn">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 3 3 10v10h18V10z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><path d="M12 3 3 10v10h18V10z"/></svg>
     </button>
   </div>
 
@@ -251,7 +213,7 @@ select{
   </div>
 </div>
 
-<!-- MENÚ CORREGIDO -->
+<!-- MENÚ COMPLETO Y CORREGIDO -->
 <nav id="menu" class="menu">
 
   <div class="menu-item" onclick="toggleSubmenu('m1')">
@@ -265,17 +227,16 @@ select{
     Exámenes <span class="submenu-arrow">▾</span>
   </div>
   <div id="m2" class="submenu">
-    <div class="submenu-item" onclick="location.href='inscripcion.html'">Inscripción a Exámenes</div>
-    <div class="submenu-item" onclick="location.href='mesas.html'">Mis Mesas</div>
+    <div class="submenu-item" onclick="location.href='inscripcion.html'">Inscripción</div>
+    <div class="submenu-item" onclick="location.href='mesas.html'">Mesas</div>
+    <div class="submenu-item" onclick="location.href='historial_examenes.html'">Historia</div>
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('m3')">
     Certificaciones <span class="submenu-arrow">▾</span>
   </div>
   <div id="m3" class="submenu">
-    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">
-      Certificado Alumno Regular
-    </div>
+    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">Certificado Alumno Regular</div>
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('m4')">
@@ -379,11 +340,9 @@ select{
 
 <script>
 const menu = document.getElementById("menu");
-const body  = document.body;
-
 document.getElementById("menuBtn").onclick = ()=>{
   menu.classList.toggle("open");
-  body.classList.toggle("menu-open");
+  document.body.classList.toggle("menu-open");
 };
 
 function toggleSubmenu(id){
