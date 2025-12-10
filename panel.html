@@ -114,13 +114,13 @@ body{
   transition:max-height .35s ease;
 }
 
-/* 💥 CORRECCIÓN CLAVE: ESTA ES LA QUE FALTABA */
+/* CORRECCIÓN PARA ABRIR EL MENÚ */
 .menu.open {
   max-height: 900px !important;
 }
 
 .menu-item{
-  padding:12px 16px;
+  padding:12px 10px; /* SE ACERCA EL TEXTO A LA FLECHA */
   font-size:15px;
   color:#333;
   border-bottom:1px solid #d9d9d9;
@@ -156,7 +156,7 @@ body{
 }
 
 .submenu-arrow{
-  margin-left:auto;
+  margin-left:8px; /* YA NO ESTÁ LEJOS A LA DERECHA */
   font-size:13px;
   opacity:.7;
 }
@@ -368,7 +368,7 @@ const menu = document.getElementById("menu");
 const body  = document.body;
 
 document.getElementById("menuBtn").onclick = ()=>{
-  menu.classList.toggle("open");  // <— ESTA CLASE ES LA QUE ACTIVA EL MENÚ
+  menu.classList.toggle("open");
   body.classList.toggle("menu-open");
 };
 
