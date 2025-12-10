@@ -37,7 +37,7 @@ body{
   opacity:.95;
 }
 
-/* CASA (solo visible cuando menú abierto) */
+/* CASA */
 .home-btn{
   width:36px;
   height:36px;
@@ -98,7 +98,7 @@ body{
   color:#222;
 }
 
-/* ⭐⭐ MENÚ NUEVO QUE SE VE COMO EL ORIGINAL ⭐⭐ */
+/* ⭐ MENÚ CORREGIDO ⭐ */
 .menu{
   width:100%;
   background:#EFEFEF;
@@ -106,8 +106,8 @@ body{
   display:flex;
   flex-direction:column;
 
-  /* MÁS ESPACIO ARRIBA COMO EL ORIGINAL */
-  padding-top:30px;
+  /* 🔧 FIX: menú más arriba, sin hueco */
+  padding-top: 8px;
 
   max-height:0;
   overflow:hidden;
@@ -119,8 +119,8 @@ body{
 }
 
 .menu-item{
-  padding:20px 22px; /* más espacio para que no se vea apretado */
-  font-size:18px;    /* un toque más grande como el SIU real */
+  padding:20px 22px;
+  font-size:18px;
   color:#444;
   border-bottom:1px solid #d9d9d9;
   cursor:pointer;
@@ -141,7 +141,7 @@ body{
 }
 
 .submenu-item{
-  padding:15px 40px; /* más separación para que respire */
+  padding:15px 40px;
   font-size:16px;
   border-bottom:1px solid #e2e2e2;
   cursor:pointer;
@@ -249,7 +249,7 @@ select{
   </div>
 </div>
 
-<!-- MENÚ DESPLEGABLE -->
+<!-- MENÚ -->
 <nav id="menu" class="menu">
 
   <div class="menu-item" onclick="toggleSubmenu('m1')">Cursadas <span class="submenu-arrow">▾</span></div>
