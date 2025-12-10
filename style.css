@@ -215,3 +215,15 @@ select{
   margin-top:6px;
 }
 </style>
+/* Acomoda los items al lado del texto del menú */
+.menu-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;   /* Espacio pequeño entre texto e ícono */
+}
+
+/* Acomoda el iconito del menú */
+.submenu-arrow {
+    margin-left: 6px !important;   /* Que quede pegado al texto */
+}
