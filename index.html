@@ -1,356 +1,200 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SIU Guaraní — Panel Académico</title>
+<meta charset="UTF-8">
+<title>SIU Guaraní</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color:#222;}
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+body {
+    font-family: Arial, sans-serif;
+    background: #eef0f2;  /* fondo real del SIU */
+    color: #444;
+}
+
+/* TOPBAR */
 .topbar {
-  width:100%;
-  background:#ffffff;
-  border-bottom:1px solid #e1e4e8;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:8px 12px;
-  gap:12px;
+    background: #ffffff;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
 }
 
-.topbar-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.logo-uns {
+    height: 40px;
+    opacity: 0.85; /* igual al original */
 }
 
-.logo-img{
-  width:40px;
-  height:40px;
-  object-fit:contain;
-  border-radius:4px;
+/* ICONO MENU */
+.menu-icon {
+    font-size: 26px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #d3d3d3;
+    background: #f9f9f9;
 }
 
-.topbar-actions{
-  display:flex;
-  align-items:center;
-  gap:8px;
+/* CAJA LOGIN */
+.login-box {
+    width: 94%;
+    max-width: 500px;
+    margin: 26px auto;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.13);
 }
 
-.topbar-actions button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:0 10px;
-  height:40px;
-  border-radius:6px;
-  border:1px solid #e6e9ec;
-  background:#fafafa;
-  cursor:pointer;
-  font-size:15px;
-  gap:6px;
+/* TITULO */
+.login-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #8a8a8a; /* EXACTO al original */
+    margin-bottom: 22px;
 }
 
-.icon{
-  width:22px;
-  height:22px;
+/* LABEL */
+label {
+    font-size: 15px;
+    color: #6d6d6d;
+    margin-bottom: 4px;
+    display: block;
 }
 
-.mail-count{
-  color:#1690c7;
-  font-weight:700;
-  font-size:14px;
+/* INPUTS */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #b5b7ba; /* borde igual al real */
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 16px;
+    margin-bottom: 14px;
 }
 
-/* MENÚ */
-.menu {
-  width:100%;
-  background:#ffffff;
-  border-bottom:1px solid #cfcfcf;
-  display:none;
-  flex-direction:column;
-  padding-top:10px;
-  padding-bottom:10px;
+input:focus {
+    outline: none;
+    border-color: #0d8ec1;
+    box-shadow: 0 0 4px rgba(0,147,203,0.35);
 }
 
-.menu-item {
-  padding:14px 18px;
-  font-size:17px;
-  color:#444;
-  border-bottom:1px solid #e5e5e5;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:8px;
+/* BOTON INGRESAR */
+.btn-ingresar {
+    width: 140px;
+    height: 46px;
+    background: linear-gradient(#5fb4d1, #3b89a7);
+    border: 1px solid #2f6b85;
+    border-radius: 6px;
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    line-height: 46px;
 }
 
-.menu-item:hover{
-  background:#f2f2f2;
+/* LINK OLVIDASTE - COLOR EXACTO */
+.forgot {
+    display: block;
+    margin-top: 14px;
+    color: #7db8d6;  
+    font-size: 17px;
 }
 
-.submenu{
-  display:none;
-  flex-direction:column;
-  background:#fafafa;
-  border-left:3px solid #d0d0d0;
+/* TITULO SECCIÓN DE ABAJO */
+.section-title {
+    margin-top: 32px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #8a8a8a;
 }
 
-.submenu-item{
-  padding:12px 30px;
-  font-size:15px;
-  border-bottom:1px solid #e5e5e5;
-  color:#555;
-  cursor:pointer;
+/* TEXTO PRINCIPAL */
+.text-block {
+    padding: 0 20px 50px 20px;
+    font-size: 17px;
 }
 
-.submenu-item:hover{
-  background:#efefef;
+.text-block b {
+    color: #3d3d3d; /* MÁS OSCURO, IGUAL AL ORIGINAL */
 }
 
-.submenu-arrow{
-  margin-left:auto;
-  font-size:15px;
-  opacity:.8;
-}
-
-.container{
-  width:92%;
-  max-width:750px;
-  margin:18px auto;
-}
-
-.card{
-  background:#fff;
-  border:1px solid #d0d0d0;
-  padding:18px;
-  border-radius:4px;
-  font-size:14px;
-  line-height:1.45;
-}
-
-.header-box{
-  background:#eef6fb;
-  border:1px solid #dbe8ef;
-  padding:10px 12px;
-  border-radius:4px;
-  margin-bottom:15px;
-}
-
-.header-box-title{
-  color:#1686b6;
-  font-size:14px;
-  margin-bottom:6px;
-  font-weight:700;
-}
-
-.red{
-  color:#cc0000;
-  font-weight:700;
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-.title{
-  font-weight:700;
-  color:#666;
-  margin-top:12px;
-  margin-bottom:6px;
-  font-size:15px;
-}
-
-ul{
-  padding-left:20px;
-  margin-top:5px;
-  color:#222;
-}
-
-ul li{
-  margin-bottom:6px;
-}
-
-select{
-  width:100%;
-  padding:8px;
-  border-radius:4px;
-  border:1px solid #d6dae0;
-  background:#fff;
-}
-
-.exam-msg{
-  background:#eef5fb;
-  border-top:1px solid #c9dae7;
-  padding:10px 12px;
-  color:#0b6fb8;
-  font-size:14px;
-  margin-top:6px;
-}
-
-@media (max-width:980px){
-  .container{width:96%}
+/* LINK FINAL */
+.final-link {
+    color: #79b5d4; 
+    font-size: 20px;
+    font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOPBAR -->
+<!-- BARRA SUPERIOR -->
 <div class="topbar">
-
-  <div class="topbar-left">
-    <img src="logo-uns.png" alt="UNS" class="logo-img">
-  </div>
-
-  <div class="topbar-actions">
-
-    <!-- Perfil con flechita -->
-    <button>
-      <svg class="icon" viewBox="0 0 24 24" fill="#000">
-        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-      </svg>
-      <span style="font-size:14px;opacity:.8;">▾</span>
-    </button>
-
-    <!-- Mensajes -->
-    <button>
-      <svg class="icon" viewBox="0 0 24 24" fill="#000">
-        <path d="M12 13 2 6h20l-10 7zm0 2L2 8v10h20V8z"/>
-      </svg>
-      <span class="mail-count">0</span>
-    </button>
-
-    <!-- Botón MENÚ -->
-    <button id="menuBtn">
-      <svg class="icon" viewBox="0 0 24 24" fill="#000">
-        <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
-      </svg>
-    </button>
-
-  </div>
+    <img src="logo-uns.png" class="logo-uns">
+    <div class="menu-icon">&#9776;</div>
 </div>
 
-<!-- MENÚ LATERAL -->
-<nav id="menu" class="menu" aria-hidden="true">
+<!-- LOGIN -->
+<div class="login-box">
+    <div class="login-title">Ingresá tus datos</div>
 
-  <!-- CASITA (sin texto "Inicio") -->
-  <div class="menu-item" onclick="location.href='index.html'">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1686b6">
-      <path d="M12 3l9 7v11H6v-7H9v7H4V10z"/>
-    </svg>
-  </div>
+    <label>Usuario</label>
+    <input type="text" id="user">
 
-  <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
-    Cursadas <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subCursadas" class="submenu">
-    <div class="submenu-item">Inscripción</div>
-    <div class="submenu-item" onclick="location.href='cursadas.html'">Seguimiento</div>
-  </div>
+    <label>Contraseña</label>
+    <input type="password" id="pass">
 
-  <div class="menu-item" onclick="toggleSubmenu('subExamenes')">
-    Exámenes <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subExamenes" class="submenu">
-    <div class="submenu-item">Inscripción a Exámenes</div>
-    <div class="submenu-item">Mis Mesas</div>
-    <div class="submenu-item">Historial</div>
-  </div>
+    <div class="btn-ingresar" onclick="login()">Ingresar</div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subCertificados')">
-    Certificaciones <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subCertificados" class="submenu">
-    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">Solicitud de Certificados</div>
-    <div class="submenu-item">Consulta / Anulación</div>
-  </div>
+    <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
+</div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subIngreso')">
-    Ingreso <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subIngreso" class="submenu">
-    <div class="submenu-item">Requisitos</div>
-    <div class="submenu-item">Documentación</div>
-  </div>
+<!-- CONTENIDO -->
+<div class="text-block">
+    <div class="section-title">SIU Guaraní</div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subMatricula')">
-    Matrícula <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subMatricula" class="submenu">
-    <div class="submenu-item">Generar Matrícula</div>
-    <div class="submenu-item">Pagos / Aranceles</div>
-  </div>
+    <p>Con este sistema podés entre otras opciones:</p>
 
-  <div class="menu-item" onclick="toggleSubmenu('subConsultas')">
-    Consultas <span class="submenu-arrow">▾</span>
-  </div>
-  <div id="subConsultas" class="submenu">
-    <div class="submenu-item">Consultar Alumno</div>
-    <div class="submenu-item">Estado Académico</div>
-  </div>
+    <p><b>Si sos alumno:</b></p>
+    <ul>
+        <li>Inscribirte a cursados y exámenes.</li>
+        <li>Consultar el plan de estudios de tu carrera y tu historia académica.</li>
+        <li>Solicitar certificaciones.</li>
+    </ul>
 
-  <div class="menu-item">Servicios</div>
-  <div class="menu-item">Encuestas</div>
-  <div class="menu-item">Egresados</div>
-  <div class="menu-item">Moodle</div>
+    <p><b>Si sos docente:</b></p>
+    <ul>
+        <li>Consultar tus comisiones y mesas de examen y los alumnos inscriptos.</li>
+        <li>Cargar e imprimir tus Actas Cursado y Promoción y Examen.</li>
+        <li>Obtener listados en formato pdf y xls.</li>
+    </ul>
 
-</nav>
+    <p><b>Ingresá tu usuario y contraseña para iniciar sesión en el sistema.</b></p>
 
-<main class="container">
+    <p><b>Recordá:</b> Tus trámites terminan cuando cerrás tu sesión. Para esto, usá la opción "Cerrar Sesión" de tu Menú de Sesión en la parte superior derecha de la página.</p>
 
-  <h2 style="color:#1686b6;">Bienvenido</h2>
-
-  <div class="card">
-
-    <div class="header-box">
-      <div class="header-box-title">Calendario Académico</div>
-      <div class="red">Actualizá tu MAIL</div>
-
-      <div class="title">Inscripciones</div>
-      <ul>
-        <li>101 - Matemáticas</li>
-        <li>102 - Física</li>
-        <li>103 - Construcción</li>
-        <li>104 - Estructuras</li>
-        <li>105 - Geotecnia</li>
-        <li>106 - Hidráulica</li>
-        <li>107 - Transporte</li>
-        <li>108 - Gestión de Proyectos</li>
-      </ul>
-
-      <div class="title">Cursadas</div>
-      <select><option>2025 - Segundo Cuatr.</option></select>
-
-      <p><b>Inicio:</b> 18/08/2025<br>
-      <b>Fin:</b> 05/12/2025<br>
-      <b>Inscripciones:</b> 04/08 - 06/09<br>
-      <b>Correlativas:</b> hasta 19/09</p>
-
-      <div class="title">Exámenes</div>
-      <select><option>Turno 2025-12</option></select>
-
-      <p><b>Inicio:</b> 01/12/2025<br>
-      <b>Fin:</b> 30/12/2025</p>
-
-      <div class="title">Inscripciones</div>
-      <div class="exam-msg">
-        No tenés inscripciones a exámenes vigentes para el turno seleccionado.
-      </div>
-
-    </div>
-  </div>
-</main>
+    <a class="final-link" href="#">Instructivo de Acceso a Guaraní3w</a>
+</div>
 
 <script>
-document.getElementById("menuBtn").addEventListener("click", ()=>{
-  const menu = document.getElementById("menu");
-  const isOpen = menu.style.display === "flex";
-  menu.style.display = isOpen ? "none" : "flex";
-});
+function login() {
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
 
-function toggleSubmenu(id){
-  const s=document.getElementById(id);
-  s.style.display = s.style.display==="flex" ? "none" : "flex";
+    if (u === "bbenjaperezz" && p === "162023") {
+        window.location.href = "panel.html";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
 }
 </script>
 
