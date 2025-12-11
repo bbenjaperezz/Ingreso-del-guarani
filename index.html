@@ -15,14 +15,20 @@ body {
     color: #444;
 }
 
+/* 🔹 NUEVO: FONDO GRIS QUE CUBRE TODO EL ÁREA SUPERIOR */
+.header-area {
+    background: #f7f7f7;   /* gris igual al de las opciones */
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #d9d9d9;
+}
+
 /* TOPBAR */
 .topbar {
-    background: #ffffff;
     padding: 14px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #d9d9d9;
 }
 
 .logo-uns {
@@ -163,21 +169,26 @@ input:focus {
 
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-    <img src="logo-uns.png" class="logo-uns">
-    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
-</div>
+<!-- 🔹 TODO EL ÁREA SUPERIOR ENVUELTA EN FONDO GRIS -->
+<div class="header-area">
 
-<!-- MENU -->
-<div id="dropdownMenu" class="dropdown-menu">
-
-    <div class="dropdown-item" onclick="location.href='index.html'">
-        <img src="home.jpeg" class="home-img"> Acceso
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <img src="logo-uns.png" class="logo-uns">
+        <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
     </div>
 
-    <div class="dropdown-item" onclick="location.href='mesas.html'">Mesas de examen</div>
-    <div class="dropdown-item" onclick="location.href='comisiones.html'">Comisiones de cursado</div>
+    <!-- MENU -->
+    <div id="dropdownMenu" class="dropdown-menu">
+
+        <div class="dropdown-item" onclick="location.href='index.html'">
+            <img src="home.jpeg" class="home-img"> Acceso
+        </div>
+
+        <div class="dropdown-item" onclick="location.href='mesas.html'">Mesas de examen</div>
+        <div class="dropdown-item" onclick="location.href='comisiones.html'">Comisiones de cursado</div>
+
+    </div>
 
 </div>
 
