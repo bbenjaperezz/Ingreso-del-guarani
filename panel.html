@@ -94,7 +94,7 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
   opacity:.7;
 }
 
-/* HOME — FIX FONDO GRIS */
+/* HOME — fondo gris */
 .home-item {
   background:#efefef !important;
 }
@@ -109,6 +109,13 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
   background:none !important;
   border:none !important;
   box-shadow:none !important;
+}
+
+/* FIX: la imagen home.jpg tiene fondo blanco → se tapa con gris */
+.home-item img{
+  background:#efefef !important;
+  padding:6px;
+  border-radius:6px;
 }
 
 /* submenú */
@@ -245,7 +252,7 @@ select{
 <!-- MENÚ -->
 <nav id="menu" class="menu">
 
-  <!-- HOME — corregido -->
+  <!-- HOME -->
   <div class="menu-item home-item" onclick="location.href='index.html'">
     <img src="home.jpg">
   </div>
