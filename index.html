@@ -40,31 +40,30 @@ body {
     cursor: pointer;
 }
 
-/* MENU DESPLEGABLE REAL */
+/* MENU DESPLEGABLE */
 .dropdown-menu {
     width: 100%;
     background: #f7f7f7;
-    border-bottom: 1px solid #dcdcdc;
     display: none;
     flex-direction: column;
     padding-top: 10px;
 }
 
+/* ÍTEMS SIN BORDES (como tu segunda foto) */
 .dropdown-item {
-    padding: 10px 18px;
+    padding: 12px 18px;
     font-size: 17px;
     color: #444;
-    border-top: 1px solid #e5e5e5;
 }
 
 .dropdown-item:hover {
-    background: #ececec;
+    background: #eaeaea;
 }
 
 /* ICONO HOME */
 .home-img {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     margin-right: 8px;
     vertical-align: middle;
 }
@@ -164,13 +163,13 @@ input:focus {
 
 <body>
 
-<!-- TOPBAR REAL -->
+<!-- TOPBAR -->
 <div class="topbar">
     <img src="logo-uns.png" class="logo-uns">
     <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
 </div>
 
-<!-- MENU DESPLEGABLE REAL -->
+<!-- MENU -->
 <div id="dropdownMenu" class="dropdown-menu">
 
     <div class="dropdown-item" onclick="location.href='index.html'">
