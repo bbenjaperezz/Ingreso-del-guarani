@@ -91,14 +91,14 @@ body{
   color:#222;
 }
 
-/* ============================================= */
-/*          MENÚ ORIGINAL — CORREGIDO            */
-/* ============================================= */
+/* ================================================= */
+/*                  MENÚ COMPLETO                    */
+/* ================================================= */
 
 .menu{
   width:100%;
   background:#EFEFEF;
-  border-bottom:1px solid #d0d0d0;
+  border-bottom:none !important;   /* SIN LÍNEA */
   display:flex;
   flex-direction:column;
   padding-top:4px;
@@ -111,48 +111,52 @@ body.menu-open .menu{
   max-height:900px !important;
 }
 
-/* >>> CORRECCIÓN: flecha pegada a la palabra <<< */
+/* ITEM PRINCIPAL */
 .menu-item{
-  padding:12px 16px;
-  font-size:15px;
+  padding:14px 18px;
+  font-size:16px;
   color:#333;
-  border-bottom:1px solid #d9d9d9;
   cursor:pointer;
   display:flex;
   align-items:center;
-  justify-content:flex-start; /* YA NO SE VA A LA DERECHA */
-  gap:6px; /* separación palabra-flecha */
+  justify-content:flex-start;
+  gap:6px;
+  background:#EFEFEF;
+  border-bottom:none !important;   /* SIN LÍNEA */
 }
-
-.submenu-arrow{
-  margin-left:0 !important;  /* evita que se vaya al extremo */
-  opacity:.7;
-}
-/* >>> FIN CORRECCIÓN <<< */
 
 .menu-item:hover{
-  background:#e4e4e4;
+  background:#E3E3E3;
 }
 
+/* FLECHITA CERCANA AL TEXTO */
+.submenu-arrow{
+  margin-left:4px !important;
+  opacity:.75;
+}
+
+/* SUBMENÚ */
 .submenu{
   max-height:0;
   overflow:hidden;
-  background:#f6f6f6;
-  border-left:3px solid #bbbbbb;
+  background:#EFEFEF; /* TODO gris igual */
   transition:max-height .25s ease;
   display:flex;
   flex-direction:column;
+  border-left:none !important;   /* SIN BORDE */
 }
 
+/* ITEMS DENTRO DEL SUBMENÚ */
 .submenu-item{
-  padding:10px 32px;
+  padding:10px 42px;
   font-size:14px;
-  border-bottom:1px solid #e2e2e2;
   cursor:pointer;
+  background:#EFEFEF; 
+  border-bottom:none !important; /* SIN LÍNEA */
 }
 
 .submenu-item:hover{
-  background:#ececec;
+  background:#E3E3E3;
 }
 
 /* CONTENIDO */
@@ -215,15 +219,3 @@ select{
   margin-top:6px;
 }
 </style>
-/* Acomoda los items al lado del texto del menú */
-.menu-item {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 6px !important;   /* Espacio pequeño entre texto e ícono */
-}
-
-/* Acomoda el iconito del menú */
-.submenu-arrow {
-    margin-left: 6px !important;   /* Que quede pegado al texto */
-}
