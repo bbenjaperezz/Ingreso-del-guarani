@@ -15,9 +15,9 @@ body {
     color: #444;
 }
 
-/* 🔹 NUEVO: FONDO GRIS QUE CUBRE TODO EL ÁREA SUPERIOR */
+/* ÁREA SUPERIOR */
 .header-area {
-    background: #f7f7f7;   /* gris igual al de las opciones */
+    background: #ffffff;
     width: 100%;
     padding-bottom: 8px;
     border-bottom: 1px solid #d9d9d9;
@@ -49,29 +49,30 @@ body {
 /* MENU DESPLEGABLE */
 .dropdown-menu {
     width: 100%;
-    background: #f7f7f7;
+    background: #ffffff;
     display: none;
     flex-direction: column;
     padding-top: 10px;
 }
 
-/* ÍTEMS SIN BORDES (como tu segunda foto) */
+/* ÍTEMS EXACTOS COMO EN LA FOTO */
 .dropdown-item {
-    padding: 12px 18px;
-    font-size: 17px;
-    color: #444;
+    padding: 14px 22px;
+    font-size: 20px;
+    color: #555;
+    font-weight: bold;
 }
 
+/* HOVER */
 .dropdown-item:hover {
-    background: #eaeaea;
+    background: #f0f0f0;
 }
 
-/* ICONO HOME */
+/* ICONO DE CASA */
 .home-img {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
 }
 
 /* LOGIN BOX */
@@ -85,7 +86,6 @@ body {
     box-shadow: 0 4px 18px rgba(0,0,0,0.13);
 }
 
-/* TITULO */
 .login-title {
     font-size: 32px;
     font-weight: bold;
@@ -93,7 +93,6 @@ body {
     margin-bottom: 22px;
 }
 
-/* LABELS */
 label {
     font-size: 15px;
     color: #6d6d6d;
@@ -101,7 +100,6 @@ label {
     display: block;
 }
 
-/* INPUTS */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -119,7 +117,6 @@ input:focus {
     box-shadow: 0 0 4px rgba(0,147,203,0.35);
 }
 
-/* BOTÓN */
 .btn-ingresar {
     width: 140px;
     height: 46px;
@@ -134,7 +131,6 @@ input:focus {
     line-height: 46px;
 }
 
-/* LINK OLVIDASTE */
 .forgot {
     display: block;
     margin-top: 14px;
@@ -142,7 +138,7 @@ input:focus {
     font-size: 17px;
 }
 
-/* CONTENIDO */
+/* TEXTO */
 .section-title {
     margin-top: 32px;
     font-size: 34px;
@@ -167,7 +163,6 @@ input:focus {
 
 <body>
 
-<!-- 🔹 TODO EL ÁREA SUPERIOR ENVUELTA EN FONDO GRIS -->
 <div class="header-area">
 
     <!-- TOPBAR -->
@@ -176,13 +171,16 @@ input:focus {
         <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
     </div>
 
-    <!-- MENU -->
+    <!-- MENÚ EXACTO COMO LA FOTO -->
     <div id="dropdownMenu" class="dropdown-menu">
 
+        <!-- SOLO LA CASITA -->
         <div class="dropdown-item" onclick="location.href='index.html'">
-            <img src="home.jpg" class="home-img"> Acceso
+            <img src="home.jpg" class="home-img">
         </div>
 
+        <!-- TEXTO COMO EN LA FOTO -->
+        <div class="dropdown-item" onclick="location.href='index.html'">Acceso</div>
         <div class="dropdown-item" onclick="location.href='mesas.html'">Mesas de examen</div>
         <div class="dropdown-item" onclick="location.href='comisiones.html'">Comisiones de cursado</div>
 
