@@ -7,12 +7,7 @@
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background:#f2f4f6;
-  color:#222;
-}
+body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color:#222;}
 
 /* TOPBAR */
 .topbar {
@@ -69,66 +64,71 @@ body{
   font-size:14px;
 }
 
-/* MENÚ — estilo limpio y SIN LÍNEAS */
+/* ============================= */
+/*  MENÚ ESTILO SIU ORIGINAL     */
+/* ============================= */
+
 .menu {
   width:100%;
-  background:#efefef; /* gris limpio */
+  background:#efefef;
   display:none;
   flex-direction:column;
-  padding:8px 0;
-  border-bottom:1px solid #dcdcdc;
+  padding:0;
 }
 
-/* ÍTEM PRINCIPAL — TEXTO + FLECHA PEGADOS */
+/* ítems principales */
 .menu-item {
-  padding:12px 20px;
-  font-size:18px;
+  padding:18px 24px;
+  font-size:20px;       /* MÁS GRANDE */
+  font-weight:600;      /* MÁS NEGRO */
   color:#333;
   cursor:pointer;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
-  gap:6px; /* flecha pegada al texto */
-  border:none !important; /* sin líneas */
+  gap:8px;
 }
 
-/* SUBMENU PEGADO COMO EN LA FOTO */
+/* flechita */
+.submenu-arrow{
+  font-size:16px;
+  opacity:.7;
+}
+
+/* HOME */
+.menu-item img{
+  width:26px;
+  height:26px;
+}
+
+/* submenú */
 .submenu{
   display:none;
   flex-direction:column;
   background:#e6e6e6;
-  padding:2px 22px;
-  border:none !important;
+  padding-left:28px;
 }
 
 .submenu-item{
-  padding:6px 0;
-  font-size:16px;
+  padding:6px 0;        /* Casi pegado como SIU */
+  font-size:17px;
   color:#444;
-  cursor:pointer;
-  border:none !important;
 }
 
-/* HOVER */
-.menu-item:hover,
+/* hover */
+.menu-item:hover{
+  background:#e3e3e3;
+}
 .submenu-item:hover{
-  background:#e0e0e0;
+  background:#dcdcdc;
 }
 
-/* Flechita pegada */
-.submenu-arrow{
-  font-size:14px;
-  opacity:.7;
-  margin-left:6px;
-}
-
+/* CONTENIDO */
 .container{
   width:92%;
   max-width:750px;
   margin:18px auto;
 }
 
-/* TARJETAS */
 .card{
   background:#fff;
   border:1px solid #d0d0d0;
@@ -234,117 +234,119 @@ select{
 <!-- MENÚ -->
 <nav id="menu" class="menu">
 
-  <!-- Casita home.jpg -->
+  <!-- HOME -->
   <div class="menu-item" onclick="location.href='index.html'">
-    <img src="home.jpg" width="22" height="22" style="border-radius:3px;">
+    <img src="home.jpg">
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subCursadas')">
-    Cursadas <span class="submenu-arrow">▾</span>
-  </div>
+  <!-- CON SUBMENÚ EN TODOS -->
+  <div class="menu-item" onclick="toggleSubmenu('subCursadas')">Cursadas <span class="submenu-arrow">▾</span></div>
   <div id="subCursadas" class="submenu">
     <div class="submenu-item">Inscripción</div>
     <div class="submenu-item" onclick="location.href='cursadas.html'">Seguimiento</div>
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subExamenes')">
-    Exámenes <span class="submenu-arrow">▾</span>
-  </div>
+  <div class="menu-item" onclick="toggleSubmenu('subExamenes')">Exámenes <span class="submenu-arrow">▾</span></div>
   <div id="subExamenes" class="submenu">
     <div class="submenu-item">Inscripción a Exámenes</div>
     <div class="submenu-item">Mis Mesas</div>
     <div class="submenu-item">Historial</div>
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subCertificados')">
-    Certificaciones <span class="submenu-arrow">▾</span>
-  </div>
+  <div class="menu-item" onclick="toggleSubmenu('subCertificados')">Certificaciones <span class="submenu-arrow">▾</span></div>
   <div id="subCertificados" class="submenu">
-    <div class="submenu-item" onclick="window.open('certificado_perez.pdf','_blank')">Solicitud de Certificados</div>
+    <div class="submenu-item">Solicitud de Certificados</div>
     <div class="submenu-item">Consulta / Anulación</div>
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subIngreso')">
-    Ingreso <span class="submenu-arrow">▾</span>
-  </div>
+  <div class="menu-item" onclick="toggleSubmenu('subIngreso')">Ingreso <span class="submenu-arrow">▾</span></div>
   <div id="subIngreso" class="submenu">
     <div class="submenu-item">Requisitos</div>
     <div class="submenu-item">Documentación</div>
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subMatricula')">
-    Matrícula <span class="submenu-arrow">▾</span>
-  </div>
+  <div class="menu-item" onclick="toggleSubmenu('subMatricula')">Matrícula <span class="submenu-arrow">▾</span></div>
   <div id="subMatricula" class="submenu">
     <div class="submenu-item">Generar Matrícula</div>
     <div class="submenu-item">Pagos / Aranceles</div>
   </div>
 
-  <div class="menu-item" onclick="toggleSubmenu('subConsultas')">
-    Consultas <span class="submenu-arrow">▾</span>
-  </div>
+  <div class="menu-item" onclick="toggleSubmenu('subConsultas')">Consultas <span class="submenu-arrow">▾</span></div>
   <div id="subConsultas" class="submenu">
     <div class="submenu-item">Consultar Alumno</div>
     <div class="submenu-item">Estado Académico</div>
   </div>
 
-  <div class="menu-item">Servicios</div>
-  <div class="menu-item">Encuestas</div>
-  <div class="menu-item">Egresados</div>
-  <div class="menu-item">Moodle</div>
+  <!-- LOS QUE NO TENÍAN -> AHORA TAMBIÉN CON FLECHITA -->
+  <div class="menu-item" onclick="toggleSubmenu('subServicios')">Servicios <span class="submenu-arrow">▾</span></div>
+  <div id="subServicios" class="submenu">
+    <div class="submenu-item">Trámites</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subEncuestas')">Encuestas <span class="submenu-arrow">▾</span></div>
+  <div id="subEncuestas" class="submenu">
+    <div class="submenu-item">Disponibles</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subEgresados')">Egresados <span class="submenu-arrow">▾</span></div>
+  <div id="subEgresados" class="submenu">
+    <div class="submenu-item">Trámites</div>
+  </div>
+
+  <div class="menu-item" onclick="toggleSubmenu('subMoodle')">Moodle <span class="submenu-arrow">▾</span></div>
+  <div id="subMoodle" class="submenu">
+    <div class="submenu-item">Acceder</div>
+  </div>
 
 </nav>
 
 <main class="container">
 
-  <h2 style="color:#1686b6;">Bienvenido</h2>
+<h2 style="color:#1686b6;">Bienvenido</h2>
 
-  <div class="card">
+<div class="card">
 
-    <div class="header-box">
-      <div class="header-box-title">Calendario Académico</div>
-      <div class="red">Actualizá tu MAIL</div>
+<div class="header-box">
+  <div class="header-box-title">Calendario Académico</div>
+  <div class="red">Actualizá tu MAIL</div>
 
-      <div class="title">Inscripciones</div>
-      <ul>
-        <li>101 - Matemáticas</li>
-        <li>102 - Física</li>
-        <li>103 - Construcción</li>
-        <li>104 - Estructuras</li>
-        <li>105 - Geotecnia</li>
-        <li>106 - Hidráulica</li>
-        <li>107 - Transporte</li>
-        <li>108 - Gestión de Proyectos</li>
-      </ul>
+  <div class="title">Inscripciones</div>
+  <ul>
+    <li>101 - Matemáticas</li>
+    <li>102 - Física</li>
+    <li>103 - Construcción</li>
+    <li>104 - Estructuras</li>
+    <li>105 - Geotecnia</li>
+    <li>106 - Hidráulica</li>
+    <li>107 - Transporte</li>
+    <li>108 - Gestión de Proyectos</li>
+  </ul>
 
-      <div class="title">Cursadas</div>
-      <select><option>2025 - Segundo Cuatr.</option></select>
+  <div class="title">Cursadas</div>
+  <select><option>2025 - Segundo Cuatr.</option></select>
 
-      <p><b>Inicio:</b> 18/08/2025<br>
-      <b>Fin:</b> 05/12/2025<br>
-      <b>Inscripciones:</b> 04/08 - 06/09<br>
-      <b>Correlativas:</b> hasta 19/09</p>
+  <p><b>Inicio:</b> 18/08/2025<br>
+     <b>Fin:</b> 05/12/2025<br>
+     <b>Inscripciones:</b> 04/08 - 06/09<br>
+     <b>Correlativas:</b> hasta 19/09</p>
 
-      <div class="title">Exámenes</div>
-      <select><option>Turno 2025-12</option></select>
+  <div class="title">Exámenes</div>
+  <select><option>Turno 2025-12</option></select>
 
-      <p><b>Inicio:</b> 01/12/2025<br>
-      <b>Fin:</b> 30/12/2025</p>
+  <p><b>Inicio:</b> 01/12/2025<br>
+     <b>Fin:</b> 30/12/2025</p>
 
-      <div class="title">Inscripciones</div>
-      <div class="exam-msg">
-        No tenés inscripciones a exámenes vigentes para el turno seleccionado.
-      </div>
+  <div class="title">Inscripciones</div>
+  <div class="exam-msg">No tenés inscripciones a exámenes vigentes para el turno seleccionado.</div>
 
-    </div>
-  </div>
+</div>
+</div>
 </main>
 
 <script>
 document.getElementById("menuBtn").addEventListener("click", ()=>{
-  const menu = document.getElementById("menu");
-  const isOpen = menu.style.display === "flex";
-  menu.style.display = isOpen ? "none" : "flex";
+  const menu=document.getElementById("menu");
+  menu.style.display = menu.style.display==="flex" ? "none" : "flex";
 });
 
 function toggleSubmenu(id){
