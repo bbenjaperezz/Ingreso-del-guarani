@@ -79,8 +79,8 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
 /* ítems principales */
 .menu-item {
   padding:18px 24px;
-  font-size:20px;
-  font-weight:600;
+  font-size:20px;       /* MÁS GRANDE */
+  font-weight:600;      /* MÁS NEGRO */
   color:#333;
   cursor:pointer;
   display:flex;
@@ -94,26 +94,10 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
   opacity:.7;
 }
 
-/* HOME — fondo gris */
-.home-item {
-  background:#efefef !important;
-}
-.home-item:hover {
-  background:#e3e3e3 !important;
-}
-
-/* Ícono casita */
+/* HOME */
 .menu-item img{
   width:26px;
   height:26px;
-  background:none !important;
-  border:none !important;
-  box-shadow:none !important;
-}
-
-/* 🔥 FIX REAL → elimina el fondo blanco de la imagen */
-.home-item img{
-  filter: brightness(0) invert(1) opacity(0.85);
 }
 
 /* submenú */
@@ -125,7 +109,7 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
 }
 
 .submenu-item{
-  padding:6px 0;
+  padding:6px 0;        /* Casi pegado como SIU */
   font-size:17px;
   color:#444;
 }
@@ -250,15 +234,16 @@ select{
 <!-- MENÚ -->
 <nav id="menu" class="menu">
 
-  <div class="menu-item home-item" onclick="location.href='index.html'">
+  <!-- HOME -->
+  <div class="menu-item" onclick="location.href='index.html'">
     <img src="home.jpg">
   </div>
 
+  <!-- CON SUBMENÚ EN TODOS -->
   <div class="menu-item" onclick="toggleSubmenu('subCursadas')">Cursadas <span class="submenu-arrow">▾</span></div>
   <div id="subCursadas" class="submenu">
     <div class="submenu-item">Inscripción</div>
-    <div class="submenu-item" onclick="location.href='cursadas.html'">Seguimiento de certifado</div>
-  </div>
+    <div class="submenu-item" onclick="location.href='cursadas.html'">Seguimiento de certifado</div></div>
 
   <div class="menu-item" onclick="toggleSubmenu('subExamenes')">Exámenes <span class="submenu-arrow">▾</span></div>
   <div id="subExamenes" class="submenu">
@@ -268,11 +253,10 @@ select{
   </div>
 
   <div class="menu-item" onclick="toggleSubmenu('subCertificados')">Certificaciones <span class="submenu-arrow">▾</span></div>
-  <div id="subCertificados" class="submenu">
-    <div class="submenu-item" onclick="location.href='certificado_perez.pdf'">Solicitud de Certificado</div>
-    <div class="submenu-item">Consulta / Anulación</div>
-  </div>
-
+<div id="subCertificados" class="submenu">
+  <div class="submenu-item" onclick="location.href='certificado_perez.pdf'">Solicitud de Certificado</div>
+  <div class="submenu-item">Consulta / Anulación</div>
+</div>
   <div class="menu-item" onclick="toggleSubmenu('subIngreso')">Ingreso <span class="submenu-arrow">▾</span></div>
   <div id="subIngreso" class="submenu">
     <div class="submenu-item">Requisitos</div>
@@ -291,6 +275,7 @@ select{
     <div class="submenu-item">Estado Académico</div>
   </div>
 
+  <!-- LOS QUE NO TENÍAN -> AHORA TAMBIÉN CON FLECHITA -->
   <div class="menu-item" onclick="toggleSubmenu('subServicios')">Servicios <span class="submenu-arrow">▾</span></div>
   <div id="subServicios" class="submenu">
     <div class="submenu-item">Trámites</div>
