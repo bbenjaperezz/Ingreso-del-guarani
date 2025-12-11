@@ -94,7 +94,7 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
   opacity:.7;
 }
 
-/* HOME — FIX FONDO GRIS */
+/* HOME — fondo gris */
 .home-item {
   background:#efefef !important;
 }
@@ -102,13 +102,18 @@ body{margin:0;font-family: Arial, Helvetica, sans-serif;background:#f2f4f6;color
   background:#e3e3e3 !important;
 }
 
-/* Ícono casita sin fondo blanco */
+/* Ícono casita */
 .menu-item img{
   width:26px;
   height:26px;
   background:none !important;
   border:none !important;
   box-shadow:none !important;
+}
+
+/* 🔥 FIX REAL → elimina el fondo blanco de la imagen */
+.home-item img{
+  filter: brightness(0) invert(1) opacity(0.85);
 }
 
 /* submenú */
@@ -245,7 +250,6 @@ select{
 <!-- MENÚ -->
 <nav id="menu" class="menu">
 
-  <!-- HOME — corregido -->
   <div class="menu-item home-item" onclick="location.href='index.html'">
     <img src="home.jpg">
   </div>
