@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SIU Guaraní</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 /* RESET */
@@ -13,7 +13,6 @@ body {
     font-family: Arial, sans-serif;
     background: #eef0f2;
     color: #444;
-    overflow-x: hidden;
 }
 
 /* TOPBAR */
@@ -24,9 +23,6 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #d9d9d9;
-    position: sticky;
-    top: 0;
-    z-index: 20;
 }
 
 .logo-uns {
@@ -34,64 +30,41 @@ body {
     opacity: 0.85;
 }
 
-/* ICONO MENU */
-.menu-icon {
-    font-size: 28px;
-    padding: 6px 12px;
-    border-radius: 6px;
+/* BOTÓN MENU */
+.menu-btn {
+    padding: 8px 10px;
+    font-size: 26px;
     border: 1px solid #d3d3d3;
+    border-radius: 6px;
     background: #f9f9f9;
     cursor: pointer;
 }
 
-/* OVERLAY */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* MENU DESPLEGABLE REAL */
+.dropdown-menu {
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.45);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.25s;
-    z-index: 15;
+    background: #f7f7f7;
+    border-bottom: 1px solid #dcdcdc;
+    display: none;
+    flex-direction: column;
+    padding-top: 10px;
 }
 
-.overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* MENU LATERAL */
-.side-menu {
-    position: fixed;
-    top: 0;
-    left: -260px;
-    width: 260px;
-    height: 100%;
-    background: white;
-    box-shadow: 4px 0 8px rgba(0,0,0,0.18);
-    transition: 0.27s;
-    z-index: 30;
-    padding-top: 18px;
-}
-
-.side-menu.open {
-    left: 0;
-}
-
-/* ITEM DEL MENU */
-.menu-item {
-    padding: 16px 22px;
-    font-size: 18px;
-    border-bottom: 1px solid #e7e7e7;
-    cursor: pointer;
+.dropdown-item {
+    padding: 10px 18px;
+    font-size: 17px;
     color: #444;
+    border-top: 1px solid #e5e5e5;
 }
 
-.menu-item:hover {
-    background: #f3f3f3;
+.dropdown-item:hover {
+    background: #ececec;
+}
+
+/* Casita */
+.home-icon {
+    margin-right: 8px;
+    font-size: 18px;
 }
 
 /* LOGIN BOX */
@@ -109,19 +82,19 @@ body {
 .login-title {
     font-size: 32px;
     font-weight: bold;
-    color: #757575;
+    color: #8a8a8a;
     margin-bottom: 22px;
 }
 
-/* LABEL */
+/* LABELS */
 label {
     font-size: 15px;
     color: #6d6d6d;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     display: block;
 }
 
-/* INPUT */
+/* INPUTS */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -130,7 +103,7 @@ input[type="password"] {
     border-radius: 6px;
     padding: 8px 10px;
     font-size: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
 input:focus {
@@ -154,7 +127,7 @@ input:focus {
     line-height: 46px;
 }
 
-/* LINKS */
+/* LINK OLVIDASTE */
 .forgot {
     display: block;
     margin-top: 14px;
@@ -175,7 +148,9 @@ input:focus {
     font-size: 17px;
 }
 
-.text-block b { color: #3d3d3d; }
+.text-block b {
+    color: #3d3d3d;
+}
 
 .final-link {
     color: #79b5d4;
@@ -187,20 +162,22 @@ input:focus {
 
 <body>
 
-<!-- OVERLAY (FONDO OSCURO) -->
-<div id="overlay" class="overlay" onclick="toggleMenu()"></div>
-
-<!-- MENU LATERAL -->
-<div id="sideMenu" class="side-menu">
-    <div class="menu-item" onclick="location.href='index.html'">Acceso</div>
-    <div class="menu-item" onclick="location.href='mesas.html'">Mesas de Examen</div>
-    <div class="menu-item" onclick="location.href='comisiones.html'">Comisiones de Cursado</div>
-</div>
-
-<!-- TOPBAR -->
+<!-- TOPBAR REAL -->
 <div class="topbar">
     <img src="logo-uns.png" class="logo-uns">
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+</div>
+
+<!-- MENU DESPLEGABLE REAL -->
+<div id="dropdownMenu" class="dropdown-menu">
+    
+    <div class="dropdown-item" onclick="location.href='index.html'">
+        <span class="home-icon">🏠</span> Acceso
+    </div>
+
+    <div class="dropdown-item" onclick="location.href='mesas.html'">Mesas de examen</div>
+    <div class="dropdown-item" onclick="location.href='comisiones.html'">Comisiones de cursado</div>
+
 </div>
 
 <!-- LOGIN -->
@@ -217,7 +194,7 @@ input:focus {
     <a class="forgot" href="#">¿Olvidaste tu usuario o contraseña?</a>
 </div>
 
-<!-- TEXTO PRINCIPAL -->
+<!-- TEXTO -->
 <div class="text-block">
     <div class="section-title">SIU Guaraní</div>
 
@@ -246,11 +223,8 @@ input:focus {
 
 <script>
 function toggleMenu() {
-    const menu = document.getElementById("sideMenu");
-    const overlay = document.getElementById("overlay");
-
-    menu.classList.toggle("open");
-    overlay.classList.toggle("show");
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 }
 
 function login() {
