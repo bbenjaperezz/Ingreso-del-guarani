@@ -1,130 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 <meta charset="UTF-8">
 <title>Verificación de Certificado</title>
 
 <style>
-
-body{
-font-family: Arial, Helvetica, sans-serif;
-background:#f2f2f2;
-margin:0;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
 }
 
-.header{
-background:#e8f0f6;
-padding:25px;
-font-size:22px;
-color:#6b7c85;
-border-bottom:1px solid #d0d0d0;
+.header {
+    background: #e8f0f6;
+    padding: 25px;
+    font-size: 22px;
+    color: #6b7c85;
+    border-bottom: 1px solid #d0d0d0;
+    text-align: center;
 }
 
-.container{
-max-width:750px;
-margin:40px auto;
-background:white;
-padding:30px;
-border-radius:6px;
-box-shadow:0 3px 10px rgba(0,0,0,0.15);
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h2{
-text-align:center;
-color:#777;
-margin-bottom:20px;
+h2 {
+    text-align: center;
+    color: #555;
 }
 
-table{
-width:100%;
-border-collapse:collapse;
-font-size:16px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-td{
-border:1px solid #ddd;
-padding:14px;
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
 }
 
-td:first-child{
-background:#f5f5f5;
-font-weight:bold;
-width:45%;
+td:first-child {
+    font-weight: bold;
+    background: #f9f9f9;
 }
 
-.estado{
-margin-top:25px;
-padding:15px;
-background:#e8f5e9;
-border:1px solid #c8e6c9;
-color:#2e7d32;
-font-weight:bold;
-text-align:center;
+.success {
+    margin-top: 20px;
+    padding: 15px;
+    background: #d4edda;
+    color: #2e7d32;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-.footer{
-text-align:center;
-margin-top:35px;
-color:#888;
-font-size:14px;
+.footer {
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    font-size: 14px;
 }
-
 </style>
 </head>
 
 <body>
 
 <div class="header">
-Sistema de verificación de certificados
+    Sistema de verificación de certificados
 </div>
 
 <div class="container">
+    <h2>Datos de la Certificación</h2>
 
-<h2>Datos de la Certificación</h2>
+    <table>
+        <tr>
+            <td>Tipo de Certificado</td>
+            <td>Certificado de Alumno Regular</td>
+        </tr>
+        <tr>
+            <td>Fecha de Emisión</td>
+            <td>31/03/2026</td>
+        </tr>
+        <tr>
+            <td>Legajo</td>
+            <td>000123</td>
+        </tr>
+        <tr>
+            <td>Apellido y Nombres</td>
+            <td>PEREZ, BENJAMIN</td>
+        </tr>
+        <tr>
+            <td>Tipo y Número de Documento</td>
+            <td>DNI - 48106647</td>
+        </tr>
+        <tr>
+            <td>Carrera</td>
+            <td>Alumno Regular</td>
+        </tr>
+    </table>
 
-<table>
+    <div class="success">
+        Certificado verificado correctamente
+    </div>
 
-<tr>
-<td>Tipo de Certificado</td>
-<td>Certificado de Alumno Regular</td>
-</tr>
-
-<tr>
-<td>Fecha de Emisión</td>
-<td>11/02/2026 13:51:56</td>
-</tr>
-
-<tr>
-<td>Legajo</td>
-<td>128647</td>
-</tr>
-
-<tr>
-<td>Apellido y Nombres</td>
-<td>PEREZ, BENJAMIN</td>
-</tr>
-
-<tr>
-<td>Tipo y Número de Documento</td>
-<td>DNI - 48106647</td>
-</tr>
-
-<tr>
-<td>Carrera</td>
-<td>INGENIERÍA CIVIL</td>
-</tr>
-
-</table>
-
-<div class="estado">
-Certificado verificado correctamente
-</div>
-
-<div class="footer">
-Página de demostración académica
-</div>
-
+    <div class="footer">
+        Página de verificación académica
+    </div>
 </div>
 
 </body>
